@@ -1,0 +1,5 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:ViewModel="clr-namespace:QuanLyCuaHang.ViewModel"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ViewModel:MainViewModel x:Key="MainVM"></ViewModel:MainViewModel>
+</ResourceDictionary>
