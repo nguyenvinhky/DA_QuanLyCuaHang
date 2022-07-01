@@ -29,9 +29,151 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                
-                
-                
+
+                <Border Grid.Column="0"
+                        Height="150"
+                        Width="auto"
+                        CornerRadius="25"
+                        Margin="10">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="5"/>
+                    </Border.Effect>
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#210cae" Offset="0.1"/>
+                            <GradientStop Color="#4dc9e6" Offset="0.8"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <StackPanel>
+                        <TextBlock Text="Số đơn bán ra trong ngày:"
+                                   TextWrapping="Wrap"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   FontSize="20"
+                                   Margin="0 15 0 0"
+                                   HorizontalAlignment="Center"/>
+
+                        <Grid Margin="0 15 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="0"
+                                       Grid.Column="0"
+                                       FontSize="22"
+                                       Foreground="White"
+                                       FontWeight="Medium"
+                                       Margin="15 10 0 0"/>
+
+                            <materialDesign:PackIcon Kind="HandTruck"
+                                                     Grid.Column="1"
+                                                     HorizontalAlignment="Right"
+                                                     Foreground="White"
+                                                     Height="40"
+                                                     Width="40"
+                                                     Margin="0 0 15 0"/>
+                        </Grid>
+                    </StackPanel>
+                    
+                </Border>
+
+                <Border Grid.Column="1"
+                        Height="150"
+                        Width="auto"
+                        CornerRadius="25"
+                        Margin="10">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="5"/>
+                    </Border.Effect>
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#f9655b" Offset="0.1"/>
+                            <GradientStop Color="#ee821a" Offset="0.8"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <StackPanel>
+                        <TextBlock Text="Doanh thu ngày:"
+                                   TextWrapping="Wrap"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   FontSize="20"
+                                   Margin="0 15 0 0"
+                                   HorizontalAlignment="Center"/>
+
+                        <Grid Margin="0 40 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="0 VND"
+                                       Grid.Column="0"
+                                       FontSize="15"
+                                       Foreground="White"
+                                       FontWeight="Medium"
+                                       Margin="15 20 0 0"/>
+
+                            <materialDesign:PackIcon Kind="HandCoin"
+                                                     Grid.Column="1"
+                                                     HorizontalAlignment="Right"
+                                                     Foreground="White"
+                                                     Height="40"
+                                                     Width="40"
+                                                     Margin="0 0 15 0"/>
+                        </Grid>
+                    </StackPanel>
+
+                </Border>
+
+                <Border Grid.Column="2"
+                        Height="150"
+                        Width="auto"
+                        CornerRadius="25"
+                        Margin="10">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="5"/>
+                    </Border.Effect>
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#51c26f" Offset="0.1"/>
+                            <GradientStop Color="#f2e901" Offset="0.8"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <StackPanel>
+                        <TextBlock Text="Số sản phẩm bán ra trong ngày:"
+                                   TextWrapping="Wrap"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   FontSize="20"
+                                   Margin="0 15 0 0"
+                                   HorizontalAlignment="Center"/>
+
+                        <Grid Margin="0 15 0 0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="0"
+                                       Grid.Column="0"
+                                       FontSize="22"
+                                       Foreground="White"
+                                       FontWeight="Medium"
+                                       Margin="15 10 0 0"/>
+
+                            <materialDesign:PackIcon Kind="Cart"
+                                                     Grid.Column="1"
+                                                     HorizontalAlignment="Right"
+                                                     Foreground="White"
+                                                     Height="40"
+                                                     Width="40"
+                                                     Margin="0 0 15 0"/>
+                        </Grid>
+                    </StackPanel>
+
+                </Border>
+
             </Grid>
 
             <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden"

@@ -145,16 +145,39 @@
 
             <Grid Grid.Column="1"
                   Margin="0 50 0 50">
-                
+                <uc:TrangChu/>
             </Grid>
 
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Margin="5">
+                    <Button Background="Transparent"
+                            BorderBrush="Transparent"
+                            Padding="5">
+                        <materialDesign:PackIcon Kind="WindowMinimize"
+                                                 Width="20"
+                                                 Height="20"
+                                                 Foreground="#afe7e8"/>
+                    </Button>
+
+                    <Button Background="Transparent"
+                            BorderBrush="Transparent">
+                        <materialDesign:PackIcon Kind="Shutdown"
+                                                 Width="20"
+                                                 Height="20"
+                                                 Foreground="#afe7e8"/>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1"
                             Orientation="Horizontal">
                     <Border Width="50"
                             Height="50"
@@ -163,7 +186,7 @@
                             CornerRadius="100"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left"
-                            Margin="5 25 5 5">
+                            Margin="5 0 5 5">
                         <Ellipse>
                             <Ellipse.Fill>
                                 <ImageBrush ImageSource="/Anh/1.jpg"/>
@@ -172,7 +195,7 @@
                     </Border>
 
                     <StackPanel Grid.Column="1"
-                                Margin="5 30 5 5">
+                                Margin="5 0 5 5">
                         <TextBlock Text="Nguyễn Vĩnh Kỳ"
                                    Grid.Row="0"
                                    FontWeight="Bold"
@@ -191,7 +214,7 @@
                     
                 </StackPanel>
 
-                <Calendar Grid.Row="1"
+                <Calendar Grid.Row="2"
                           HorizontalAlignment="Left" 
                           Name="calendar1" 
                           VerticalAlignment="Top"
