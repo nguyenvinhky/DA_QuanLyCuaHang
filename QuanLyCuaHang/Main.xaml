@@ -6,6 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:uc="clr-namespace:QuanLyCuaHang.View"
         xmlns:local="clr-namespace:QuanLyCuaHang"
+        DataContext="{StaticResource MainVM}"
         mc:Ignorable="d"
         Title="Main" Height="690" Width="1180"
         AllowsTransparency="True"
@@ -76,7 +77,8 @@
                         </StackPanel>
                     </Button>
 
-                    <Button Style="{StaticResource Button_DashDoard}">
+                    <Button Style="{StaticResource Button_DashDoard}"
+                            Command="{Binding LoadViewSanPham}">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Opacity"
                                                      Height="20"
@@ -144,8 +146,9 @@
             </Border>
 
             <Grid Grid.Column="1"
+                  x:Name="GridViewMain"
                   Margin="0 50 0 50">
-                <uc:TrangChu/>
+                
             </Grid>
 
             <Grid Grid.Column="2">
@@ -161,7 +164,8 @@
                             Margin="5">
                     <Button Background="Transparent"
                             BorderBrush="Transparent"
-                            Padding="5">
+                            Padding="5"
+                            Command="{Binding MinimizeWindowCommand}">
                         <materialDesign:PackIcon Kind="WindowMinimize"
                                                  Width="20"
                                                  Height="20"

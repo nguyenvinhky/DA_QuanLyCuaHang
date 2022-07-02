@@ -10,6 +10,7 @@
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
+        DataContext="{StaticResource MainVM}"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid>
@@ -88,7 +89,8 @@
                             Margin="5">
                     <Button Background="Transparent"
                             BorderBrush="Transparent"
-                            Padding="5">
+                            Padding="5"
+                            Command="{Binding MinimizeWindowCommand}">
                         <materialDesign:PackIcon Kind="WindowMinimize"
                                                  Width="20"
                                                  Height="20"
@@ -96,7 +98,8 @@
                     </Button>
                     
                     <Button Background="Transparent"
-                            BorderBrush="Transparent">
+                            BorderBrush="Transparent"
+                            Command="{Binding CloseWindowCommand}">
                         <materialDesign:PackIcon Kind="Shutdown"
                                                  Width="20"
                                                  Height="20"
@@ -150,6 +153,7 @@
                             HorizontalAlignment="Center">
                     
                     <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                            Command="{Binding LoadedWindowCommand}"
                             Content="ĐĂNG NHẬP"
                             Width="240"
                             Height="50"
