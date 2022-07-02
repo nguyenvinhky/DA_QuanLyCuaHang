@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:QuanLyCuaHang"
+        xmlns:uc="clr-namespace:QuanLyCuaHang.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="900"
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
-        DataContext="{StaticResource MainVM}"
+        DataContext="{StaticResource loginVM}"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid>
@@ -82,30 +83,8 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                
-                <StackPanel Grid.Row="0"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Right"
-                            Margin="5">
-                    <Button Background="Transparent"
-                            BorderBrush="Transparent"
-                            Padding="5"
-                            Command="{Binding MinimizeWindowCommand}">
-                        <materialDesign:PackIcon Kind="WindowMinimize"
-                                                 Width="20"
-                                                 Height="20"
-                                                 Foreground="#afe7e8"/>
-                    </Button>
-                    
-                    <Button Background="Transparent"
-                            BorderBrush="Transparent"
-                            Command="{Binding CloseWindowCommand}">
-                        <materialDesign:PackIcon Kind="Shutdown"
-                                                 Width="20"
-                                                 Height="20"
-                                                 Foreground="#afe7e8"/>
-                    </Button>
-                </StackPanel>
+
+                <uc:ControlBar Grid.Row="0"/>
 
                 <StackPanel Grid.Row="1"
                             VerticalAlignment="Center">
@@ -153,7 +132,7 @@
                             HorizontalAlignment="Center">
                     
                     <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
-                            Command="{Binding LoadedWindowCommand}"
+                            Command="{Binding LoginCommand}"
                             Content="ĐĂNG NHẬP"
                             Width="240"
                             Height="50"

@@ -148,7 +148,7 @@
             <Grid Grid.Column="1"
                   x:Name="GridViewMain"
                   Margin="0 50 0 50">
-                
+                <ContentControl Content="{Binding CurrentView}"/>
             </Grid>
 
             <Grid Grid.Column="2">
@@ -158,28 +158,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <StackPanel Grid.Row="0"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Right"
-                            Margin="5">
-                    <Button Background="Transparent"
-                            BorderBrush="Transparent"
-                            Padding="5"
-                            Command="{Binding MinimizeWindowCommand}">
-                        <materialDesign:PackIcon Kind="WindowMinimize"
-                                                 Width="20"
-                                                 Height="20"
-                                                 Foreground="#afe7e8"/>
-                    </Button>
-
-                    <Button Background="Transparent"
-                            BorderBrush="Transparent">
-                        <materialDesign:PackIcon Kind="Shutdown"
-                                                 Width="20"
-                                                 Height="20"
-                                                 Foreground="#afe7e8"/>
-                    </Button>
-                </StackPanel>
+                <uc:ControlBar Grid.Row="0"/>
 
                 <StackPanel Grid.Row="1"
                             Orientation="Horizontal">

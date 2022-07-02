@@ -23,29 +23,29 @@ namespace QuanLyCuaHang.View
         public SanPham()
         {
             InitializeComponent();
-            var product = GetProduct();
-            if (product.Count > 0)
-            {
-                ListViewProducts.ItemsSource = product;
-            }
+            //var product = GetProduct();
+            //if (product.Count > 0)
+            //{
+            //    ListViewProducts.ItemsSource = product;
+            //}
         }
 
-        private List<Model.Product> GetProduct()
-        {
-            return new List<Model.Product>()
-            {
-                new Model.Product("Áo thun", 453, "/Anh/4.jpg"),
-                new Model.Product("Áo thun", 250.46, "/Anh/2.jpg"),
-                new Model.Product("Áo thun 3", 567, "/Anh/3.jpg"),
-                new Model.Product("Áo thun 4", 123, "/Anh/4.jpg"),
-                new Model.Product("Áo thun 5", 12.23, "/Anh/5.jpg"),
-                new Model.Product("Áo thun 5", 12.23, "/Anh/8.jpg"),
-                new Model.Product("Áo thun 5", 12.23, "/Anh/7.jpg"),
-                new Model.Product("Áo thun 5", 12.23, "/Anh/8.jpg"),
-                new Model.Product("Áo thun 5", 12.23, "/Anh/4.jpg"),
-                new Model.Product("Áo thun 5", 12.23, "/Anh/2.jpg"),
-                new Model.Product("Áo thun 5", 12.23, "/Anh/7.jpg"),
-            };
-        }
+        //private List<Model.Product> GetProduct()
+        //{
+        //    return new List<Model.Product>()
+        //    {
+        //        new Model.Product("Áo thun", 453000, "/Anh/4.jpg"),
+        //        new Model.Product("Áo thun", 592368, "/Anh/2.jpg"),
+        //        new Model.Product("Áo thun 3", 8759245, "/Anh/3.jpg"),
+        //        new Model.Product("Áo thun 4", 256842, "/Anh/4.jpg"),
+        //        new Model.Product("Áo thun 5", 698542, "/Anh/5.jpg"),
+        //        new Model.Product("Áo thun 5", 693256, "/Anh/8.jpg"),
+        //        new Model.Product("Áo thun 5", 157425, "/Anh/7.jpg"),
+        //        new Model.Product("Áo thun 5", 698563, "/Anh/8.jpg"),
+        //        new Model.Product("Áo thun 5", 986523, "/Anh/4.jpg"),
+        //        new Model.Product("Áo thun 5", 587421, "/Anh/2.jpg"),
+        //        new Model.Product("Áo thun 5", 698321, "/Anh/7.jpg"),
+        //    };
+        //}
     }
 }

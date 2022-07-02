@@ -2,6 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:QuanLyCuaHang"
+             xmlns:view="clr-namespace:QuanLyCuaHang.View"
+             xmlns:viewModel="clr-namespace:QuanLyCuaHang.ViewModel"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -15,6 +17,11 @@
                 <ResourceDictionary Source="ResourceXAML/Button_DashDoard.xaml"/>
                 <ResourceDictionary Source="ResourceXAML/TextBlock_ButtonBoard.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:SanPhamViewModel}">
+                <view:SanPham/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -93,7 +93,7 @@
                                             <ImageBrush ImageSource="{Binding Image}"/>
                                         </Border.Background>
                                     </Border>
-                                    <TextBlock Text="{Binding Value, StringFormat={}{0:C}}"
+                                    <TextBlock Text="{Binding Value, StringFormat={}{0:#,# VNĐ}}"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
                                                Margin="5"

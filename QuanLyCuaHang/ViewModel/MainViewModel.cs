@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyCuaHang.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,21 +29,20 @@ namespace QuanLyCuaHang.ViewModel
             }
         }
 
+        public SanPhamViewModel SP { get; set; }
+
         public MainViewModel()
         {
-            LoadedWindowCommand = new RelayCommand<object>((p) => { return true; }, (p) => {
-                Main LoginWindow = new Main();
-                LoginWindow.ShowDialog();
+            
+
+            //Load view sản phẩm
+            SP = new SanPhamViewModel();
+
+            LoadViewSanPham = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
+                CurrentView = SP;
             }
               );
 
-            //Load view sản phẩm
-            LoadViewSanPham = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
-                Main m = new Main();
-                m.GridViewMain.Children.Clear();
-                m.GridViewMain.Children.Add(new View.SanPham());
-            }
-              );
         }
     }
 }
