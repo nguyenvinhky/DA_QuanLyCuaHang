@@ -11,7 +11,8 @@
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
-        DataContext="{StaticResource loginVM}"
+        DataContext="{StaticResource LoginVM}"
+        Name="FormLogin"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid>
@@ -84,7 +85,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <uc:ControlBar Grid.Row="0"/>
+                <uc:ConTrolBarUC Grid.Row="0"/>
 
                 <StackPanel Grid.Row="1"
                             VerticalAlignment="Center">
@@ -133,6 +134,7 @@
                     
                     <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
                             Command="{Binding LoginCommand}"
+                            CommandParameter="{Binding ElementName=FormLogin}"
                             Content="ĐĂNG NHẬP"
                             Width="240"
                             Height="50"

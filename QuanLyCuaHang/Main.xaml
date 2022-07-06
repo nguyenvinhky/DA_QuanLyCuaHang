@@ -54,7 +54,8 @@
                 </StackPanel>
 
                 <StackPanel Grid.Row="1">
-                    <Button Style="{StaticResource Button_DashDoard}">
+                    <Button Style="{StaticResource Button_DashDoard}"
+                            Command="{Binding LoadViewTrangChu}">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Home"
                                                      Height="20"
@@ -66,7 +67,8 @@
                         </StackPanel>
                     </Button>
 
-                    <Button Style="{StaticResource Button_DashDoard}">
+                    <Button Style="{StaticResource Button_DashDoard}"
+                            Command="{Binding LoadViewDonHang}">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Sack"
                                                      Height="20"
@@ -158,7 +160,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <uc:ControlBar Grid.Row="0"/>
+                <uc:ConTrolBarUC Grid.Row="0"/>
 
                 <StackPanel Grid.Row="1"
                             Orientation="Horizontal">

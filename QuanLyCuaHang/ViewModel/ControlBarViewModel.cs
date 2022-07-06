@@ -9,13 +9,15 @@ using System.Windows.Input;
 
 namespace QuanLyCuaHang.ViewModel
 {
-    public class ControlBar : BaseViewModel
+    public class ControlBarViewModel : BaseViewModel
     {
+        public bool popup = false;
         public ICommand CloseWindowCommand { get; set; }
         public ICommand MinimizeWindowCommand { get; set; }
+        public ICommand MaximizeWindowCommand { get; set; }
         public ICommand MouseMoveWindowCommand { get; set; }
 
-        public ControlBar()
+        public ControlBarViewModel()
         {
             CloseWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
@@ -35,6 +37,20 @@ namespace QuanLyCuaHang.ViewModel
                 {
                     if (w.WindowState != WindowState.Minimized)
                         w.WindowState = WindowState.Minimized;
+                }
+            });
+
+            MaximizeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
+            {
+                FrameworkElement window = GetWindowParent(p);
+                var w = window as Window;
+                if (w != null)
+                {
+                    if (w.WindowState != WindowState.Maximized)
+                        w.WindowState = WindowState.Maximized;
+                    else
+                        w.WindowState = WindowState.Normal;
+                    
                 }
             });
 

@@ -19,7 +19,15 @@
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:SanPhamViewModel}">
-                <view:SanPham/>
+                <view:ViewSanPham/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:TrangChuViewModel}">
+                <view:TrangChu/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:DonHangViewModel}">
+                <view:ViewDonHang/>
             </DataTemplate>
 
         </ResourceDictionary>

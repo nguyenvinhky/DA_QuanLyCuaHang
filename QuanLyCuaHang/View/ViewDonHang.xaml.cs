@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyCuaHang.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,14 @@ using System.Windows.Shapes;
 namespace QuanLyCuaHang.View
 {
     /// <summary>
-    /// Interaction logic for ControlBar.xaml
+    /// Interaction logic for ViewDonHang.xaml
     /// </summary>
-    public partial class ControlBar : UserControl
+    public partial class ViewDonHang : UserControl
     {
-        public ControlBar()
+        public ViewDonHang()
         {
             InitializeComponent();
+            Lisst.ItemsSource = DataProvider.Ins.DB.SanPhams.ToList();
         }
     }
 }

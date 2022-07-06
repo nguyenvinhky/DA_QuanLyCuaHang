@@ -16,6 +16,8 @@ namespace QuanLyCuaHang.ViewModel
         public bool Isloaded = false;
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand LoadViewSanPham { get; set; }
+        public ICommand LoadViewTrangChu { get; set; }
+        public ICommand LoadViewDonHang { get; set; }
 
 
         private object _currentView;
@@ -30,18 +32,30 @@ namespace QuanLyCuaHang.ViewModel
         }
 
         public SanPhamViewModel SP { get; set; }
+        public TrangChuViewModel TC { get; set; }
+        public DonHangViewModel DH { get; set; }
 
         public MainViewModel()
         {
-            
-
             //Load view sản phẩm
             SP = new SanPhamViewModel();
+            TC = new TrangChuViewModel();
+            DH = new DonHangViewModel();
+
+            LoadViewTrangChu = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
+                CurrentView = TC;
+            }
+            );
 
             LoadViewSanPham = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
                 CurrentView = SP;
             }
-              );
+            );
+
+            LoadViewDonHang = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
+                CurrentView = DH;
+            }
+            );
 
         }
     }
