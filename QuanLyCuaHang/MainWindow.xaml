@@ -15,6 +15,7 @@
         Name="FormLogin"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
+    
     <Grid>
         
         <Grid>

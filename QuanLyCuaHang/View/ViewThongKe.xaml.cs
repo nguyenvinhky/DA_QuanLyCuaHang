@@ -1,5 +1,4 @@
-﻿using QuanLyCuaHang.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +16,11 @@ using System.Windows.Shapes;
 namespace QuanLyCuaHang.View
 {
     /// <summary>
-    /// Interaction logic for ViewDonHang.xaml
+    /// Interaction logic for ViewThongKe.xaml
     /// </summary>
-    public partial class ViewDonHang : UserControl
+    public partial class ViewThongKe : UserControl
     {
-        public ViewDonHang()
+        public ViewThongKe()
         {
             InitializeComponent();
         }

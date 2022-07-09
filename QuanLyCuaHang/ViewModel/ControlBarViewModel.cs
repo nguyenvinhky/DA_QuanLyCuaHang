@@ -25,7 +25,18 @@ namespace QuanLyCuaHang.ViewModel
                 var w = window as Window;
                 if (w != null)
                 {
-                    w.Close();
+                    MessageBoxResult result = MessageBox.Show("Bạn có chắc muốn đóng chương trình ?", "Thông báo", MessageBoxButton.OKCancel);
+                    if (result == MessageBoxResult.OK)
+                    {
+                        if (w.Name=="mainWindow")
+                        {
+                            System.Windows.Application.Current.Shutdown();
+                        }
+                        w.Close();
+                    }
+                    else
+                        return;
+                    
                 }
             });
 
@@ -51,16 +62,6 @@ namespace QuanLyCuaHang.ViewModel
                     else
                         w.WindowState = WindowState.Normal;
                     
-                }
-            });
-
-            MouseMoveWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
-            {
-                FrameworkElement window = GetWindowParent(p);
-                var w = window as Window;
-                if (w != null)
-                {
-                    w.DragMove();
                 }
             });
         }

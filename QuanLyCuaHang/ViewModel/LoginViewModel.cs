@@ -20,10 +20,8 @@ namespace QuanLyCuaHang.ViewModel
 
         void Login(Window p)
         {
-            Main main = new Main();
-            main.Show();
+            p.Hide();
             isLogin = true;
-            p.Close();
         }
     }
 }

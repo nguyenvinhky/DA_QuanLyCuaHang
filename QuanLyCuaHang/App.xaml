@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:QuanLyCuaHang"
              xmlns:view="clr-namespace:QuanLyCuaHang.View"
              xmlns:viewModel="clr-namespace:QuanLyCuaHang.ViewModel"
-             StartupUri="MainWindow.xaml">
+             StartupUri="Main.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -28,6 +28,26 @@
 
             <DataTemplate DataType="{x:Type viewModel:DonHangViewModel}">
                 <view:ViewDonHang/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:KhachHangViewModel}">
+                <view:ViewKhachHang/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:NhapHangViewModel}">
+                <view:ViewNhapHang/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ThongKeViewModel}">
+                <view:ViewThongKe/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:QuanLyViewModel}">
+                <view:ViewQuanLy/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:NhanVienViewModel}">
+                <view:ViewNhanVien/>
             </DataTemplate>
 
         </ResourceDictionary>

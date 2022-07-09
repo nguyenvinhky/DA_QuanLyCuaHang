@@ -21,22 +21,9 @@ namespace QuanLyCuaHang.View
     /// </summary>
     public partial class ViewSanPham : UserControl
     {
-        private SanPham selectedSanPham;
-        string b;
-        public SanPham SelectedSanPham
-        {
-            get => selectedSanPham;
-            set
-            {
-                selectedSanPham = value;
-                MessageBox.Show($"{SelectedSanPham.TenSP}");
-            }
-        }
         public ViewSanPham()
         {
             InitializeComponent();
-            DataContext = this;
-            ListViewProducts.ItemsSource = DataProvider.Ins.DB.SanPhams.ToList();
         }
 
         

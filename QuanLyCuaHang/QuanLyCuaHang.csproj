@@ -49,11 +49,17 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.5.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.4.5.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -130,9 +136,14 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\DonHangViewModel.cs" />
+    <Compile Include="ViewModel\KhachHangViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\NhanVienViewModel.cs" />
+    <Compile Include="ViewModel\NhapHangViewModel.cs" />
+    <Compile Include="ViewModel\QuanLyViewModel.cs" />
     <Compile Include="ViewModel\SanPhamViewModel.cs" />
+    <Compile Include="ViewModel\ThongKeViewModel.cs" />
     <Compile Include="ViewModel\TrangChuViewModel.cs" />
     <Compile Include="View\ConTrolBarUC.xaml.cs">
       <DependentUpon>ConTrolBarUC.xaml</DependentUpon>
@@ -143,8 +154,23 @@
     <Compile Include="View\ViewDonHang.xaml.cs">
       <DependentUpon>ViewDonHang.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewKhachHang.xaml.cs">
+      <DependentUpon>ViewKhachHang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewNhanVien.xaml.cs">
+      <DependentUpon>ViewNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewNhapHang.xaml.cs">
+      <DependentUpon>ViewNhapHang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewQuanLy.xaml.cs">
+      <DependentUpon>ViewQuanLy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewSanPham.xaml.cs">
       <DependentUpon>ViewSanPham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewThongKe.xaml.cs">
+      <DependentUpon>ViewThongKe.xaml</DependentUpon>
     </Compile>
     <Page Include="Main.xaml">
       <SubType>Designer</SubType>
@@ -186,7 +212,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ViewKhachHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewNhapHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewQuanLy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ViewSanPham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewThongKe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,12 +1,12 @@
-﻿<UserControl x:Class="QuanLyCuaHang.View.ViewDonHang"
+﻿<UserControl x:Class="QuanLyCuaHang.View.ViewNhanVien"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QuanLyCuaHang.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="750">
+             d:DesignHeight="450" d:DesignWidth="800">
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.5}">
         <Grid>
             <Grid.RowDefinitions>
@@ -16,7 +16,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="ĐƠN HÀNG"
+            <TextBlock Text="NHÂN VIÊN"
                        FontSize="22"
                        FontWeight="Bold"
                        Foreground="White"
@@ -98,38 +98,38 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Mã HD"
+                <TextBlock Text="Mã KH"
                            Grid.Column="0"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <TextBlock Text="Nhân viên"
+                <TextBlock Text="TÊN KHÁCH HÀNG"
                            Grid.Column="1"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <TextBlock Text="Khách hàng"
+                <TextBlock Text="SỐ ĐIỆN THOẠI"
                            Grid.Column="2"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <TextBlock Text="Ngày bán"
+                <TextBlock Text="ĐỊA CHỈ"
                            Grid.Column="3"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <TextBlock Text="Trị giá"
+                <TextBlock Text="EMAIL"
                            Grid.Column="4"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
             </Grid>
-            
+
             <ListView Grid.Row="3"
                       HorizontalAlignment="Center"
                       Name="Lisst"
