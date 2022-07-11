@@ -78,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Form\FormThongTinNhanVien.xaml.cs">
+      <DependentUpon>FormThongTinNhanVien.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,9 @@
     <Compile Include="Model\SanPham.cs">
       <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\sysdiagram.cs">
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\TaiKhoan.cs">
       <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
@@ -139,6 +145,7 @@
     <Compile Include="ViewModel\KhachHangViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\NCCViewModel.cs" />
     <Compile Include="ViewModel\NhanVienViewModel.cs" />
     <Compile Include="ViewModel\NhapHangViewModel.cs" />
     <Compile Include="ViewModel\QuanLyViewModel.cs" />
@@ -157,6 +164,9 @@
     <Compile Include="View\ViewKhachHang.xaml.cs">
       <DependentUpon>ViewKhachHang.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewNCC.xaml.cs">
+      <DependentUpon>ViewNCC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewNhanVien.xaml.cs">
       <DependentUpon>ViewNhanVien.xaml</DependentUpon>
     </Compile>
@@ -172,6 +182,10 @@
     <Compile Include="View\ViewThongKe.xaml.cs">
       <DependentUpon>ViewThongKe.xaml</DependentUpon>
     </Compile>
+    <Page Include="Form\FormThongTinNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewKhachHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewNCC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -292,6 +310,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Anh\levi.jpg" />
+    <Resource Include="Anh\gojo.jpg" />
     <Content Include="Model\QuanLyCuaHang.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuanLyCuaHang.edmx</DependentUpon>

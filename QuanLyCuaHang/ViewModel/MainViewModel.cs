@@ -1,6 +1,7 @@
 ﻿using QuanLyCuaHang.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,7 +61,7 @@ namespace QuanLyCuaHang.ViewModel
 
                 if (LoginVM.isLogin)
                 {
-                    p.ShowDialog();
+                    p.Show();
                 }
                 else
                 {
@@ -70,7 +71,9 @@ namespace QuanLyCuaHang.ViewModel
             );
 
             //Đăng xuất
-            LogOutCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { functionLogOut(p); });
+            LogOutCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { 
+                functionLogOut(p);
+            });
 
 
             //Load view

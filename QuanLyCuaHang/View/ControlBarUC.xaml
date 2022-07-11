@@ -19,7 +19,7 @@
             <materialDesign:PackIcon Kind="WindowMinimize"
                                                  Width="20"
                                                  Height="20"
-                                                 Foreground="#afe7e8"/>
+                                                 Foreground="MediumAquamarine"/>
         </Button>
 
         <Button Background="Transparent"
@@ -29,7 +29,7 @@
             <materialDesign:PackIcon Kind="WindowMaximize"
                                                  Width="20"
                                                  Height="20"
-                                                 Foreground="#afe7e8"/>
+                                                 Foreground="MediumAquamarine"/>
         </Button>
 
         <Button Background="Transparent"
@@ -39,7 +39,7 @@
             <materialDesign:PackIcon Kind="Shutdown"
                                                  Width="20"
                                                  Height="20"
-                                                 Foreground="#afe7e8"/>
+                                                 Foreground="MediumAquamarine"/>
         </Button>
     </StackPanel>
 </UserControl>

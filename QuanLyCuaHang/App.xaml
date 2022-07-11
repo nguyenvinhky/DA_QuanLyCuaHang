@@ -50,6 +50,10 @@
                 <view:ViewNhanVien/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:NCCViewModel}">
+                <view:ViewNCC/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

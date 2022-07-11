@@ -30,11 +30,13 @@ namespace QuanLyCuaHang.ViewModel
         }
 
         public NhanVienViewModel NV { get; set; }
+        public NCCViewModel NCC { get; set; }
 
 
         public QuanLyViewModel()
         {
             NV = new NhanVienViewModel();
+            NCC = new NCCViewModel();
 
             TabButtonCommand = new RelayCommand<Button>((p) => { return true; }, (p) => {
                 index = int.Parse(p.Uid);
@@ -50,7 +52,7 @@ namespace QuanLyCuaHang.ViewModel
 
                     case 1:
                         {
-                            tabQuanLyView = NV;
+                            tabQuanLyView = NCC;
                             p.BorderBrush = new SolidColorBrush(Colors.Aquamarine);
                             break;
                         }

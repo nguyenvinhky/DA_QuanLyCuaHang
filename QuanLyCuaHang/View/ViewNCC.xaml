@@ -1,0 +1,321 @@
+﻿<UserControl x:Class="QuanLyCuaHang.View.ViewNCC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:QuanLyCuaHang.View"
+             mc:Ignorable="d"
+             DataContext="{StaticResource  nccVM}"
+             d:DesignHeight="500" d:DesignWidth="800">
+    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.5}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0"
+                    CornerRadius="25"
+                    BorderBrush="Aquamarine"
+                    BorderThickness="4"
+                    Width="AUTO"
+                    Margin="10">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="MediumAquamarine" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            <Grid Grid.Row="0"
+                Width="AUTO"
+                Height="120"
+                Margin="10">
+                <StackPanel Margin="5">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+
+                        <TextBox Background="White"
+                                 Margin="2 10 0 10"
+                                 Height="50"
+                                 Width="175"
+                                 FontSize="10"
+                                 FontWeight="UltraBlack"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 BorderBrush="Aquamarine"
+                                 BorderThickness="2"
+                                 Foreground="MediumAquamarine"
+                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                 materialDesign:HintAssist.Hint="TÊN"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+
+                        <TextBox Background="White"
+                                 Margin="2 10 0 10"
+                                 Height="50"
+                                 Width="175"
+                                 FontSize="10"
+                                 FontWeight="UltraBlack"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 BorderBrush="Aquamarine"
+                                 BorderThickness="2"
+                                 Foreground="MediumAquamarine"
+                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                 materialDesign:HintAssist.Hint="ĐỊA CHỈ"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+
+                        <TextBox Background="White"
+                                 Margin="2 10 0 10"
+                                 Height="50"
+                                 Width="175"
+                                 FontSize="10"
+                                 FontWeight="UltraBlack"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 BorderBrush="Aquamarine"
+                                 BorderThickness="2"
+                                 Foreground="MediumAquamarine"
+                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                 materialDesign:HintAssist.Hint="SỐ ĐIỆN THOẠI"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+
+                        <TextBox Background="White"
+                                 Margin="2 10 0 10"
+                                 Height="50"
+                                 Width="175"
+                                 FontSize="10"
+                                 FontWeight="UltraBlack"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 BorderBrush="Aquamarine"
+                                 BorderThickness="2"
+                                 Foreground="MediumAquamarine"
+                                 materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                 materialDesign:HintAssist.Hint="EMAIL"
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Button Grid.Column="0"
+                                Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                                Content="THÊM"
+                                FontWeight="Bold"
+                                Height="40"
+                                Width="180"
+                                FontSize="15"
+                                Margin="10 0 10 10"
+                                materialDesign:ButtonAssist.CornerRadius="10"
+                                Background="MediumAquamarine"
+                                BorderBrush="Aquamarine"
+                                BorderThickness="2"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+
+                        <Button Grid.Column="0"
+                                Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                                Content="CẬP NHẬT"
+                                FontWeight="Bold"
+                                Height="40"
+                                Width="180"
+                                FontSize="15"
+                                Margin="10 0 10 10"
+                                materialDesign:ButtonAssist.CornerRadius="10"
+                                Background="MediumAquamarine"
+                                BorderBrush="Aquamarine"
+                                BorderThickness="2"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+
+                        <Button Grid.Column="0"
+                                Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                                Content="XÓA"
+                                FontWeight="Bold"
+                                Height="40"
+                                Width="180"
+                                FontSize="15"
+                                Margin="10 0 10 10"
+                                materialDesign:ButtonAssist.CornerRadius="10"
+                                Background="MediumAquamarine"
+                                BorderBrush="Aquamarine"
+                                BorderThickness="2"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+                    </StackPanel>
+                </StackPanel>
+
+            </Grid>
+
+            <Border Grid.Row="1"
+                    CornerRadius="25"
+                    BorderBrush="Aquamarine"
+                    BorderThickness="4"
+                    Margin="10 0 10 5">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="MediumAquamarine" Offset="0"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0"
+                    CornerRadius="15"
+                    BorderBrush="Aquamarine"
+                    BorderThickness="4"
+                    Width="700"
+                    Height="60"
+                    Margin="0 10 0 0">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="White" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+
+                <Grid Grid.Row="0"
+                      Width="700"
+                      Height="60"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      Margin="0 10 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="ID"
+                               Grid.Column="0"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="15"
+                               FontWeight="ExtraBlack"
+                               Margin="30 0 0 0"
+                               Foreground="MediumAquamarine"/>
+                    
+                    <TextBlock Text="TÊN"
+                               Grid.Column="1"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="15"
+                               FontWeight="ExtraBlack"
+                               Foreground="MediumAquamarine"/>
+
+                    <TextBlock Text="ĐỊA CHỈ"
+                               Grid.Column="2"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="15"
+                               FontWeight="ExtraBlack"
+                               Foreground="MediumAquamarine"/>
+
+                    <TextBlock Text="SỐ ĐIỆN THOẠI"
+                               Grid.Column="3"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="15"
+                               FontWeight="ExtraBlack"
+                               Foreground="MediumAquamarine"/>
+
+                    <TextBlock Text="EMAIL"
+                               Grid.Column="4"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="15"
+                               FontWeight="ExtraBlack"
+                               Foreground="MediumAquamarine"/>
+                </Grid>
+
+                <ListView Grid.Row="1"
+                          HorizontalAlignment="Center"
+                          ItemsSource="{Binding ListNCC}"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="15"
+                                    BorderBrush="Aquamarine"
+                                    BorderThickness="4"
+                                    Width="700"
+                                    Height="60">
+                                <Border.Background>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="White" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+
+                                <Grid Width="700"
+                                      Height="60"
+                                      HorizontalAlignment="Center"
+                                      VerticalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="{Binding Id}"
+                                               Grid.Column="0"
+                                               Margin="30 0 0 0"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="15"
+                                               FontWeight="ExtraBlack"
+                                               Foreground="MediumAquamarine"/>
+
+                                    <TextBlock Text="{Binding TenNCC}"
+                                               Grid.Column="1"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="11"
+                                               FontWeight="ExtraBlack"
+                                               Foreground="MediumAquamarine"/>
+
+                                    <TextBlock Text="{Binding DiaChi}"
+                                               Grid.Column="2"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="11"
+                                               FontWeight="ExtraBlack"
+                                               Foreground="MediumAquamarine"/>
+
+                                    <TextBlock Text="{Binding SDT}"
+                                               Grid.Column="3"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="11"
+                                               FontWeight="ExtraBlack"
+                                               Foreground="MediumAquamarine"/>
+
+                                    <TextBlock Text="{Binding Email}"
+                                               Grid.Column="4"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="11"
+                                               FontWeight="ExtraBlack"
+                                               Foreground="MediumAquamarine"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+            </Grid>
+
+        </Grid>
+    </materialDesign:TransitioningContent>
+</UserControl>
