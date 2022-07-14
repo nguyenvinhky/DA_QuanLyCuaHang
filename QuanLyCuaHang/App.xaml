@@ -54,6 +54,14 @@
                 <view:ViewNCC/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:LoaiSanPhamViewModel}">
+                <view:ViewLoaiSanPham/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:LoaiTKViewModel}">
+                <view:ViewLoaiTK/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

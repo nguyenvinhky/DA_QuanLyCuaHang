@@ -29,7 +29,6 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
                 <Button Content="NHÂN VIÊN"
@@ -65,21 +64,10 @@
                         Command="{Binding TabButtonCommand}"
                         CommandParameter="{Binding ElementName=ButtonLSP}"/>
 
-                <Button Content="ĐƠN VỊ TÍNH"
-                        Name="ButtonDVT"
-                        Grid.Column="3"
-                        Uid="3"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        BorderThickness="0 0 0 2"
-                        FontWeight="Bold"
-                        Command="{Binding TabButtonCommand}"
-                        CommandParameter="{Binding ElementName=ButtonDVT}"/>
-
                 <Button Content="LOẠI TÀI KHOẢN"
                         Name="ButtonLTK"
-                        Grid.Column="4"
-                        Uid="4"
+                        Grid.Column="3"
+                        Uid="3"
                         Background="Transparent"
                         BorderBrush="Transparent"
                         BorderThickness="0 0 0 2"

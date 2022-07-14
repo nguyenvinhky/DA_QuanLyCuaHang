@@ -13,9 +13,7 @@ namespace QuanLyCuaHang.ViewModel
     public class QuanLyViewModel : BaseViewModel
     {
         private int index;
-        private int location;
         public ICommand TabButtonCommand { get; set; }
-        public ICommand Gridcursor { get; set; }
 
 
         private object _tabQuanLyView;
@@ -31,12 +29,16 @@ namespace QuanLyCuaHang.ViewModel
 
         public NhanVienViewModel NV { get; set; }
         public NCCViewModel NCC { get; set; }
+        public LoaiSanPhamViewModel LSP { get; set; }
+        public LoaiTKViewModel LTK { get; set; }
 
 
         public QuanLyViewModel()
         {
             NV = new NhanVienViewModel();
             NCC = new NCCViewModel();
+            LSP = new LoaiSanPhamViewModel();
+            LTK = new LoaiTKViewModel();
 
             TabButtonCommand = new RelayCommand<Button>((p) => { return true; }, (p) => {
                 index = int.Parse(p.Uid);
@@ -46,35 +48,29 @@ namespace QuanLyCuaHang.ViewModel
                     case 0:
                         {
                             tabQuanLyView = NV;
-                            p.BorderBrush = new SolidColorBrush(Colors.Aquamarine);
                             break;
                         }
 
                     case 1:
                         {
                             tabQuanLyView = NCC;
-                            p.BorderBrush = new SolidColorBrush(Colors.Aquamarine);
                             break;
                         }
 
                     case 2:
                         {
-                            tabQuanLyView = NV;
-                            p.BorderBrush = new SolidColorBrush(Colors.Aquamarine);
+                            tabQuanLyView = LSP;
                             break;
                         }
 
                     case 3:
                         {
-                            tabQuanLyView = NV;
-                            p.BorderBrush = new SolidColorBrush(Colors.Aquamarine);
+                            tabQuanLyView = LTK;
                             break;
                         }
 
-                    case 4:
+                    default :
                         {
-                            tabQuanLyView = NV;
-                            p.BorderBrush = new SolidColorBrush(Colors.Aquamarine);
                             break;
                         }
                 }

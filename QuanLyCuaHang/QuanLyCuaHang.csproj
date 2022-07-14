@@ -143,6 +143,8 @@
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\DonHangViewModel.cs" />
     <Compile Include="ViewModel\KhachHangViewModel.cs" />
+    <Compile Include="ViewModel\LoaiSanPhamViewModel.cs" />
+    <Compile Include="ViewModel\LoaiTKViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NCCViewModel.cs" />
@@ -163,6 +165,12 @@
     </Compile>
     <Compile Include="View\ViewKhachHang.xaml.cs">
       <DependentUpon>ViewKhachHang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewLoaiSanPham.xaml.cs">
+      <DependentUpon>ViewLoaiSanPham.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewLoaiTK.xaml.cs">
+      <DependentUpon>ViewLoaiTK.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewNCC.xaml.cs">
       <DependentUpon>ViewNCC.xaml</DependentUpon>
@@ -227,6 +235,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewKhachHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewLoaiSanPham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewLoaiTK.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

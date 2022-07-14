@@ -6,4 +6,6 @@
     <viewmodel:QuanLyViewModel x:Key="QuanLyVM"></viewmodel:QuanLyViewModel>
     <viewmodel:NhanVienViewModel x:Key="NhanVienVM"></viewmodel:NhanVienViewModel>
     <viewmodel:NCCViewModel x:Key="nccVM"></viewmodel:NCCViewModel>
+    <viewmodel:LoaiSanPhamViewModel x:Key="lspVM"></viewmodel:LoaiSanPhamViewModel>
+    <viewmodel:LoaiTKViewModel x:Key="ltkVM"></viewmodel:LoaiTKViewModel>
 </ResourceDictionary>

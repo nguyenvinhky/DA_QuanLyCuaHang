@@ -25,18 +25,21 @@ namespace QuanLyCuaHang.ViewModel
                 var w = window as Window;
                 if (w != null)
                 {
-                    MessageBoxResult result = MessageBox.Show("Bạn có chắc muốn đóng chương trình ?", "Thông báo", MessageBoxButton.OKCancel);
-                    if (result == MessageBoxResult.OK)
+                    if (w.Name == "FormTTNV")
                     {
-                        if (w.Name=="mainWindow")
-                        {
-                            System.Windows.Application.Current.Shutdown();
-                        }
                         w.Close();
                     }
                     else
+                    {
+                        MessageBoxResult result = MessageBox.Show("Bạn có chắc muốn đóng chương trình ?", "Thông báo", MessageBoxButton.OKCancel);
+                        if (result == MessageBoxResult.OK)
+                        {
+                            if (w.Name == "mainWindow")
+                                System.Windows.Application.Current.Shutdown();
+                            w.Close();
+                        }
                         return;
-                    
+                    }
                 }
             });
 
