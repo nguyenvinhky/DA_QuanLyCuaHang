@@ -62,118 +62,183 @@
                                FontWeight="Black"/>
                 </StackPanel>
 
-                <StackPanel Grid.Row="1">
-                    <Button Style="{StaticResource Button_DashDoard}"
-                            Command="{Binding LoadViewTrangChu}">
+                <StackPanel Grid.Row="1"
+                            HorizontalAlignment="Center">
+                    <RadioButton Style="{StaticResource Button_Dashboard}"
+                                Command="{Binding LoadViewTrangChu}"
+                                Name="rdbTC">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Home"
                                                      Height="20"
                                                      Width="20"
-                                                     Foreground="White"/>
+                                                     Foreground="White"
+                                                     Margin="20 0 0 0"/>
                             <TextBlock Text="TRANG CHỦ"
                                        Style="{StaticResource TextBlock_ButtonBoard}"/>
-                            
                         </StackPanel>
-                    </Button>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbTC}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </RadioButton>
 
-                    <Button Style="{StaticResource Button_DashDoard}"
-                            Command="{Binding LoadViewDonHang}">
+                    <RadioButton Style="{StaticResource Button_Dashboard}"
+                                 Command="{Binding LoadViewDonHang}"
+                                 Name="rdbDH">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Sack"
                                                      Height="20"
                                                      Width="20"
-                                                     Foreground="White"/>
+                                                     Foreground="White"
+                                                     Margin="20 0 0 0"/>
                             <TextBlock Text="ĐƠN HÀNG"
                                        Style="{StaticResource TextBlock_ButtonBoard}"/>
                         </StackPanel>
-                    </Button>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbDH}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </RadioButton>
 
-                    <Button Style="{StaticResource Button_DashDoard}"
-                            Command="{Binding LoadViewSanPham}">
+                    <RadioButton Style="{StaticResource Button_Dashboard}"
+                                 Command="{Binding LoadViewSanPham}"
+                                 Name="rdbSP">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Opacity"
                                                      Height="20"
                                                      Width="20"
-                                                     Foreground="White"/>
+                                                     Foreground="White"
+                                                     Margin="20 0 0 0"/>
                             <TextBlock Text="SẢN PHẨM"
                                        Style="{StaticResource TextBlock_ButtonBoard}"/>
                         </StackPanel>
-                    </Button>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbSP}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </RadioButton>
 
-                    <Button Style="{StaticResource Button_DashDoard}"
-                            Command="{Binding LoadViewKhachHang}">
+                    <RadioButton Style="{StaticResource Button_Dashboard}"
+                                 Command="{Binding LoadViewKhachHang}"
+                                 Name="rdbKH">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="AccountMultipleOutline"
                                                      Height="20"
                                                      Width="20"
-                                                     Foreground="White"/>
+                                                     Foreground="White"
+                                                     Margin="20 0 0 0"/>
                             <TextBlock Text="KHÁCH HÀNG"
                                        Style="{StaticResource TextBlock_ButtonBoard}"/>
                         </StackPanel>
-                    </Button>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbKH}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </RadioButton>
 
-                    <Button Style="{StaticResource Button_DashDoard}"
-                            Command="{Binding LoadViewNhapHang}">
+                    <RadioButton Style="{StaticResource Button_Dashboard}"
+                                 Command="{Binding LoadViewNhapHang}"
+                                 Name="rdbNH">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Input"
                                                      Height="20"
                                                      Width="20"
-                                                     Foreground="White"/>
+                                                     Foreground="White"
+                                                     Margin="20 0 0 0"/>
                             <TextBlock Text="NHẬP HÀNG"
                                        Style="{StaticResource TextBlock_ButtonBoard}"/>
                         </StackPanel>
-                    </Button>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbNH}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </RadioButton>
 
-                    <Button Style="{StaticResource Button_DashDoard}"
-                            Command="{Binding LoadViewThongKe}">
+                    <RadioButton Style="{StaticResource Button_Dashboard}"
+                                 Command="{Binding LoadViewThongKe}"
+                                 Name="rdbTK">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="StackOverflow"
                                                      Height="20"
                                                      Width="20"
-                                                     Foreground="White"/>
+                                                     Foreground="White"
+                                                     Margin="20 0 0 0"/>
                             <TextBlock Text="THỐNG KÊ"
                                        Style="{StaticResource TextBlock_ButtonBoard}"/>
                         </StackPanel>
-                    </Button>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbTK}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </RadioButton>
 
-                    <Button Style="{StaticResource Button_DashDoard}"
-                            Command="{Binding LoadViewQuanLy}">
+                    <RadioButton Style="{StaticResource Button_Dashboard}"
+                                 Command="{Binding LoadViewQuanLy}"
+                                 Name="rdbQL">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="CustomerService"
                                                      Height="20"
                                                      Width="20"
-                                                     Foreground="White"/>
+                                                     Foreground="White"
+                                                     Margin="20 0 0 0"/>
                             <TextBlock Text="QUẢN LÝ"
                                        Style="{StaticResource TextBlock_ButtonBoard}"/>
                         </StackPanel>
-                    </Button>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbQL}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </RadioButton>
 
-                    <Button Style="{StaticResource Button_DashDoard}">
+                    <RadioButton Style="{StaticResource Button_Dashboard}"
+                                 Name="rdbCD">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Settings"
                                                      Height="20"
                                                      Width="20"
-                                                     Foreground="White"/>
+                                                     Foreground="White"
+                                                     Margin="20 0 0 0"/>
                             <TextBlock Text="CÀI ĐẶT"
                                        Style="{StaticResource TextBlock_ButtonBoard}"/>
                         </StackPanel>
-                    </Button>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbCD}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </RadioButton>
                 </StackPanel>
 
-                <Button Style="{StaticResource Button_DashDoard}"
-                        Grid.Row="2"
-                        Margin="0 0 0 20"
-                        Command="{Binding LogOutCommand}"
-                        CommandParameter="{Binding ElementName=mainWindow}">
+                <RadioButton Style="{StaticResource Button_Dashboard}"
+                             Grid.Row="2"
+                             Margin="0 0 0 20"
+                             Command="{Binding LogOutCommand}"
+                             CommandParameter="{Binding ElementName=mainWindow}">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Logout"
                                                      Height="20"
                                                      Width="20"
-                                                     Foreground="White"/>
+                                                     Foreground="White"
+                                                     Margin="20 0 0 0"/>
                         <TextBlock Text="ĐĂNG XUẤT"
                                        Style="{StaticResource TextBlock_ButtonBoard}"/>
                     </StackPanel>
-                </Button>
+                </RadioButton>
             </Grid>
 
             <Border Grid.Column="1"

@@ -1,4 +1,4 @@
-﻿<Window x:Class="QuanLyCuaHang.Form.FormThongTinNhanVien"
+﻿<Window x:Class="QuanLyCuaHang.Form.FormThemNhanVien"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -63,14 +63,14 @@
                         Margin="10 50 0 0">
                     <Ellipse>
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="{Binding SelectedNhanVien.Anh}"/>
+                            <ImageBrush ImageSource="{Binding Images,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         </Ellipse.Fill>
                     </Ellipse>
                 </Border>
 
                 <Button Grid.Column="3"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
-                        Content="THAY ĐỔI ẢNH ĐẠI DIỆN"
+                        Content="CHỌN ẢNH ĐẠI DIỆN"
                         FontWeight="Bold"
                         Height="50"
                         Width="280"
@@ -79,14 +79,13 @@
                         materialDesign:ButtonAssist.CornerRadius="10"
                         Background="MediumAquamarine"
                         BorderBrush="Aquamarine"
-                        Command="{Binding }"
+                        Command="{Binding ChooseImages}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
             </StackPanel>
 
             <Grid Grid.Column="1"
                   Margin="10">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -100,7 +99,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
                              Text="{Binding SelectedNhanVien.Id}"
                              VerticalAlignment="Top"
@@ -168,6 +167,8 @@
                              Foreground="MediumAquamarine"
                              Grid.Column="1"
                              VerticalContentAlignment="Center"
+                             ItemsSource="{Binding CBBLoaiTKList}"
+                             DisplayMemberPath="TenLoaiTK"
                              materialDesign:TextFieldAssist.TextBoxViewMargin="15 0 0 0"
                              materialDesign:TextFieldAssist.TextFieldCornerRadius="5 5 0 0"
                              materialDesign:HintAssist.Hint="LOẠI TÀI KHOẢN"/>
@@ -179,20 +180,19 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
-                             VerticalAlignment="Top"
-                             Width="auto"
-                             Height="60"
-                             Background="#Dfe7e8"
-                             AcceptsReturn="True"
-                             TextWrapping="Wrap"
-                             MaxWidth="400"
-                             Margin="5"
-                             FontWeight="Bold"
-                             FontSize="15"
-                             Foreground="MediumAquamarine"
-                             Grid.Column="0"
-                             materialDesign:HintAssist.Hint="NGÀY SINH"/>
+                    <DatePicker Grid.Column="0"
+                                Style="{StaticResource MaterialDesignFilledDatePicker}"
+                                VerticalAlignment="Top"
+                                Text="{Binding SelectedNhanVien.GioiTinh}"
+                                Width="auto"
+                                Height="60"
+                                Background="#Dfe7e8"
+                                MaxWidth="400"
+                                Margin="5"
+                                FontWeight="Bold"
+                                FontSize="15"
+                                Foreground="MediumAquamarine"
+                                materialDesign:HintAssist.Hint="NGÀY SINH"/>
 
                     <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
                              VerticalAlignment="Top"
@@ -239,7 +239,7 @@
                         Margin="5"
                         FontWeight="Bold"
                         FontSize="15"
-                             Foreground="MediumAquamarine"
+                        Foreground="MediumAquamarine"
                         Grid.Row="4"
                         materialDesign:HintAssist.Hint="ĐỊA CHỈ"/>
 
@@ -252,7 +252,7 @@
 
                     <Button Grid.Column="0"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
-                        Content="CẬP NHẬT"
+                        Content="THÊM NHÂN VIÊN"
                         FontWeight="Bold"
                         Height="50"
                         Width="auto"
@@ -266,7 +266,7 @@
 
                     <Button Grid.Column="1"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
-                        Content="XÓA"
+                        Content="HỦY"
                         FontWeight="Bold"
                         Height="50"
                         Width="auto"
@@ -278,20 +278,6 @@
                         BorderThickness="2"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
                 </Grid>
-
-                <Button Grid.Row="6"
-                        Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
-                        Content="ĐẶT LẠI MẬT KHẨU"
-                        FontWeight="Bold"
-                        Height="50"
-                        Width="auto"
-                        FontSize="15"
-                        Margin="10 0 10 10"
-                        materialDesign:ButtonAssist.CornerRadius="10"
-                        Background="MediumAquamarine"
-                        BorderBrush="Aquamarine"
-                        BorderThickness="2"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
 
             </Grid>
         </Grid>

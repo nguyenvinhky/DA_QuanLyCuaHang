@@ -13,7 +13,10 @@ namespace QuanLyCuaHang.ViewModel
     public class QuanLyViewModel : BaseViewModel
     {
         private int index;
-        public ICommand TabButtonCommand { get; set; }
+        public ICommand TabNhanVien { get; set; }
+        public ICommand TabNCC { get; set; }
+        public ICommand TabLoaiSP { get; set; }
+        public ICommand TabLoaiTK { get; set; }
 
 
         private object _tabQuanLyView;
@@ -40,43 +43,24 @@ namespace QuanLyCuaHang.ViewModel
             LSP = new LoaiSanPhamViewModel();
             LTK = new LoaiTKViewModel();
 
-            TabButtonCommand = new RelayCommand<Button>((p) => { return true; }, (p) => {
-                index = int.Parse(p.Uid);
+            TabNhanVien = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
+                tabQuanLyView = NV;
+            });
 
-                switch (index)
-                {
-                    case 0:
-                        {
-                            tabQuanLyView = NV;
-                            break;
-                        }
+            TabNCC = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
+                tabQuanLyView = NCC;
 
-                    case 1:
-                        {
-                            tabQuanLyView = NCC;
-                            break;
-                        }
+            });
 
-                    case 2:
-                        {
-                            tabQuanLyView = LSP;
-                            break;
-                        }
+            TabLoaiSP = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
+                tabQuanLyView = LSP;
 
-                    case 3:
-                        {
-                            tabQuanLyView = LTK;
-                            break;
-                        }
+            });
 
-                    default :
-                        {
-                            break;
-                        }
-                }
-                
-            }
-            );
+            TabLoaiTK = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
+                tabQuanLyView = LTK;
+
+            });
         }
     }
 }

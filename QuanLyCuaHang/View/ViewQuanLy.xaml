@@ -4,14 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:local="clr-namespace:QuanLyCuaHang.View"
              mc:Ignorable="d" 
              DataContext="{StaticResource QuanLyVM}"
+             Name="TabQuanLy"
              d:DesignHeight="450" d:DesignWidth="800">
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.5}">
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition/>
@@ -31,52 +33,71 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button Content="NHÂN VIÊN"
-                        Name="ButtonNhanVien"
-                        Grid.Column="0"
-                        Uid="0"
-                        Background="Transparent"
-                        BorderBrush="Aquamarine"
-                        BorderThickness="0 0 0 2"
-                        FontWeight="Bold"
-                        Command="{Binding TabButtonCommand}"
-                        CommandParameter="{Binding ElementName=ButtonNhanVien}"/>
+                <RadioButton Content="NHÂN VIÊN"
+                            Style="{StaticResource TabMenuQuanLy}"
+                            Name="rdbNV"
+                            Grid.Column="0"
+                            FontWeight="Bold"
+                            Command="{Binding TabNhanVien}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Unchecked">
+                            <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                   CommandParameter="{Binding ElementName=rdbNV}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
 
-                <Button Content="NHÀ CUNG CẤP"
-                        Name="ButtonNCC"
-                        Grid.Column="1"
-                        Uid="1"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        BorderThickness="0 0 0 2"
-                        FontWeight="Bold"
-                        Command="{Binding TabButtonCommand}"
-                        CommandParameter="{Binding ElementName=ButtonNCC}"/>
+                <RadioButton Content="NHÀ CUNG CẤP"
+                            Style="{StaticResource TabMenuQuanLy}"
+                            Name="rdbNCC"
+                            Grid.Column="1"
+                            FontWeight="Bold"
+                            Command="{Binding TabNCC}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Unchecked">
+                            <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbNCC}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
 
-                <Button Content="LOẠI SẢN PHẨM"
-                        Name="ButtonLSP"
-                        Grid.Column="2"
-                        Uid="2"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        BorderThickness="0 0 0 2"
-                        FontWeight="Bold"
-                        Command="{Binding TabButtonCommand}"
-                        CommandParameter="{Binding ElementName=ButtonLSP}"/>
+                <RadioButton Content="LOẠI SẢN PHẨM"
+                            Style="{StaticResource TabMenuQuanLy}"
+                            Name="rdbLSP"
+                            Grid.Column="2"
+                            FontWeight="Bold"
+                            Command="{Binding TabLoaiSP}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Unchecked">
+                            <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbLSP}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
 
-                <Button Content="LOẠI TÀI KHOẢN"
-                        Name="ButtonLTK"
-                        Grid.Column="3"
-                        Uid="3"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        BorderThickness="0 0 0 2"
-                        FontWeight="Bold"
-                        Command="{Binding TabButtonCommand}"
-                        CommandParameter="{Binding ElementName=ButtonLTK}"/>
+                <RadioButton Content="LOẠI TÀI KHOẢN"
+                            Style="{StaticResource TabMenuQuanLy}"
+                            Name="rdbLTK"
+                            Grid.Column="3"
+                            FontWeight="Bold"
+                            Command="{Binding TabLoaiTK}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Unchecked">
+                            <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbLTK}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
             </Grid>
 
-            <Grid Grid.Row="2"
+            <Border Grid.Row="2"
+                  Background="MediumAquamarine"
+                  Height="4"
+                  Width="auto"
+                  BorderBrush="Transparent"
+                  BorderThickness="0"/>
+
+            <Grid Grid.Row="3"
                   x:Name="gridViewQuanLy">
                 <ContentControl Content="{Binding tabQuanLyView}"/>
             </Grid>

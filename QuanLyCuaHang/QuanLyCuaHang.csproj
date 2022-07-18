@@ -78,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Form\FormThemNhanVien.xaml.cs">
+      <DependentUpon>FormThemNhanVien.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form\FormThongTinNhanVien.xaml.cs">
       <DependentUpon>FormThongTinNhanVien.xaml</DependentUpon>
     </Compile>
@@ -190,6 +193,10 @@
     <Compile Include="View\ViewThongKe.xaml.cs">
       <DependentUpon>ViewThongKe.xaml</DependentUpon>
     </Compile>
+    <Page Include="Form\FormThemNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Form\FormThongTinNhanVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -218,6 +225,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ResourceXAML\TabMenuQuanLy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceXAML\TextBlock_ButtonBoard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

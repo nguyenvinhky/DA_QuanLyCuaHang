@@ -40,8 +40,9 @@
                         Width="100"
                         FontSize="10"
                         Margin="10"
-                        materialDesign:ButtonAssist.CornerRadius="10"
+                        materialDesign:ButtonAssist.CornerRadius="7"
                         Background="MediumAquamarine"
+                        Command="{Binding OpenAddNhanVien}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
             </StackPanel>
 
