@@ -85,7 +85,7 @@
                                             Margin="10 0 0 0">
                                         <Ellipse>
                                             <Ellipse.Fill>
-                                                <ImageBrush ImageSource="{Binding Anh}"/>
+                                                <ImageBrush ImageSource="{Binding Url}"/>
                                             </Ellipse.Fill>
                                         </Ellipse>
                                     </Border>

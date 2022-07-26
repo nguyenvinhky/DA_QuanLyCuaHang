@@ -63,7 +63,7 @@
                         Margin="10 50 0 0">
                     <Ellipse>
                         <Ellipse.Fill>
-                            <ImageBrush ImageSource="{Binding SelectedNhanVien.Anh}"/>
+                            <ImageBrush ImageSource="{Binding Images}"/>
                         </Ellipse.Fill>
                     </Ellipse>
                 </Border>
@@ -79,13 +79,14 @@
                         materialDesign:ButtonAssist.CornerRadius="10"
                         Background="MediumAquamarine"
                         BorderBrush="Aquamarine"
-                        Command="{Binding }"
+                        Command="{Binding ChooseImages}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
             </StackPanel>
 
             <Grid Grid.Column="1"
                   Margin="10">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -102,7 +103,7 @@
                     </Grid.ColumnDefinitions>
                     
                     <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
-                             Text="{Binding SelectedNhanVien.Id}"
+                             Text="{Binding Id}"
                              VerticalAlignment="Top"
                              Width="auto"
                              Height="60"
@@ -119,7 +120,7 @@
 
                     <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
                              VerticalAlignment="Top"
-                             Text="{Binding SelectedNhanVien.TenNV}"
+                             Text="{Binding TenNV}"
                              Width="auto"
                              Height="60"
                              Background="#Dfe7e8"
@@ -142,7 +143,7 @@
 
                     <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
                              VerticalAlignment="Top"
-                             Text="{Binding SelectedNhanVien.GioiTinh}"
+                             Text="{Binding GioiTinh}"
                              Width="auto"
                              Height="60"
                              Background="#Dfe7e8"
@@ -158,6 +159,10 @@
 
                     <ComboBox Style="{StaticResource MaterialDesignComboBox}"
                              VerticalAlignment="Top"
+                             Text="{Binding LTK}"
+                             ItemsSource="{Binding CBBLoaiTKList}"
+                             SelectedValue="{Binding SelectedValueCBBLTK}"
+                             DisplayMemberPath="TenLoaiTK"
                              Width="auto"
                              Height="60"
                              Background="#Dfe7e8"
@@ -179,24 +184,23 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
-                             VerticalAlignment="Top"
-                             Width="auto"
-                             Height="60"
-                             Background="#Dfe7e8"
-                             AcceptsReturn="True"
-                             TextWrapping="Wrap"
-                             MaxWidth="400"
-                             Margin="5"
-                             FontWeight="Bold"
-                             FontSize="15"
-                             Foreground="MediumAquamarine"
-                             Grid.Column="0"
-                             materialDesign:HintAssist.Hint="NGÀY SINH"/>
+                    <DatePicker Grid.Column="0"
+                                Style="{StaticResource MaterialDesignFilledDatePicker}"
+                                VerticalAlignment="Top"
+                                SelectedDate="{Binding NgaySinh, StringFormat='dd/MM/yyyy'}"
+                                Width="auto"
+                                Height="60"
+                                Background="#Dfe7e8"
+                                MaxWidth="400"
+                                Margin="5"
+                                FontWeight="Bold"
+                                FontSize="15"
+                                Foreground="MediumAquamarine"
+                                materialDesign:HintAssist.Hint="NGÀY SINH"/>
 
                     <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
                              VerticalAlignment="Top"
-                             Text="{Binding SelectedNhanVien.SDT}"
+                             Text="{Binding SDT}"
                              Width="auto"
                              Height="60"
                              Background="#Dfe7e8"
@@ -213,7 +217,7 @@
 
                 <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
                         VerticalAlignment="Top"
-                        Text="{Binding SelectedNhanVien.Email}"
+                        Text="{Binding Email}"
                         Width="AUTO"
                         Height="60"
                         Background="#Dfe7e8"
@@ -229,7 +233,7 @@
 
                 <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
                         VerticalAlignment="Top"
-                        Text="{Binding SelectedNhanVien.DiaChi}"
+                        Text="{Binding DiaChi}"
                         Width="AUTO"
                         Height="60"
                         Background="#Dfe7e8"
@@ -239,11 +243,27 @@
                         Margin="5"
                         FontWeight="Bold"
                         FontSize="15"
-                             Foreground="MediumAquamarine"
+                        Foreground="MediumAquamarine"
                         Grid.Row="4"
                         materialDesign:HintAssist.Hint="ĐỊA CHỈ"/>
 
-                <Grid Grid.Row="5"
+                <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
+                        VerticalAlignment="Top"
+                        Text="{Binding Luong, StringFormat={}{0:#,#}}"
+                        Width="AUTO"
+                        Height="60"
+                        Background="#Dfe7e8"
+                        AcceptsReturn="True"
+                        TextWrapping="Wrap"
+                        MaxWidth="500"
+                        Margin="5"
+                        FontWeight="Bold"
+                        FontSize="15"
+                        Foreground="MediumAquamarine"
+                        Grid.Row="5"
+                        materialDesign:HintAssist.Hint="LƯƠNG"/>
+                
+                <Grid Grid.Row="6"
                       Margin="0 10 0 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -262,6 +282,7 @@
                         Background="MediumAquamarine"
                         BorderBrush="Aquamarine"
                         BorderThickness="2"
+                        Command="{Binding EditNhanVien}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
 
                     <Button Grid.Column="1"
@@ -276,10 +297,11 @@
                         Background="MediumAquamarine"
                         BorderBrush="Aquamarine"
                         BorderThickness="2"
+                        Command="{Binding DeleteNhanVien}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
                 </Grid>
 
-                <Button Grid.Row="6"
+                <Button Grid.Row="7"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
                         Content="ĐẶT LẠI MẬT KHẨU"
                         FontWeight="Bold"

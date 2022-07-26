@@ -89,58 +89,55 @@
     </Compile>
     <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\DVT.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\HDB.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\HDN.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\KhachHang.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LoaiSanPham.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LoaiTK.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NCC.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NhanVien.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\QuanLyCuaHang.Context.cs">
+    <Compile Include="Model\QuanLuCuaHang.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCuaHang.Context.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\QuanLyCuaHang.cs">
+    <Compile Include="Model\QuanLuCuaHang.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\QuanLyCuaHang.Designer.cs">
+    <Compile Include="Model\QuanLuCuaHang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QuanLyCuaHang.edmx</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\SanPham.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sysdiagram.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TaiKhoan.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TTHDB.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TTHDN.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+      <DependentUpon>QuanLuCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
@@ -300,12 +297,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\QuanLyCuaHang.edmx">
+    <EntityDeploy Include="Model\QuanLuCuaHang.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuanLyCuaHang.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLuCuaHang.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\QuanLyCuaHang.edmx.diagram">
-      <DependentUpon>QuanLyCuaHang.edmx</DependentUpon>
+    <None Include="Model\QuanLuCuaHang.edmx.diagram">
+      <DependentUpon>QuanLuCuaHang.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -320,34 +317,21 @@
     <Folder Include="Theme\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Anh\1.jpg" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Anh\Backround_Login.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Anh\2.jpg" />
-    <Resource Include="Anh\3.jpg" />
-    <Resource Include="Anh\4.jpg" />
-    <Resource Include="Anh\5.jpg" />
-    <Resource Include="Anh\7.jpg" />
-    <Resource Include="Anh\8.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Anh\levi.jpg" />
-    <Resource Include="Anh\gojo.jpg" />
-    <Content Include="Model\QuanLyCuaHang.Context.tt">
+    <Content Include="Model\QuanLuCuaHang.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyCuaHang.edmx</DependentUpon>
-      <LastGenOutput>QuanLyCuaHang.Context.cs</LastGenOutput>
+      <DependentUpon>QuanLuCuaHang.edmx</DependentUpon>
+      <LastGenOutput>QuanLuCuaHang.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\QuanLyCuaHang.tt">
+    <Content Include="Model\QuanLuCuaHang.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuanLyCuaHang.edmx</DependentUpon>
-      <LastGenOutput>QuanLyCuaHang.cs</LastGenOutput>
+      <DependentUpon>QuanLuCuaHang.edmx</DependentUpon>
+      <LastGenOutput>QuanLuCuaHang.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

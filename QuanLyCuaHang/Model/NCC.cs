@@ -9,29 +9,23 @@
 
 namespace QuanLyCuaHang.Model
 {
-    using QuanLyCuaHang.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class NCC : BaseViewModel
+    public partial class NCC
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NCC()
         {
             this.SanPhams = new HashSet<SanPham>();
         }
-
-        private int id;
-        private string tenNCC;
-        private string diaChi;
-        private string sDT;
-        private string email;
-        public int Id { get => id; set { id = value; OnPropertyChanged(); } }
-        public string TenNCC { get => tenNCC; set { tenNCC = value; OnPropertyChanged(); } }
-        public string DiaChi { get => diaChi; set { diaChi = value; OnPropertyChanged(); } }
-        public string SDT { get => sDT; set { sDT = value; OnPropertyChanged(); } }
-        public string Email { get => email; set { email = value; OnPropertyChanged(); } }
-
+    
+        public int Id { get; set; }
+        public string TenNCC { get; set; }
+        public string DiaChi { get; set; }
+        public string SDT { get; set; }
+        public string Email { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPham> SanPhams { get; set; }
     }

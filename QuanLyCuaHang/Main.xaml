@@ -276,11 +276,7 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left"
                             Margin="5 0 5 5">
-                        <Ellipse>
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="/Anh/1.jpg"/>
-                            </Ellipse.Fill>
-                        </Ellipse>
+                      
                     </Border>
 
                     <StackPanel Grid.Column="1"
