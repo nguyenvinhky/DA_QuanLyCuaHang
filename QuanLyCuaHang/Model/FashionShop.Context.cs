@@ -13,10 +13,10 @@ namespace QuanLyCuaHang.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuanLyCuaHangEntities : DbContext
+    public partial class FashionShopEntities : DbContext
     {
-        public QuanLyCuaHangEntities()
-            : base("name=QuanLyCuaHangEntities")
+        public FashionShopEntities()
+            : base("name=FashionShopEntities")
         {
         }
     
@@ -25,7 +25,6 @@ namespace QuanLyCuaHang.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<DVT> DVTs { get; set; }
         public virtual DbSet<HDB> HDBs { get; set; }
         public virtual DbSet<HDN> HDNs { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }

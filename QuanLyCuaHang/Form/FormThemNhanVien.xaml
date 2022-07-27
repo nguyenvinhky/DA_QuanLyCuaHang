@@ -115,6 +115,7 @@
                              FontSize="15"
                              Foreground="MediumAquamarine"
                              Grid.Column="0"
+                             IsEnabled="False"
                              materialDesign:HintAssist.Hint="MÃ NHÂN VIÊN"/>
 
                     <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
@@ -296,6 +297,7 @@
                         Background="MediumAquamarine"
                         BorderBrush="Aquamarine"
                         BorderThickness="2"
+                            Command="{Binding HuyClick}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
                 </Grid>
 

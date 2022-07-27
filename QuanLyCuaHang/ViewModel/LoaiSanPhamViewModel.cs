@@ -79,6 +79,7 @@ namespace QuanLyCuaHang.ViewModel
                 var GetIdLSP = DataProvider.Ins.DB.LoaiSanPhams.Where(x => x.Id == SelectedLSP.Id).SingleOrDefault();
                 GetIdLSP.TenLoaiSP = TenLSP;
                 DataProvider.Ins.DB.SaveChanges();
+                ListLSP = new ObservableCollection<LoaiSanPham>(DataProvider.Ins.DB.LoaiSanPhams);
             });
         }
     }

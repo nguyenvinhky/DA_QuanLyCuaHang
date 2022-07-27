@@ -43,6 +43,8 @@ namespace QuanLyCuaHang.ViewModel
             LSP = new LoaiSanPhamViewModel();
             LTK = new LoaiTKViewModel();
 
+            tabQuanLyView = NV;
+
             TabNhanVien = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
                 tabQuanLyView = NV;
             });

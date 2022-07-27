@@ -80,6 +80,7 @@ namespace QuanLyCuaHang.ViewModel
                 var GetIdLSP = DataProvider.Ins.DB.LoaiTKs.Where(x => x.Id == SelectedLTK.Id).SingleOrDefault();
                 GetIdLSP.TenLoaiTK = TenLTK;
                 DataProvider.Ins.DB.SaveChanges();
+                ListLTK = new ObservableCollection<LoaiTK>(DataProvider.Ins.DB.LoaiTKs);
             });
         }
     }

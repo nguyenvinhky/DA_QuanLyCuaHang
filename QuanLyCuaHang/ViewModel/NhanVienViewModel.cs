@@ -18,8 +18,10 @@ namespace QuanLyCuaHang.ViewModel
 {
     public class NhanVienViewModel : BaseViewModel
     {
+        string stringIDNV = "";
+        string IntroIDNV = "NVSJDI_";
         string directory;
-        string fileiamge = "";
+        string fileiamge = null;
         string dialog;
         private string nameImages;
         public string addimages;
@@ -32,8 +34,8 @@ namespace QuanLyCuaHang.ViewModel
         public string TenNV { get => _TenNV; set { _TenNV = value; OnPropertyChanged(); } }
         private string _GioiTinh;
         public string GioiTinh { get => _GioiTinh; set { _GioiTinh = value; OnPropertyChanged(); } }
-        private DateTime _NgaySinh = DateTime.Now.Date;
-        public DateTime NgaySinh { get => _NgaySinh; set { _NgaySinh = value; OnPropertyChanged(); } }
+        private Nullable<System.DateTime> _NgaySinh = DateTime.Now.Date;
+        public Nullable<System.DateTime> NgaySinh { get => _NgaySinh; set { _NgaySinh = value; OnPropertyChanged(); } }
         private string _DiaChi;
         public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
         private string _SDT;
@@ -63,6 +65,7 @@ namespace QuanLyCuaHang.ViewModel
                 IdLTK = SelectedValueCBBLTK.Id;
             }
         }
+        private TaiKhoan getidtk;
         private NhanVien _SelectedNhanVien; 
         public NhanVien SelectedNhanVien 
         { 
@@ -73,7 +76,7 @@ namespace QuanLyCuaHang.ViewModel
                 if (SelectedNhanVien == null)
                     return;
                 FormThongTinNhanVien ttnv = new FormThongTinNhanVien();
-                var getidtk = DataProvider.Ins.DB.TaiKhoans.Where(x => x.IdNV == SelectedNhanVien.Id).SingleOrDefault();
+                getidtk = DataProvider.Ins.DB.TaiKhoans.Where(x => x.IdNV == SelectedNhanVien.Id).SingleOrDefault();
                 var getidltk = DataProvider.Ins.DB.LoaiTKs.Where(x => x.Id == getidtk.IdLoaiTK).SingleOrDefault();
                 LTK = getidltk.TenLoaiTK;
                 Id = SelectedNhanVien.Id;
@@ -98,6 +101,8 @@ namespace QuanLyCuaHang.ViewModel
         public ICommand AddNhanVien { get; set; }
         public ICommand DeleteNhanVien { get; set; }
         public ICommand EditNhanVien { get; set; }
+        public ICommand ResetPassword { get; set; }
+        public ICommand HuyClick { get; set; }
         public NhanVienViewModel()
         {
             //Lấy đường dẫn nơi chứa Project
@@ -105,14 +110,52 @@ namespace QuanLyCuaHang.ViewModel
             //List nhân viên
             NhanVienList = new ObservableCollection<NhanVien>(DataProvider.Ins.DB.NhanViens);
             LoadUrl();
+            //Create mã nhân viên
             //Combobox loại tài khoản
             CBBLoaiTKList = new ObservableCollection<LoaiTK>(DataProvider.Ins.DB.LoaiTKs);
             //List tài khoản
             ListTaiKhoan = new ObservableCollection<TaiKhoan>(DataProvider.Ins.DB.TaiKhoans);
 
+            ResetPassword = new RelayCommand<Window>((p) => { return true; }, (p) => {
+                getidtk.Password = MD5Hash(Base64Encode("123"));
+                DataProvider.Ins.DB.SaveChanges();
+                MessageBox.Show("Đã cập nhật mật khẩu về 123", "Thông báo");
+            });
+
+            HuyClick = new RelayCommand<Window>((p) => 
+            {
+                if (string.IsNullOrEmpty(Id) && string.IsNullOrEmpty(TenNV) && string.IsNullOrEmpty(GioiTinh) && string.IsNullOrEmpty(DiaChi) && string.IsNullOrEmpty(SDT) && string.IsNullOrEmpty(Email) && Luong == 0 && Images == null)
+                {
+                    return false;
+                }
+                return true; 
+            }, (p) => 
+            {
+                FormThemNhanVien fAddNV = new FormThemNhanVien();
+                Id = "";
+                TenNV = "";
+                GioiTinh = "";
+                NgaySinh = DateTime.Now.Date;
+                DiaChi = "";
+                SDT = "";
+                Email = "";
+                Luong = 0;
+                Images = null;
+                fAddNV.ShowDialog();
+            });
 
             OpenAddNhanVien = new RelayCommand<Window>((p) => { return true; }, (p) => {
+                var IDnew = createIdNV(IntroIDNV);
                 FormThemNhanVien fAddNV = new FormThemNhanVien();
+                Id = IDnew;
+                TenNV = "";
+                GioiTinh = "";
+                NgaySinh = DateTime.Now.Date;
+                DiaChi = "";
+                SDT = "";
+                Email = "";
+                Luong = 0;
+                Images = null;
                 fAddNV.ShowDialog();
             });
 
@@ -145,7 +188,8 @@ namespace QuanLyCuaHang.ViewModel
                     return false;
                 }
                 return true;
-            }, (p) => {
+            }, (p) =>
+            {
                 //Thêm ảnh vào folder ảnh
                 //Copy file anh vao folder Anh
                 try
@@ -166,13 +210,16 @@ namespace QuanLyCuaHang.ViewModel
                 var tk = new TaiKhoan() { IdNV = this.Id, Username = Id, Password = passEndCode, IdLoaiTK = IdLTK };
                 DataProvider.Ins.DB.TaiKhoans.Add(tk);
                 DataProvider.Ins.DB.SaveChanges();
+
+                var IDnew = createIdNV(IntroIDNV);
+                Id = IDnew;
             });
 
             EditNhanVien = new RelayCommand<object>((p) =>
             {
                 return true;
             }, (p) =>
-            {
+            { 
                 var CapNhatNV = DataProvider.Ins.DB.NhanViens.Where(x => x.Id == SelectedNhanVien.Id).SingleOrDefault();
                 CapNhatNV.TenNV = TenNV;
                 CapNhatNV.GioiTinh = GioiTinh;
@@ -181,11 +228,13 @@ namespace QuanLyCuaHang.ViewModel
                 CapNhatNV.SDT = SDT;
                 CapNhatNV.Email = Email;
                 CapNhatNV.Luong = Luong;
-                CapNhatNV.Anh = fileiamge;
-                DataProvider.Ins.DB.SaveChanges();
-                //Load list nhân viên
-                NhanVienList = new ObservableCollection<NhanVien>(DataProvider.Ins.DB.NhanViens);
-                LoadUrl();
+                if (fileiamge!=null)
+                    CapNhatNV.Anh = fileiamge;
+                else
+                    CapNhatNV.Anh = SelectedNhanVien.Anh;
+                CapNhatNV.Url = new BitmapImage(new Uri(directory+ fileiamge));
+                getidtk.IdLoaiTK = IdLTK;
+                DataProvider.Ins.DB.SaveChanges();                
             });
 
 
@@ -197,26 +246,20 @@ namespace QuanLyCuaHang.ViewModel
                 MessageBoxResult result = MessageBox.Show($"Bạn có chắc muốn xóa nhân viên {SelectedNhanVien.TenNV} không ???", "Thông báo", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
-                    foreach (var itemTK in ListTaiKhoan)
-                    {
-                        if (itemTK.IdNV == SelectedNhanVien.Id)
-                        {
-                            DataProvider.Ins.DB.TaiKhoans.Remove(itemTK);
-                        }
-                    }
-
-                    foreach (var itemNV in NhanVienList)
-                    {
-                        if (itemNV.Id == SelectedNhanVien.Id)
-                        {
-                            DataProvider.Ins.DB.NhanViens.Remove(itemNV);
-                        }
-                    }
+                    //xoa taikhoan
+                    var tk = DataProvider.Ins.DB.TaiKhoans.Where(t => t.IdNV == SelectedNhanVien.Id).SingleOrDefault();
+                    DataProvider.Ins.DB.TaiKhoans.Remove(tk);
                     DataProvider.Ins.DB.SaveChanges();
+
+
+                    //xoa nhanvien
+                    DataProvider.Ins.DB.NhanViens.Remove(SelectedNhanVien);
+                    DataProvider.Ins.DB.SaveChanges();
+
                     MessageBox.Show($"Xóa nhân viên {SelectedNhanVien.TenNV} thành công", "Thông báo");
                     //Load list nhân viên
-                    NhanVienList = new ObservableCollection<NhanVien>(DataProvider.Ins.DB.NhanViens);
-                    LoadUrl();
+                    NhanVienList.Remove(SelectedNhanVien);
+                    p.Close();
                 }
                 else
                     return;
@@ -252,6 +295,32 @@ namespace QuanLyCuaHang.ViewModel
                 }
                 catch { }
             }
+        }
+
+        string createIdNV(string valueID)
+        {
+            int STT = 0;
+            string tmp = "NVSJDI_";
+            valueID += "001";
+            if (NhanVienList.Count() == 0 || NhanVienList == null)
+            {
+                return valueID;
+            }
+            else
+            {
+                foreach (var item in NhanVienList)
+                {
+                    while (item.Id == valueID)
+                    {
+                        tmp = "NVSJDI_";
+                        STT = STT + 1;
+                        string id = "000" + STT; 
+                        id = id.Substring(id.Length - 3, 3);
+                        valueID = tmp + id;
+                    }
+                }
+            }
+            return valueID;
         }
     }
 }

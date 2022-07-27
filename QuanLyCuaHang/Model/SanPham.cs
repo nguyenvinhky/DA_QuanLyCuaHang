@@ -25,10 +25,8 @@ namespace QuanLyCuaHang.Model
         public string Anh { get; set; }
         public string TenSP { get; set; }
         public int IdLoaiSP { get; set; }
-        public int IdDVT { get; set; }
         public int IdNCC { get; set; }
     
-        public virtual DVT DVT { get; set; }
         public virtual LoaiSanPham LoaiSanPham { get; set; }
         public virtual NCC NCC { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

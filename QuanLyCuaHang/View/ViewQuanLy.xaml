@@ -38,6 +38,7 @@
                             Name="rdbNV"
                             Grid.Column="0"
                             FontWeight="Bold"
+                            IsChecked="True"
                             Command="{Binding TabNhanVien}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Unchecked">

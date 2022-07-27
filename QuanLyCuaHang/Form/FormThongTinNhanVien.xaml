@@ -298,6 +298,7 @@
                         BorderBrush="Aquamarine"
                         BorderThickness="2"
                         Command="{Binding DeleteNhanVien}"
+                            CommandParameter="{Binding ElementName=FormTTNV}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
                 </Grid>
 
@@ -313,6 +314,7 @@
                         Background="MediumAquamarine"
                         BorderBrush="Aquamarine"
                         BorderThickness="2"
+                        Command="{Binding ResetPassword}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
 
             </Grid>

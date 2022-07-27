@@ -12,8 +12,9 @@ namespace QuanLyCuaHang.Model
     using System;
     using System.Collections.Generic;
     using System.Windows.Media.Imaging;
+    using QuanLyCuaHang.ViewModel;
 
-    public partial class NhanVien
+    public partial class NhanVien:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhanVien()
@@ -21,18 +22,19 @@ namespace QuanLyCuaHang.Model
             this.HDBs = new HashSet<HDB>();
             this.TaiKhoans = new HashSet<TaiKhoan>();
         }
-    
+
+        private BitmapImage _Url;
+
         public string Id { get; set; }
         public string TenNV { get; set; }
         public string GioiTinh { get; set; }
-        public DateTime NgaySinh { get; set; }
+        public Nullable<System.DateTime> NgaySinh { get; set; }
         public string DiaChi { get; set; }
         public string SDT { get; set; }
         public string Email { get; set; }
         public Nullable<double> Luong { get; set; }
         public string Anh { get; set; }
-        public BitmapImage Url { get; set; }
-
+        public BitmapImage Url { get => _Url; set { _Url = value; OnPropertyChanged(); } }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HDB> HDBs { get; set; }
