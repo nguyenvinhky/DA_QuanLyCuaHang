@@ -18,7 +18,6 @@ namespace QuanLyCuaHang.ViewModel
 {
     public class NhanVienViewModel : BaseViewModel
     {
-        string stringIDNV = "";
         string IntroIDNV = "NVSJDI_";
         string directory;
         string fileiamge = null;

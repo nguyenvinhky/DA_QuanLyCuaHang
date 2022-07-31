@@ -36,14 +36,14 @@
                         CornerRadius="25"
                         Margin="10">
                     <Border.Effect>
-                        <DropShadowEffect ShadowDepth="5"/>
+                        <DropShadowEffect ShadowDepth="4" Color="#bbf906"/>
                     </Border.Effect>
                     <Border.Background>
                         <LinearGradientBrush>
-                            <GradientStop Color="#9D07F8" Offset="0.1"/>
-                            <GradientStop Color="#A22CEA" Offset="0.4"/>
-                            <GradientStop Color="#A751DC" Offset="0.6"/>
-                            <GradientStop Color="#AC76CE" Offset="0.9"/>
+                            <GradientStop Color="#f64209" Offset="0.1"/>
+                            <GradientStop Color="#f79308" Offset="0.4"/>
+                            <GradientStop Color="#f8d107" Offset="0.6"/>
+                            <GradientStop Color="#eaf906" Offset="0.9"/>
                         </LinearGradientBrush>
                     </Border.Background>
 
@@ -86,14 +86,14 @@
                         CornerRadius="25"
                         Margin="10">
                     <Border.Effect>
-                        <DropShadowEffect ShadowDepth="5"/>
+                        <DropShadowEffect ShadowDepth="4" Color="#f906b8"/>
                     </Border.Effect>
                     <Border.Background>
                         <LinearGradientBrush>
-                            <GradientStop Color="#F89D07" Offset="0.1"/>
-                            <GradientStop Color="#F5A421" Offset="0.4"/>
-                            <GradientStop Color="#F1AC3A" Offset="0.6"/>
-                            <GradientStop Color="#EEB354" Offset="0.9"/>
+                            <GradientStop Color="#4109f6" Offset="0.1"/>
+                            <GradientStop Color="#9005fa" Offset="0.4"/>
+                            <GradientStop Color="#d506f9" Offset="0.6"/>
+                            <GradientStop Color="#fa05eb" Offset="0.9"/>
                         </LinearGradientBrush>
                     </Border.Background>
 
@@ -136,14 +136,14 @@
                         CornerRadius="25"
                         Margin="10">
                     <Border.Effect>
-                        <DropShadowEffect ShadowDepth="5"/>
+                        <DropShadowEffect ShadowDepth="4" Color="#07b6f8"/>
                     </Border.Effect>
                     <Border.Background>
                         <LinearGradientBrush>
-                            <GradientStop Color="#07F89D" Offset="0.1"/>
-                            <GradientStop Color="#2FF2A8" Offset="0.4"/>
-                            <GradientStop Color="#57EDB4" Offset="0.6"/>
-                            <GradientStop Color="#7FE7BF" Offset="0.9"/>
+                            <GradientStop Color="#0af540" Offset="0.1"/>
+                            <GradientStop Color="#06f996" Offset="0.4"/>
+                            <GradientStop Color="#07f8d9" Offset="0.6"/>
+                            <GradientStop Color="#04ecfb" Offset="0.9"/>
                         </LinearGradientBrush>
                     </Border.Background>
 

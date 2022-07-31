@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="ResourceXAML/Button_DashDoard.xaml"/>
                 <ResourceDictionary Source="ResourceXAML/TextBlock_ButtonBoard.xaml"/>
                 <ResourceDictionary Source="ResourceXAML/TabMenuQuanLy.xaml"/>
+                <ResourceDictionary Source="ResourceXAML/CalendarReSource.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:SanPhamViewModel}">

@@ -23,10 +23,10 @@ namespace QuanLyCuaHang.Model
                 _ins = value; 
             } 
         }
-        public FashionShopEntities DB { get; set; }
+        public QuanLyCuaHangEntities DB { get; set; }
         private DataProvider()
         {
-            DB = new FashionShopEntities();
+            DB = new QuanLyCuaHangEntities();
         }
     }
 }

@@ -11,7 +11,8 @@ namespace QuanLyCuaHang.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows.Media.Imaging;
+
     public partial class SanPham
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -25,10 +26,13 @@ namespace QuanLyCuaHang.Model
         public string Anh { get; set; }
         public string TenSP { get; set; }
         public int IdLoaiSP { get; set; }
-        public int IdNCC { get; set; }
-    
+        public Nullable<double> GiaBan { get; set; }
+        public string GhiChu { get; set; }
+        private BitmapImage _Url;
+        public BitmapImage Url { get => _Url; set => _Url = value; }
+
         public virtual LoaiSanPham LoaiSanPham { get; set; }
-        public virtual NCC NCC { get; set; }
+        public virtual TonKho TonKho { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TTHDB> TTHDBs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

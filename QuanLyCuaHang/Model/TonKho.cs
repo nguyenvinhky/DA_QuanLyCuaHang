@@ -12,15 +12,11 @@ namespace QuanLyCuaHang.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class TTHDN
+    public partial class TonKho
     {
-        public string Id { get; set; }
         public string IdSP { get; set; }
-        public int IdNCC { get; set; }
-        public string IdHDN { get; set; }
+        public Nullable<int> SLTon { get; set; }
     
-        public virtual HDN HDN { get; set; }
-        public virtual NCC NCC { get; set; }
         public virtual SanPham SanPham { get; set; }
     }
 }

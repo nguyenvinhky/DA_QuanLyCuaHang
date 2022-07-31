@@ -81,6 +81,9 @@
     <Compile Include="Form\FormThemNhanVien.xaml.cs">
       <DependentUpon>FormThemNhanVien.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Form\FormThemSanPham.xaml.cs">
+      <DependentUpon>FormThemSanPham.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form\FormThongTinNhanVien.xaml.cs">
       <DependentUpon>FormThongTinNhanVien.xaml</DependentUpon>
     </Compile>
@@ -88,53 +91,65 @@
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\DataProvider.cs" />
-    <Compile Include="Model\FashionShop.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FashionShop.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\FashionShop.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FashionShop.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\FashionShop.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FashionShop.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Model\HDB.cs">
-      <DependentUpon>FashionShop.tt</DependentUpon>
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\HDN.cs">
-      <DependentUpon>FashionShop.tt</DependentUpon>
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\KhachHang.cs">
-      <DependentUpon>FashionShop.tt</DependentUpon>
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LoaiSanPham.cs">
-      <DependentUpon>FashionShop.tt</DependentUpon>
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LoaiTK.cs">
-      <DependentUpon>FashionShop.tt</DependentUpon>
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NCC.cs">
-      <DependentUpon>FashionShop.tt</DependentUpon>
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\NhanVien.cs">
-      <DependentUpon>FashionShop.tt</DependentUpon>
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuanLyCuaHang.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCuaHang.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuanLyCuaHang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\QuanLyCuaHang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyCuaHang.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\SanPham.cs">
-      <DependentUpon>FashionShop.tt</DependentUpon>
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Size.cs">
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagram.cs">
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TaiKhoan.cs">
-      <DependentUpon>FashionShop.tt</DependentUpon>
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TonKho.cs">
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TTHDB.cs">
-      <DependentUpon>FashionShop.tt</DependentUpon>
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TTHDN.cs">
-      <DependentUpon>FashionShop.tt</DependentUpon>
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TTNhapSP.cs">
+      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
@@ -191,6 +206,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Form\FormThemSanPham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Form\FormThongTinNhanVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -200,6 +219,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ResourceXAML\Button_DashDoard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResourceXAML\CalendarReSource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -294,12 +317,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\FashionShop.edmx">
+    <EntityDeploy Include="Model\QuanLyCuaHang.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FashionShop.Designer.cs</LastGenOutput>
+      <LastGenOutput>QuanLyCuaHang.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\FashionShop.edmx.diagram">
-      <DependentUpon>FashionShop.edmx</DependentUpon>
+    <None Include="Model\QuanLyCuaHang.edmx.diagram">
+      <DependentUpon>QuanLyCuaHang.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -320,15 +343,15 @@
     <Resource Include="Anh\Backround_Login.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\FashionShop.Context.tt">
+    <Content Include="Model\QuanLyCuaHang.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FashionShop.edmx</DependentUpon>
-      <LastGenOutput>FashionShop.Context.cs</LastGenOutput>
+      <DependentUpon>QuanLyCuaHang.edmx</DependentUpon>
+      <LastGenOutput>QuanLyCuaHang.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\FashionShop.tt">
+    <Content Include="Model\QuanLyCuaHang.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FashionShop.edmx</DependentUpon>
-      <LastGenOutput>FashionShop.cs</LastGenOutput>
+      <DependentUpon>QuanLyCuaHang.edmx</DependentUpon>
+      <LastGenOutput>QuanLyCuaHang.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

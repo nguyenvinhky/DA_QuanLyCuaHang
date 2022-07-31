@@ -18,6 +18,7 @@ namespace QuanLyCuaHang.Model
         public LoaiSanPham()
         {
             this.SanPhams = new HashSet<SanPham>();
+            this.Sizes = new HashSet<Size>();
         }
     
         public int Id { get; set; }
@@ -25,5 +26,7 @@ namespace QuanLyCuaHang.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPham> SanPhams { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Size> Sizes { get; set; }
     }
 }

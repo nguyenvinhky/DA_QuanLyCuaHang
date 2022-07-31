@@ -13,10 +13,10 @@ namespace QuanLyCuaHang.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FashionShopEntities : DbContext
+    public partial class QuanLyCuaHangEntities : DbContext
     {
-        public FashionShopEntities()
-            : base("name=FashionShopEntities")
+        public QuanLyCuaHangEntities()
+            : base("name=QuanLyCuaHangEntities")
         {
         }
     
@@ -33,8 +33,12 @@ namespace QuanLyCuaHang.Model
         public virtual DbSet<NCC> NCCs { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
+        public virtual DbSet<Size> Sizes { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
+        public virtual DbSet<TonKho> TonKhoes { get; set; }
         public virtual DbSet<TTHDB> TTHDBs { get; set; }
         public virtual DbSet<TTHDN> TTHDNs { get; set; }
+        public virtual DbSet<TTNhapSP> TTNhapSPs { get; set; }
     }
 }

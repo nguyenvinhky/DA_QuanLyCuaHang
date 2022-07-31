@@ -1,0 +1,227 @@
+﻿<Window x:Class="QuanLyCuaHang.Form.FormThemSanPham"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:QuanLyCuaHang.Form"
+        xmlns:uc="clr-namespace:QuanLyCuaHang.View"
+        mc:Ignorable="d"
+        DataContext="{StaticResource spVM}"
+        Title="FormThongTinNhanVien" Height="580" Width="840"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        Name="FormTTNV"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.RowSpan="3"
+                 CornerRadius="25"
+                BorderThickness="4"
+                BorderBrush="MediumAquamarine">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="White" Offset="0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <uc:ConTrolBarUC Grid.Row="0"/>
+
+        <TextBlock Grid.Row="1" 
+                   Text="THÊM SẢN PHẨM MỚI"
+                   Foreground="MediumAquamarine"
+                   FontSize="30"
+                   FontWeight="Black"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Margin="20 0 20 0"/>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0"
+                        Margin="10">
+                <Border Width="320"
+                        Height="378"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Margin="10 0 0 0">
+                    <Ellipse>
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="{Binding ImagesSP,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
+
+                <Button Grid.Column="2"
+                        Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                        Content="CHỌN ẢNH SẢN PHẨM"
+                        FontWeight="Bold"
+                        Height="50"
+                        Width="280"
+                        FontSize="15"
+                        Margin="10 35 10 10"
+                        materialDesign:ButtonAssist.CornerRadius="10"
+                        Background="MediumAquamarine"
+                        BorderBrush="Aquamarine"
+                        Command="{Binding ChooseImages}"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+            </StackPanel>
+
+            <Grid Grid.Column="1"
+                  Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         Grid.Column="0"
+                         Text="{Binding Id}"
+                         VerticalAlignment="Top"
+                         Width="auto"
+                         Height="60"
+                         FontWeight="Bold"
+                         FontSize="12"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"
+                         BorderBrush="Aquamarine"
+                         BorderThickness="4"
+                         Margin="5"
+                         VerticalScrollBarVisibility="Auto"
+                         materialDesign:HintAssist.Hint="MÃ SẢN PHẨM"
+                         Foreground="MediumAquamarine"/>
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         Grid.Column="1"
+                         Text="{Binding TenSP}"
+                         VerticalAlignment="Top"
+                         Width="auto"
+                         Height="60"
+                         FontWeight="Bold"
+                         FontSize="12"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"
+                         BorderBrush="Aquamarine"
+                         BorderThickness="4"
+                         Margin="5"
+                         VerticalScrollBarVisibility="Auto"
+                         materialDesign:HintAssist.Hint="TÊN SẢN PHẨM"
+                         Foreground="MediumAquamarine"/>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         Grid.Column="0"
+                         Text="{Binding GiaBan}"
+                         VerticalAlignment="Top"
+                         Width="auto"
+                         Height="60"
+                         FontWeight="Bold"
+                         FontSize="12"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"
+                         BorderBrush="Aquamarine"
+                         BorderThickness="4"
+                         Margin="5"
+                         VerticalScrollBarVisibility="Auto"
+                         materialDesign:HintAssist.Hint="GIÁ BÁN"
+                         Foreground="MediumAquamarine"/>
+
+                    <ComboBox x:Name="OutlinedComboBox"
+                              Grid.Column="1"
+                              BorderBrush="Aquamarine"
+                              BorderThickness="4"
+                              Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                              materialDesign:HintAssist.Hint="LOẠI SAN PHẨM"
+                              Foreground="MediumAquamarine"
+                              FontWeight="Bold"
+                              ItemsSource="{Binding ListCBB_LSP}"
+                              SelectedValue="{Binding SelectedValue_LSP}"
+                              DisplayMemberPath="TenLoaiSP"
+                              Margin="5"
+                              Width="auto" />
+                </Grid>
+
+                <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         Grid.Row="2"
+                         Text="{Binding GhiChu}"
+                         VerticalAlignment="Top"
+                         Height="250"
+                         FontSize="12"
+                         AcceptsReturn="True"
+                         TextWrapping="Wrap"
+                         BorderBrush="Aquamarine"
+                         BorderThickness="5"
+                         FontWeight="Bold"
+                         Margin="5"
+                         Foreground="MediumAquamarine"
+                         VerticalScrollBarVisibility="Auto"
+                         materialDesign:HintAssist.Hint="THÔNG TIN GHI CHÚ"/>
+                <Grid Grid.Row="3"
+                      Margin="0 10 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0"
+                        Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                        Content="THÊM SẢN PHẨM"
+                        FontWeight="Bold"
+                        Height="50"
+                        Width="auto"
+                        FontSize="15"
+                        Margin="10 0 10 10"
+                        materialDesign:ButtonAssist.CornerRadius="10"
+                        Background="MediumAquamarine"
+                        BorderBrush="Aquamarine"
+                        BorderThickness="2"
+                        Command="{Binding AddSanPham}"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+
+                    <Button Grid.Column="1"
+                        Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                        Content="HỦY"
+                        FontWeight="Bold"
+                        Height="50"
+                        Width="auto"
+                        FontSize="15"
+                        Margin="10 0 10 10"
+                        materialDesign:ButtonAssist.CornerRadius="10"
+                        Background="MediumAquamarine"
+                        BorderBrush="Aquamarine"
+                        BorderThickness="2"
+                            Command="{Binding HuyClick}"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

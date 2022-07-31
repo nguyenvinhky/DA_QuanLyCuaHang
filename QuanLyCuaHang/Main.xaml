@@ -300,15 +300,7 @@
                 </StackPanel>
 
                 <Calendar Grid.Row="2"
-                          HorizontalAlignment="Left" 
-                          Name="calendar1" 
-                          VerticalAlignment="Top"
-                          FontWeight="Black"
-                          Margin="5 20 5 5"
-                          Background="Transparent"
-                          Foreground="White"
-                          Width="auto"
-                          Height="auto"/>
+                          Style="{StaticResource CustomCalendarStyle}"/>
 
             </Grid>
 
