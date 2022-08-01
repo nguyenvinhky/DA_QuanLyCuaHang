@@ -25,7 +25,7 @@ namespace QuanLyCuaHang.ViewModel
                 var w = window as Window;
                 if (w != null)
                 {
-                    if (w.Name == "FormTTNV")
+                    if (w.Name == "Form")
                     {
                         w.Close();
                     }

@@ -5,7 +5,7 @@
            x:Key="TabMenuQuanLy">
 
         <Setter Property="Margin" Value="0 2 0 0"/>
-        <Setter Property="Width" Value="180"/>
+        <Setter Property="Width" Value="150"/>
         <Setter Property="Height" Value="40"/>
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="BorderBrush" Value="Transparent"></Setter>

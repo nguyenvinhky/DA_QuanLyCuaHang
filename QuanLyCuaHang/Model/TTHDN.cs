@@ -17,10 +17,14 @@ namespace QuanLyCuaHang.Model
         public string Id { get; set; }
         public string IdSP { get; set; }
         public int IdNCC { get; set; }
+        public int IdSize { get; set; }
         public string IdHDN { get; set; }
+        public Nullable<double> GiaNhap { get; set; }
+        public Nullable<int> SLNhap { get; set; }
     
         public virtual HDN HDN { get; set; }
         public virtual NCC NCC { get; set; }
         public virtual SanPham SanPham { get; set; }
+        public virtual Size Size { get; set; }
     }
 }

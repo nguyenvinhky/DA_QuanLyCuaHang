@@ -12,11 +12,11 @@ namespace QuanLyCuaHang.ViewModel
 {
     public class QuanLyViewModel : BaseViewModel
     {
-        private int index;
         public ICommand TabNhanVien { get; set; }
         public ICommand TabNCC { get; set; }
         public ICommand TabLoaiSP { get; set; }
         public ICommand TabLoaiTK { get; set; }
+        public ICommand TabSize { get; set; }
 
 
         private object _tabQuanLyView;
@@ -34,6 +34,7 @@ namespace QuanLyCuaHang.ViewModel
         public NCCViewModel NCC { get; set; }
         public LoaiSanPhamViewModel LSP { get; set; }
         public LoaiTKViewModel LTK { get; set; }
+        public SizeViewModel S { get; set; }
 
 
         public QuanLyViewModel()
@@ -42,6 +43,7 @@ namespace QuanLyCuaHang.ViewModel
             NCC = new NCCViewModel();
             LSP = new LoaiSanPhamViewModel();
             LTK = new LoaiTKViewModel();
+            S = new SizeViewModel();
 
             tabQuanLyView = NV;
 
@@ -61,6 +63,11 @@ namespace QuanLyCuaHang.ViewModel
 
             TabLoaiTK = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
                 tabQuanLyView = LTK;
+
+            });
+
+            TabSize = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
+                tabQuanLyView = S;
 
             });
         }

@@ -31,6 +31,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
                 <RadioButton Content="NHÂN VIÊN"
@@ -86,6 +87,20 @@
                         <i:EventTrigger EventName="Unchecked">
                             <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
                                                        CommandParameter="{Binding ElementName=rdbLTK}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </RadioButton>
+
+                <RadioButton Content="SIZE"
+                            Style="{StaticResource TabMenuQuanLy}"
+                            Name="rdbSize"
+                            Grid.Column="4"
+                            FontWeight="Bold"
+                            Command="{Binding TabSize}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Unchecked">
+                            <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbSize}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </RadioButton>

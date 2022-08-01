@@ -6,6 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:QuanLyCuaHang.View"
              mc:Ignorable="d" 
+             DataContext="{StaticResource NhapHangVM}"
              d:DesignHeight="450" d:DesignWidth="800">
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.5}">
         <Grid>
@@ -63,15 +64,15 @@
                 <Button Grid.Column="3"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
                         ToolTip="Resource name: MaterialDesignRaisedSecondaryDarkButton"
-                        Content="TẠO"
+                        Content="TẠO HÓA ĐƠN"
                         FontWeight="Bold"
                         Height="45"
-                        Width="100"
+                        Width="120"
                         FontSize="10"
                         Margin="10"
+                        Command="{Binding CreateHDN}"
                         materialDesign:ButtonAssist.CornerRadius="10"
-                        Background="MediumAquamarine"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+                        Background="MediumAquamarine"/>
             </StackPanel>
 
             <Border Grid.Row="2"
@@ -94,36 +95,22 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Text="Mã KH"
+                <TextBlock Text="MÃ HÓA ĐƠN"
                            Grid.Column="0"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <TextBlock Text="TÊN KHÁCH HÀNG"
+                <TextBlock Text="NGÀY NHẬP"
                            Grid.Column="1"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <TextBlock Text="SỐ ĐIỆN THOẠI"
+                <TextBlock Text="TỔNG TIỀN"
                            Grid.Column="2"
-                           FontWeight="Bold"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
-
-                <TextBlock Text="ĐỊA CHỈ"
-                           Grid.Column="3"
-                           FontWeight="Bold"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
-
-                <TextBlock Text="EMAIL"
-                           Grid.Column="4"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
@@ -131,6 +118,7 @@
             </Grid>
 
             <ListView Grid.Row="3"
+                      ItemsSource="{Binding ListHDN}"
                       HorizontalAlignment="Center"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden">
@@ -152,44 +140,25 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Text="ádasd"
-                                       Grid.Column="0"
-                                       FontWeight="Bold"
-                                       Foreground="White"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Id}"
+                                           Grid.Column="0"
+                                           FontWeight="Bold"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
 
-                                <TextBlock Text="Nhân viên"
-                                       Grid.Column="1"
-                                       FontWeight="Bold"
-                                       Foreground="White"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding NgayNhap}"
+                                           Grid.Column="1"
+                                           FontWeight="Bold"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
 
-                                <TextBlock Text="Khách hàng"
-                                       Grid.Column="2"
-                                       FontWeight="Bold"
-                                       Foreground="White"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-
-                                <TextBlock Text="Ngày bán"
-                                       Grid.Column="3"
-                                       FontWeight="Bold"
-                                       Foreground="White"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-
-                                <TextBlock Text="Trị giá"
-                                       Grid.Column="4"
-                                       FontWeight="Bold"
-                                       Foreground="White"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding TongTienHDN}"
+                                           Grid.Column="2"
+                                           FontWeight="Bold"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
 
                             </Grid>
                         </Border>

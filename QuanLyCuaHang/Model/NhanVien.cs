@@ -34,7 +34,6 @@ namespace QuanLyCuaHang.Model
         private BitmapImage _Url;
         public BitmapImage Url { get => _Url; set => _Url = value; }
 
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HDB> HDBs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

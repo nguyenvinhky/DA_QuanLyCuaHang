@@ -22,6 +22,7 @@ namespace QuanLyCuaHang.Model
     
         public string Id { get; set; }
         public Nullable<System.DateTime> NgayNhap { get; set; }
+        public Nullable<double> TongTienHDN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TTHDN> TTHDNs { get; set; }

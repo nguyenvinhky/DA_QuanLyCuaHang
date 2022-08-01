@@ -14,11 +14,21 @@ namespace QuanLyCuaHang.Model
     
     public partial class Size
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Size()
+        {
+            this.TonKhoes = new HashSet<TonKho>();
+            this.TTHDNs = new HashSet<TTHDN>();
+        }
+    
         public int Id { get; set; }
         public int IdLSP { get; set; }
         public string KichThuoc { get; set; }
     
         public virtual LoaiSanPham LoaiSanPham { get; set; }
-        public virtual TTNhapSP TTNhapSP { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TonKho> TonKhoes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TTHDN> TTHDNs { get; set; }
     }
 }

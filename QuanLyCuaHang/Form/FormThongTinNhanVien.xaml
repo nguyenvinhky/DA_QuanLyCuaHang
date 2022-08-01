@@ -12,7 +12,7 @@
         AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
-        Name="FormTTNV"
+        Name="Form"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid>

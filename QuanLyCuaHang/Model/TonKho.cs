@@ -15,8 +15,10 @@ namespace QuanLyCuaHang.Model
     public partial class TonKho
     {
         public string IdSP { get; set; }
+        public int IdSize { get; set; }
         public Nullable<int> SLTon { get; set; }
     
         public virtual SanPham SanPham { get; set; }
+        public virtual Size Size { get; set; }
     }
 }

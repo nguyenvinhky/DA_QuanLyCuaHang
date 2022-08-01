@@ -9,4 +9,6 @@
     <viewmodel:LoaiSanPhamViewModel x:Key="lspVM"></viewmodel:LoaiSanPhamViewModel>
     <viewmodel:LoaiTKViewModel x:Key="ltkVM"></viewmodel:LoaiTKViewModel>
     <viewmodel:SanPhamViewModel x:Key="spVM"></viewmodel:SanPhamViewModel>
+    <viewmodel:SizeViewModel x:Key="sizeVM"></viewmodel:SizeViewModel>
+    <viewmodel:NhapHangViewModel x:Key="NhapHangVM"></viewmodel:NhapHangViewModel>
 </ResourceDictionary>

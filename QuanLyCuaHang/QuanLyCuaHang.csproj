@@ -78,6 +78,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Form\FormThemHoaDon.xaml.cs">
+      <DependentUpon>FormThemHoaDon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form\FormThemNhanVien.xaml.cs">
       <DependentUpon>FormThemNhanVien.xaml</DependentUpon>
     </Compile>
@@ -148,9 +151,6 @@
     <Compile Include="Model\TTHDN.cs">
       <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\TTNhapSP.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
-    </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\DonHangViewModel.cs" />
@@ -162,8 +162,10 @@
     <Compile Include="ViewModel\NCCViewModel.cs" />
     <Compile Include="ViewModel\NhanVienViewModel.cs" />
     <Compile Include="ViewModel\NhapHangViewModel.cs" />
+    <Compile Include="ViewModel\ObservableCollecton.cs" />
     <Compile Include="ViewModel\QuanLyViewModel.cs" />
     <Compile Include="ViewModel\SanPhamViewModel.cs" />
+    <Compile Include="ViewModel\SizeViewModel.cs" />
     <Compile Include="ViewModel\ThongKeViewModel.cs" />
     <Compile Include="ViewModel\TrangChuViewModel.cs" />
     <Compile Include="View\ConTrolBarUC.xaml.cs">
@@ -199,9 +201,16 @@
     <Compile Include="View\ViewSanPham.xaml.cs">
       <DependentUpon>ViewSanPham.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewSize.xaml.cs">
+      <DependentUpon>ViewSize.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewThongKe.xaml.cs">
       <DependentUpon>ViewThongKe.xaml</DependentUpon>
     </Compile>
+    <Page Include="Form\FormThemHoaDon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Form\FormThemNhanVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -291,6 +300,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewSanPham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewSize.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

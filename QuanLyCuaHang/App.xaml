@@ -64,6 +64,10 @@
                 <view:ViewLoaiTK/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:SizeViewModel}">
+                <view:ViewSize/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -18,6 +18,7 @@ namespace QuanLyCuaHang.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SanPham()
         {
+            this.TonKhoes = new HashSet<TonKho>();
             this.TTHDBs = new HashSet<TTHDB>();
             this.TTHDNs = new HashSet<TTHDN>();
         }
@@ -32,7 +33,8 @@ namespace QuanLyCuaHang.Model
         public BitmapImage Url { get => _Url; set => _Url = value; }
 
         public virtual LoaiSanPham LoaiSanPham { get; set; }
-        public virtual TonKho TonKho { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TonKho> TonKhoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TTHDB> TTHDBs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

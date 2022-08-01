@@ -23,10 +23,10 @@ namespace QuanLyCuaHang.Model
                 _ins = value; 
             } 
         }
-        public QuanLyCuaHangEntities DB { get; set; }
+        public demoEntities DB { get; set; }
         private DataProvider()
         {
-            DB = new QuanLyCuaHangEntities();
+            DB = new demoEntities();
         }
     }
 }
