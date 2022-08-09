@@ -1,4 +1,5 @@
 ﻿using QuanLyCuaHang.Model;
+using QuanLyCuaHang.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -59,6 +60,10 @@ namespace QuanLyCuaHang.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
 
                 ListLSP.Add(LoaiSanPham);
+
+                ViewSize vs = new ViewSize();
+                var x = vs.DataContext as SizeViewModel;
+                x.ListCBB_LSP.Add(LoaiSanPham);
             });
 
 

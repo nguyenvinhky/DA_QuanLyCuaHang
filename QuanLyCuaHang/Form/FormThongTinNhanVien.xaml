@@ -298,7 +298,7 @@
                         BorderBrush="Aquamarine"
                         BorderThickness="2"
                         Command="{Binding DeleteNhanVien}"
-                            CommandParameter="{Binding ElementName=FormTTNV}"
+                        CommandParameter="{Binding ElementName=Form}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
                 </Grid>
 

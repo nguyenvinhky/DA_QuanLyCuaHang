@@ -24,6 +24,7 @@ namespace QuanLyCuaHang.Model
         public string IdNV { get; set; }
         public string IdKH { get; set; }
         public Nullable<System.DateTime> NgayBan { get; set; }
+        public Nullable<double> TongTien { get; set; }
     
         public virtual KhachHang KhachHang { get; set; }
         public virtual NhanVien NhanVien { get; set; }

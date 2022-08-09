@@ -76,7 +76,7 @@
             </StackPanel>
 
             <Border Grid.Row="2"
-                    CornerRadius="10"
+                    CornerRadius="25"
                     Width="730"
                     Height="50"
                     Margin="10">
@@ -119,13 +119,14 @@
 
             <ListView Grid.Row="3"
                       ItemsSource="{Binding ListHDN}"
+                      SelectedItem="{Binding SelectedItemHDN}"
                       HorizontalAlignment="Center"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Grid.Row="2"
-                                CornerRadius="10"
+                                CornerRadius="25"
                                 Width="730"
                                 Height="50"
                                 Margin="3 0 0 0">
@@ -154,7 +155,7 @@
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"/>
 
-                                <TextBlock Text="{Binding TongTienHDN}"
+                                <TextBlock Text="{Binding TongTienHDN, StringFormat={}{0:#,# VNĐ}}"
                                            Grid.Column="2"
                                            FontWeight="Bold"
                                            HorizontalAlignment="Center"

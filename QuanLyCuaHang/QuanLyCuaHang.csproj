@@ -78,8 +78,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Form\FormCTHD.xaml.cs">
+      <DependentUpon>FormCTHD.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form\FormThemHoaDon.xaml.cs">
       <DependentUpon>FormThemHoaDon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormThemHoaDonBan.xaml.cs">
+      <DependentUpon>FormThemHoaDonBan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormThemKhachHang.xaml.cs">
+      <DependentUpon>FormThemKhachHang.xaml</DependentUpon>
     </Compile>
     <Compile Include="Form\FormThemNhanVien.xaml.cs">
       <DependentUpon>FormThemNhanVien.xaml</DependentUpon>
@@ -89,6 +98,12 @@
     </Compile>
     <Compile Include="Form\FormThongTinNhanVien.xaml.cs">
       <DependentUpon>FormThongTinNhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormTTCTKH.xaml.cs">
+      <DependentUpon>FormTTCTKH.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormTTSP.xaml.cs">
+      <DependentUpon>FormTTSP.xaml</DependentUpon>
     </Compile>
     <Compile Include="Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
@@ -115,6 +130,7 @@
     <Compile Include="Model\NhanVien.cs">
       <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\ObjectGioiTinh.cs" />
     <Compile Include="Model\QuanLyCuaHang.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -134,9 +150,6 @@
       <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Size.cs">
-      <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TaiKhoan.cs">
@@ -162,7 +175,6 @@
     <Compile Include="ViewModel\NCCViewModel.cs" />
     <Compile Include="ViewModel\NhanVienViewModel.cs" />
     <Compile Include="ViewModel\NhapHangViewModel.cs" />
-    <Compile Include="ViewModel\ObservableCollecton.cs" />
     <Compile Include="ViewModel\QuanLyViewModel.cs" />
     <Compile Include="ViewModel\SanPhamViewModel.cs" />
     <Compile Include="ViewModel\SizeViewModel.cs" />
@@ -207,7 +219,19 @@
     <Compile Include="View\ViewThongKe.xaml.cs">
       <DependentUpon>ViewThongKe.xaml</DependentUpon>
     </Compile>
+    <Page Include="Form\FormCTHD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Form\FormThemHoaDon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\FormThemHoaDonBan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\FormThemKhachHang.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -220,6 +244,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Form\FormThongTinNhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\FormTTCTKH.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\FormTTSP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

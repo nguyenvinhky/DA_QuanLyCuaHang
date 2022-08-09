@@ -54,7 +54,6 @@
                                  Style="{StaticResource MaterialDesignOutlinedTextBox}" />
 
                         <ComboBox Background="White"
-                                 Text="{Binding LSP, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                  Margin="50 10 0 10"
                                  Height="50"
                                  Width="200"
@@ -62,13 +61,14 @@
                                  FontWeight="UltraBlack"
                                  BorderBrush="Aquamarine"
                                  BorderThickness="2"
+                                  DisplayMemberPath="TenLoaiSP"
                                  Foreground="MediumAquamarine"
                                  materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                  materialDesign:HintAssist.Hint="KÍCH THƯỚC"
-                                 ItemsSource="{Binding ListCBB_LSP}"
-                                 SelectedValue="{Binding SelectedId_LSP}"
-                                 DisplayMemberPath="TenLoaiSP"
-                                 Style="{StaticResource MaterialDesignOutlinedComboBox}" />
+                                 ItemsSource="{Binding ListCBB_LSP, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
+                                 SelectedItem="{Binding SelectedId_LSP}"
+                                 Style="{StaticResource MaterialDesignOutlinedComboBox}">
+                        </ComboBox>
 
                         <TextBox Background="White"
                                  Text="{Binding KichThuoc, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"

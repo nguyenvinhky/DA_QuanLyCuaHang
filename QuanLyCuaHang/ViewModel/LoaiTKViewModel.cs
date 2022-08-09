@@ -1,4 +1,5 @@
-﻿using QuanLyCuaHang.Model;
+﻿using QuanLyCuaHang.Form;
+using QuanLyCuaHang.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -60,6 +61,10 @@ namespace QuanLyCuaHang.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
 
                 ListLTK.Add(loaiTK);
+
+                FormThemNhanVien tnv = new FormThemNhanVien();
+                var x = tnv.DataContext as NhanVienViewModel;
+                x.CBBLoaiTKList.Add(loaiTK);
             });
 
 

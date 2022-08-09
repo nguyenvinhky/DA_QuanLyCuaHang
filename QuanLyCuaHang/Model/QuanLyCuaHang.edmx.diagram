@@ -4,35 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5a90a21b2de34f989c516af3164478c9" Name="Diagram1">
-        <EntityTypeShape EntityType="demoModel.HDB" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.HDN" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.KhachHang" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.LoaiSanPham" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.LoaiTK" Width="1.5" PointX="0.75" PointY="20.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.NCC" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.NhanVien" Width="1.5" PointX="0.75" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.SanPham" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.Size" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.sysdiagram" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.TaiKhoan" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.TonKho" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.TTHDB" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="demoModel.TTHDN" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
-        <AssociationConnector Association="demoModel.FK__HDB__IdKH__44FF419A" ManuallyRouted="false" />
-        <AssociationConnector Association="demoModel.FK__HDB__IdNV__440B1D61" ManuallyRouted="false" />
-        <AssociationConnector Association="demoModel.FK__TTHDB__IdHDB__48CFD27E" ManuallyRouted="false" />
-        <AssociationConnector Association="demoModel.FK__TTHDN__IdHDN__403A8C7D" ManuallyRouted="false" />
-        <AssociationConnector Association="demoModel.FK__SanPham__GhiChu__300424B4" ManuallyRouted="false" />
+      <Diagram DiagramId="ab94f93fce084f57901693c673bfa5e8" Name="Diagram1">
+        <EntityTypeShape EntityType="demoModel.HDB" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoModel.HDN" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoModel.KhachHang" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoModel.LoaiSanPham" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoModel.LoaiTK" Width="1.5" PointX="0.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoModel.NCC" Width="1.5" PointX="6" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoModel.NhanVien" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoModel.SanPham" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoModel.Size" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoModel.TaiKhoan" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoModel.TonKho" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoModel.TTHDB" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="demoModel.TTHDN" Width="1.5" PointX="8.25" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="demoModel.FK__HDB__IdKH__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="demoModel.FK__HDB__TongTien__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="demoModel.FK__TTHDB__IdHDB__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="demoModel.FK__TTHDN__IdHDN__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="demoModel.FK__SanPham__GhiChu__30F848ED" ManuallyRouted="false" />
         <AssociationConnector Association="demoModel.FK__Size__IdLSP__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="demoModel.FK__TaiKhoan__IdLoai__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="demoModel.FK__TTHDN__IdNCC__403A8C7D" ManuallyRouted="false" />
         <AssociationConnector Association="demoModel.FK__TaiKhoan__IdLoai__398D8EEE" ManuallyRouted="false" />
-        <AssociationConnector Association="demoModel.FK__TTHDN__IdNCC__3F466844" ManuallyRouted="false" />
-        <AssociationConnector Association="demoModel.FK__TaiKhoan__IdLoai__38996AB5" ManuallyRouted="false" />
-        <AssociationConnector Association="demoModel.FK__TonKho__IdSP__32E0915F" ManuallyRouted="false" />
-        <AssociationConnector Association="demoModel.FK__TTHDB__GhiChu__47DBAE45" ManuallyRouted="false" />
-        <AssociationConnector Association="demoModel.FK__TTHDN__IdSP__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="demoModel.FK__TonKho__IdSize__33D4B598" ManuallyRouted="false" />
-        <AssociationConnector Association="demoModel.FK__TTHDN__IdSize__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="demoModel.FK__TonKho__IdSP__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="demoModel.FK__TTHDB__IdSP__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="demoModel.FK__TTHDN__IdSP__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="demoModel.FK__TonKho__IdSize__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="demoModel.FK__TTHDB__IdSize__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="demoModel.FK__TTHDN__IdSize__4222D4EF" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

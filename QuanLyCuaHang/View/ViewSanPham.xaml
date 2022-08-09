@@ -72,7 +72,7 @@
             </StackPanel>
 
             <ListView Grid.Row="2"
-                      SelectedItem="{Binding SelectedSanPham}"
+                      SelectedItem="{Binding SelectedItemSP}"
                       x:Name="ListViewProducts"
                       ItemsSource="{Binding ListSanPham}"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -81,7 +81,7 @@
                     <DataTemplate>
                         <Border Margin="5" 
                                 Width="160"
-                                Height="210"
+                                Height="230"
                                 Background="White"
                                 CornerRadius="20">
                             <Border.Effect>
@@ -96,18 +96,41 @@
                                         <ImageBrush ImageSource="{Binding Url}"/>
                                     </Border.Background>
                                 </Border>
-                                <TextBlock Text="{Binding GiaBan, StringFormat={}{0:#,# VNĐ}}"
+                                <StackPanel>
+                                    <TextBlock Text="{Binding GiaBan, StringFormat={}{0:#,# VNĐ}}"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             Margin="5"
                                             FontSize="14"
                                             FontWeight="Bold"
                                             Foreground="Black"/>
-                                <TextBlock Margin="5 0 5 5" Text="{Binding TenSP}"
+
+                                    <TextBlock Margin="5 0 5 5" Text="{Binding TenSP}"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             FontWeight="Bold"
                                             Foreground="Black"/>
+
+
+                                    <StackPanel HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Orientation="Horizontal">
+
+                                        <TextBlock Text="GIẢM GIÁ "
+                                                   FontSize="10"
+                                                   HorizontalAlignment="Right"
+                                                   VerticalAlignment="Center"
+                                                   Foreground="Black"
+                                                   FontWeight="Black"/>
+
+                                        <TextBlock Text="{Binding GiamGia, StringFormat={}{0}%}"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center"
+                                                   FontWeight="Black"
+                                                   FontSize="10"
+                                                   Foreground="Black"/>
+                                    </StackPanel>
+                                </StackPanel>
                             </StackPanel>
                         </Border>
                     </DataTemplate>

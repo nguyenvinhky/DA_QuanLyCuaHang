@@ -18,6 +18,7 @@ namespace QuanLyCuaHang.Model
         public Size()
         {
             this.TonKhoes = new HashSet<TonKho>();
+            this.TTHDBs = new HashSet<TTHDB>();
             this.TTHDNs = new HashSet<TTHDN>();
         }
     
@@ -28,6 +29,8 @@ namespace QuanLyCuaHang.Model
         public virtual LoaiSanPham LoaiSanPham { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TonKho> TonKhoes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TTHDB> TTHDBs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TTHDN> TTHDNs { get; set; }
     }

@@ -24,9 +24,7 @@
         </Grid.RowDefinitions>
 
         <Border Grid.RowSpan="3"
-                 CornerRadius="25"
-                BorderThickness="4"
-                BorderBrush="MediumAquamarine">
+                 CornerRadius="25">
             <Border.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="White" Offset="0"/>
@@ -37,7 +35,7 @@
         <uc:ConTrolBarUC Grid.Row="0"/>
 
         <TextBlock Grid.Row="1" 
-                   Text="THÊM SẢN PHẨM MỚI"
+                   Text="SẢN PHẨM MỚI"
                    Foreground="MediumAquamarine"
                    FontSize="30"
                    FontWeight="Black"
@@ -47,17 +45,16 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0"
                         Margin="10">
-                <Border Width="320"
-                        Height="378"
+                <Border Width="400"
+                        Height="400"
                         VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Margin="10 0 0 0">
+                        HorizontalAlignment="Center">
                     <Ellipse>
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="{Binding ImagesSP,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -68,21 +65,24 @@
                 <Button Grid.Column="2"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
                         Content="CHỌN ẢNH SẢN PHẨM"
-                        FontWeight="Bold"
                         Height="50"
                         Width="280"
                         FontSize="15"
-                        Margin="10 35 10 10"
-                        materialDesign:ButtonAssist.CornerRadius="10"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        materialDesign:ButtonAssist.CornerRadius="25"
                         Background="MediumAquamarine"
-                        BorderBrush="Aquamarine"
-                        Command="{Binding ChooseImages}"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+                        FontWeight="Black"
+                        BorderThickness="3"
+                        BorderBrush="Black"
+                        Foreground="Black"
+                        Command="{Binding ChooseImages}"/>
             </StackPanel>
 
             <Grid Grid.Column="1"
                   Margin="10">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -95,39 +95,46 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                         Grid.Column="0"
-                         Text="{Binding Id}"
-                         VerticalAlignment="Top"
-                         Width="auto"
-                         Height="60"
-                         FontWeight="Bold"
-                         FontSize="12"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         BorderBrush="Aquamarine"
-                         BorderThickness="4"
-                         Margin="5"
-                         VerticalScrollBarVisibility="Auto"
-                         materialDesign:HintAssist.Hint="MÃ SẢN PHẨM"
-                         Foreground="MediumAquamarine"/>
+                    <StackPanel Grid.Column="0"
+                                Margin="5">
+                        <TextBlock Text="MÃ SẢN PHẨM"
+                                   FontWeight="Black"
+                                   Foreground="MediumAquamarine"
+                                   Margin="20 0 0 0"
+                                   FontSize="15"/>
+                        <TextBox  BorderBrush="Black"
+                                  Text="{Binding Id}"
+                                  BorderThickness="3"
+                                  FontSize="11"
+                                  FontWeight="Black"
+                                  materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                                  materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                  materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                                  Width="auto"
+                                  Height="50"
+                                  materialDesign:HintAssist.Hint="MÃ SẢN PHẨM"/>
+                    </StackPanel>
 
-                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                         Grid.Column="1"
-                         Text="{Binding TenSP}"
-                         VerticalAlignment="Top"
-                         Width="auto"
-                         Height="60"
-                         FontWeight="Bold"
-                         FontSize="12"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         BorderBrush="Aquamarine"
-                         BorderThickness="4"
-                         Margin="5"
-                         VerticalScrollBarVisibility="Auto"
-                         materialDesign:HintAssist.Hint="TÊN SẢN PHẨM"
-                         Foreground="MediumAquamarine"/>
+
+                    <StackPanel Grid.Column="1"
+                                Margin="5">
+                        <TextBlock Text="TÊN SẢN PHẨM"
+                                   FontWeight="Black"
+                                   Foreground="MediumAquamarine"
+                                   Margin="20 0 0 0"
+                                   FontSize="15"/>
+                        <TextBox  BorderBrush="Black"
+                                  Text="{Binding TenSP}"
+                                  BorderThickness="3"
+                                  FontSize="11"
+                                  FontWeight="Black"
+                                  materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                                  materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                  materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                                  Width="auto"
+                                  Height="50"
+                                  materialDesign:HintAssist.Hint="TÊN SẢN PHẨM"/>
+                    </StackPanel>
                 </Grid>
 
                 <Grid Grid.Row="1">
@@ -136,54 +143,111 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                         Grid.Column="0"
-                         Text="{Binding GiaBan}"
-                         VerticalAlignment="Top"
-                         Width="auto"
-                         Height="60"
-                         FontWeight="Bold"
-                         FontSize="12"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         BorderBrush="Aquamarine"
-                         BorderThickness="4"
-                         Margin="5"
-                         VerticalScrollBarVisibility="Auto"
-                         materialDesign:HintAssist.Hint="GIÁ BÁN"
-                         Foreground="MediumAquamarine"/>
+                    <StackPanel Grid.Column="0"
+                                Margin="5">
+                        <TextBlock Text="GIÁ BÁN"
+                                   FontWeight="Black"
+                                   Foreground="MediumAquamarine"
+                                   Margin="20 0 0 0"
+                                   FontSize="15"/>
+                        <TextBox  BorderBrush="Black"
+                                  Text="{Binding GiaBan}"
+                                  BorderThickness="3"
+                                  FontSize="11"
+                                  FontWeight="Black"
+                                  materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                                  materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                  materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                                  Width="auto"
+                                  Height="50"
+                                  materialDesign:HintAssist.Hint="GIÁ BÁN"/>
+                    </StackPanel>
 
-                    <ComboBox x:Name="OutlinedComboBox"
-                              Grid.Column="1"
-                              BorderBrush="Aquamarine"
-                              BorderThickness="4"
+                    <StackPanel Grid.Column="1"
+                                Margin="5">
+                        <TextBlock Text="LOẠI SẢN PHẨM"
+                                   FontWeight="Black"
+                                   Foreground="MediumAquamarine"
+                                   Margin="20 0 0 0"
+                                   FontSize="15"/>
+                        <ComboBox Grid.Column="1"
+                              BorderBrush="Black"
+                              BorderThickness="3"
                               Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                              materialDesign:HintAssist.Hint="LOẠI SAN PHẨM"
-                              Foreground="MediumAquamarine"
-                              FontWeight="Bold"
+                              Foreground="Black"
+                              FontWeight="Black"
+                              FontSize="9"
                               ItemsSource="{Binding ListCBB_LSP}"
                               SelectedValue="{Binding SelectedValue_LSP}"
                               DisplayMemberPath="TenLoaiSP"
-                              Margin="5"
-                              Width="auto" />
+                              Width="auto"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25"/>
+
+                    </StackPanel>
                 </Grid>
 
-                <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                         Grid.Row="2"
-                         Text="{Binding GhiChu}"
-                         VerticalAlignment="Top"
-                         Height="250"
-                         FontSize="12"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         BorderBrush="Aquamarine"
-                         BorderThickness="5"
-                         FontWeight="Bold"
-                         Margin="5"
-                         Foreground="MediumAquamarine"
-                         VerticalScrollBarVisibility="Auto"
-                         materialDesign:HintAssist.Hint="THÔNG TIN GHI CHÚ"/>
-                <Grid Grid.Row="3"
+                <StackPanel Grid.Row="2"
+                            Margin="5">
+                    <TextBlock Text="GIẢM GIÁ"
+                                   FontWeight="Black"
+                                   Foreground="MediumAquamarine"
+                                   Margin="20 0 0 0"
+                                   FontSize="15"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBox  BorderBrush="Black"
+                                  Grid.Column="0"
+                                  Grid.ColumnSpan="2"
+                                  Text="{Binding GiamGia}"
+                                  BorderThickness="3"
+                                  FontSize="12"
+                                  FontWeight="Black"
+                                  materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                                  materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                  materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                                  Width="auto"
+                                  Height="50"
+                                  materialDesign:HintAssist.Hint="GIẢM GIÁ"/>
+                        <TextBlock Grid.Row="1"
+                                   Grid.ColumnSpan="2"
+                                   Text="%"
+                                   FontWeight="Black"
+                                   FontSize="20"
+                                   HorizontalAlignment="Right"
+                                   VerticalAlignment="Center"
+                                   Margin="15"/>
+                    </Grid>
+                   
+                </StackPanel>
+
+                <StackPanel Grid.Row="3"
+                            Margin="5">
+                    <TextBlock Text="GHI CHÚ"
+                                   FontWeight="Black"
+                                   Foreground="MediumAquamarine"
+                                   Margin="20 0 0 0"
+                                   FontSize="15"/>
+                    <TextBox  BorderBrush="Black"
+                                  Text="{Binding GhiChu}"
+                                  BorderThickness="3"
+                                  FontSize="11"
+                                  FontWeight="Black"
+                                  AcceptsReturn="True"
+                                  TextWrapping="Wrap"
+                                  VerticalScrollBarVisibility="Auto"
+                                  materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                                  materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                                  materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                                  Width="auto"
+                                  Height="130"
+                                  materialDesign:HintAssist.Hint="THÔNG TIN THÊM"/>
+                </StackPanel>
+                
+                <Grid Grid.Row="4"
                       Margin="0 10 0 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -192,32 +256,34 @@
 
                     <Button Grid.Column="0"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
-                        Content="THÊM SẢN PHẨM"
-                        FontWeight="Bold"
+                        Content="THÊM"
                         Height="50"
                         Width="auto"
                         FontSize="15"
                         Margin="10 0 10 10"
-                        materialDesign:ButtonAssist.CornerRadius="10"
+                        materialDesign:ButtonAssist.CornerRadius="25"
                         Background="MediumAquamarine"
-                        BorderBrush="Aquamarine"
-                        BorderThickness="2"
+                        FontWeight="Black"
+                        BorderThickness="3"
+                        BorderBrush="Black"
+                        Foreground="Black"
                         Command="{Binding AddSanPham}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
 
                     <Button Grid.Column="1"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
                         Content="HỦY"
-                        FontWeight="Bold"
                         Height="50"
                         Width="auto"
                         FontSize="15"
                         Margin="10 0 10 10"
-                        materialDesign:ButtonAssist.CornerRadius="10"
+                        materialDesign:ButtonAssist.CornerRadius="25"
                         Background="MediumAquamarine"
-                        BorderBrush="Aquamarine"
-                        BorderThickness="2"
-                            Command="{Binding HuyClick}"
+                        FontWeight="Black"
+                        BorderThickness="3"
+                        BorderBrush="Black"
+                        Foreground="Black"
+                        Command="{Binding HuyClick}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
                 </Grid>
 

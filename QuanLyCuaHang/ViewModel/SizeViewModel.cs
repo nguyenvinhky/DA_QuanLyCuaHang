@@ -19,7 +19,13 @@ namespace QuanLyCuaHang.ViewModel
         private string _KichThuoc;
         public string KichThuoc { get => _KichThuoc; set { _KichThuoc = value; OnPropertyChanged(); } }
         private ObservableCollection<LoaiSanPham> _ListCBB_LSP;
-        public ObservableCollection<LoaiSanPham> ListCBB_LSP { get => _ListCBB_LSP; set { _ListCBB_LSP = value; OnPropertyChanged(); } }
+        public ObservableCollection<LoaiSanPham> ListCBB_LSP { get => _ListCBB_LSP; 
+            set 
+            { 
+                _ListCBB_LSP = value;
+                OnPropertyChanged(); 
+            } 
+        }
         private ObservableCollection<Model.Size> _ListSize;
         public ObservableCollection<Model.Size> ListSize { get => _ListSize; set { _ListSize = value; OnPropertyChanged(); } }
         private LoaiSanPham _SelectedId_LSP;

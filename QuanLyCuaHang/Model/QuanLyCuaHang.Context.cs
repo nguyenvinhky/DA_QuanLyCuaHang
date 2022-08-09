@@ -34,7 +34,6 @@ namespace QuanLyCuaHang.Model
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<Size> Sizes { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
         public virtual DbSet<TonKho> TonKhoes { get; set; }
         public virtual DbSet<TTHDB> TTHDBs { get; set; }

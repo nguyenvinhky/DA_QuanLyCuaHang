@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:QuanLyCuaHang.View"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
+             DataContext="{StaticResource KhachHangVM}"
              d:DesignHeight="450" d:DesignWidth="800">
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.5}">
         <Grid>
@@ -63,7 +64,7 @@
                 <Button Grid.Column="3"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
                         ToolTip="Resource name: MaterialDesignRaisedSecondaryDarkButton"
-                        Content="TẠO"
+                        Content="THÊM"
                         FontWeight="Bold"
                         Height="45"
                         Width="100"
@@ -71,6 +72,7 @@
                         Margin="10"
                         materialDesign:ButtonAssist.CornerRadius="10"
                         Background="MediumAquamarine"
+                        Command="{Binding OpenFormAddKH}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
             </StackPanel>
 
@@ -95,7 +97,6 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Text="Mã KH"
@@ -110,20 +111,14 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <TextBlock Text="SỐ ĐIỆN THOẠI"
+                <TextBlock Text="GIỚI TÍNH"
                            Grid.Column="2"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <TextBlock Text="ĐỊA CHỈ"
+                <TextBlock Text="SỐ ĐIỆN THOẠI"
                            Grid.Column="3"
-                           FontWeight="Bold"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
-
-                <TextBlock Text="EMAIL"
-                           Grid.Column="4"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
@@ -132,7 +127,8 @@
 
             <ListView Grid.Row="3"
                       HorizontalAlignment="Center"
-                      Name="Lisst"
+                      ItemsSource="{Binding ListKhachHang}"
+                      SelectedItem="{Binding SelectedItemKH}"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden">
                 <ListView.ItemTemplate>
@@ -154,39 +150,31 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
-                                    <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Text="{Binding TenSP}"
+                                <TextBlock Text="{Binding Id}"
                                        Grid.Column="0"
                                        FontWeight="Bold"
                                        Foreground="White"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
 
-                                <TextBlock Text="Nhân viên"
+                                <TextBlock Text="{Binding TenKH}"
                                        Grid.Column="1"
                                        FontWeight="Bold"
                                        Foreground="White"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
 
-                                <TextBlock Text="Khách hàng"
+                                <TextBlock Text="{Binding GioiTinh}"
                                        Grid.Column="2"
                                        FontWeight="Bold"
                                        Foreground="White"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
 
-                                <TextBlock Text="Ngày bán"
+                                <TextBlock Text="{Binding SDT}"
                                        Grid.Column="3"
-                                       FontWeight="Bold"
-                                       Foreground="White"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-
-                                <TextBlock Text="Trị giá"
-                                       Grid.Column="4"
                                        FontWeight="Bold"
                                        Foreground="White"
                                        HorizontalAlignment="Center"

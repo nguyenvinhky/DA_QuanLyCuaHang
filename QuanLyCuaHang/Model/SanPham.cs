@@ -28,6 +28,7 @@ namespace QuanLyCuaHang.Model
         public string TenSP { get; set; }
         public int IdLoaiSP { get; set; }
         public Nullable<double> GiaBan { get; set; }
+        public Nullable<double> GiamGia { get; set; }
         public string GhiChu { get; set; }
         private BitmapImage _Url;
         public BitmapImage Url { get => _Url; set => _Url = value; }

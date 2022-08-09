@@ -1,0 +1,183 @@
+﻿<Window x:Class="QuanLyCuaHang.Form.FormTTCTKH"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:QuanLyCuaHang.Form"
+        xmlns:uc="clr-namespace:QuanLyCuaHang.View"
+        mc:Ignorable="d"
+        Title="FormThemHoaDon" Height="600" Width="480"
+        DataContext="{StaticResource KhachHangVM}"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        Name="Form"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.RowSpan="3"
+                CornerRadius="25">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="MediumAquamarine" Offset="0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <uc:ConTrolBarUC/>
+
+        <TextBlock Grid.Row="1"
+                   Text="THÔNG TIN KHÁCH HÀNG"
+                   FontSize="30"
+                   FontWeight="Black"
+                   HorizontalAlignment="Center"/>
+
+        <Grid Grid.Row="2"
+              Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="MÃ KHÁCH HÀNG"
+                                   FontWeight="Black"
+                                   Foreground="Black"
+                                   Margin="20 0 0 0"
+                                   FontSize="12"/>
+                    <TextBox  BorderBrush="Black"
+                              Text="{Binding Id}"
+                              BorderThickness="3"
+                              FontSize="12"
+                              FontWeight="Black"
+                              IsReadOnly="True"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                              materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                              materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                              Width="200"
+                              Height="50"
+                              materialDesign:HintAssist.Hint="MÃ KHÁCH HÀNG"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="TÊN KHÁCH HÀNG"
+                                   FontWeight="Black"
+                                   Foreground="Black"
+                                   Margin="20 0 0 0"
+                                   FontSize="12"/>
+                    <TextBox  BorderBrush="Black"
+                              Text="{Binding TenKH}"
+                              BorderThickness="3"
+                              FontSize="12"
+                              FontWeight="Black"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                              materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                              materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                              Width="200"
+                              Height="50"
+                              materialDesign:HintAssist.Hint="TÊN KHÁCH HÀNG"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="GIỚI TÍNH"
+                                   FontWeight="Black"
+                                   Foreground="Black"
+                                   Margin="20 0 0 0"
+                                   FontSize="12"/>
+                    <ComboBox Grid.Column="1"
+                              Text="{Binding GioiTinh}"
+                              BorderBrush="Black"
+                              BorderThickness="3"
+                              Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                              Foreground="Black"
+                              FontWeight="Black"
+                              FontSize="11"
+                              Width="200"
+                              Height="50"
+                              ItemsSource="{Binding ListGT}"
+                              SelectedValue="{Binding SelectedGT}"
+                              DisplayMemberPath="GioiTinh"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25">
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="SỐ ĐIỆN THOẠI"
+                                   FontWeight="Black"
+                                   Foreground="Black"
+                                   Margin="20 0 0 0"
+                                   FontSize="12"/>
+                    <TextBox  BorderBrush="Black"
+                              Text="{Binding SDT}"
+                              BorderThickness="3"
+                              FontSize="12"
+                              FontWeight="Black"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                              materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                              materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                              Width="200"
+                              Height="50"
+                              materialDesign:HintAssist.Hint="SỐ ĐIỆN THOẠI"/>
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Grid.Row="2"
+                            Margin="5">
+                <TextBlock Text="ĐỊA CHỈ"
+                            FontWeight="Black"
+                            Foreground="Black"
+                            Margin="15 0 0 0"
+                            FontSize="12"/>
+                <TextBox  BorderBrush="Black"
+                          Text="{Binding DiaChi}"
+                        BorderThickness="3"
+                        FontSize="12"
+                        FontWeight="Black"
+                        materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                        materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                        materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                        Width="AUTO"
+                        Height="200"
+                        materialDesign:HintAssist.Hint="ĐỊA CHỈ"/>
+            </StackPanel>
+
+            <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                    Content="CẬP NHẬT KHÁCH HÀNG"
+                    FontWeight="Black"
+                    Height="50"
+                    Width="300"
+                    Margin="5"
+                    FontSize="15"
+                    Foreground="Black"
+                    materialDesign:ButtonAssist.CornerRadius="25"
+                    Background="MediumAquamarine"
+                    BorderBrush="Black"
+                    BorderThickness="3"
+                    Grid.Row="3"
+                    CommandParameter="{Binding ElementName=Form}"
+                    Command="{Binding EditKH}"/>
+        </Grid>
+    </Grid>
+</Window>

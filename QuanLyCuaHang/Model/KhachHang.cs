@@ -22,9 +22,9 @@ namespace QuanLyCuaHang.Model
     
         public string Id { get; set; }
         public string TenKH { get; set; }
-        public string DiaChi { get; set; }
+        public string GioiTinh { get; set; }
         public string SDT { get; set; }
-        public string Email { get; set; }
+        public string DiaChi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HDB> HDBs { get; set; }

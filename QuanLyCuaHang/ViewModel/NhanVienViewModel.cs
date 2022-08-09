@@ -228,10 +228,15 @@ namespace QuanLyCuaHang.ViewModel
                 CapNhatNV.Email = Email;
                 CapNhatNV.Luong = Luong;
                 if (fileiamge!=null)
+                {
                     CapNhatNV.Anh = fileiamge;
+                    CapNhatNV.Url = new BitmapImage(new Uri(directory + fileiamge));
+                }    
                 else
+                {
                     CapNhatNV.Anh = SelectedNhanVien.Anh;
-                CapNhatNV.Url = new BitmapImage(new Uri(directory+ fileiamge));
+                    CapNhatNV.Url = new BitmapImage(new Uri(directory + SelectedNhanVien.Anh));
+                }
                 getidtk.IdLoaiTK = IdLTK;
                 DataProvider.Ins.DB.SaveChanges();                
             });
