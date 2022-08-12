@@ -12,4 +12,6 @@
     <viewmodel:SizeViewModel x:Key="sizeVM"></viewmodel:SizeViewModel>
     <viewmodel:NhapHangViewModel x:Key="NhapHangVM"></viewmodel:NhapHangViewModel>
     <viewmodel:KhachHangViewModel x:Key="KhachHangVM"></viewmodel:KhachHangViewModel>
+    <viewmodel:DonHangViewModel x:Key="DonHangVM"></viewmodel:DonHangViewModel>
+    <viewmodel:TrangChuViewModel x:Key="TrangChuVM"></viewmodel:TrangChuViewModel>
 </ResourceDictionary>

@@ -94,6 +94,8 @@ namespace QuanLyCuaHang.ViewModel
         }
         private ObservableCollection<NhanVien> _NhanVienList;
         public ObservableCollection<NhanVien> NhanVienList { get => _NhanVienList; set { _NhanVienList = value; OnPropertyChanged(); } }
+        private ObservableCollection<ObjectGioiTinh> _ListGioiTinh;
+        public ObservableCollection<ObjectGioiTinh> ListGioiTinh { get => _ListGioiTinh; set { _ListGioiTinh = value; OnPropertyChanged(); } }
 
         public ICommand OpenAddNhanVien { get; set; }
         public ICommand ChooseImages { get; set; }
@@ -114,6 +116,12 @@ namespace QuanLyCuaHang.ViewModel
             CBBLoaiTKList = new ObservableCollection<LoaiTK>(DataProvider.Ins.DB.LoaiTKs);
             //List tài khoản
             ListTaiKhoan = new ObservableCollection<TaiKhoan>(DataProvider.Ins.DB.TaiKhoans);
+
+            ListGioiTinh = new ObservableCollection<ObjectGioiTinh>()
+            {
+               new ObjectGioiTinh(){GioiTinh = "Nam"},
+               new ObjectGioiTinh(){GioiTinh = "Nữ"},
+            };
 
             ResetPassword = new RelayCommand<Window>((p) => { return true; }, (p) => {
                 getidtk.Password = MD5Hash(Base64Encode("123"));

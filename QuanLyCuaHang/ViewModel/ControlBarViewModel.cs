@@ -54,19 +54,6 @@ namespace QuanLyCuaHang.ViewModel
                 }
             });
 
-            MaximizeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
-            {
-                FrameworkElement window = GetWindowParent(p);
-                var w = window as Window;
-                if (w != null)
-                {
-                    if (w.WindowState != WindowState.Maximized)
-                        w.WindowState = WindowState.Maximized;
-                    else
-                        w.WindowState = WindowState.Normal;
-                    
-                }
-            });
         }
 
         private FrameworkElement GetWindowParent(UserControl p)

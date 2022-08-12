@@ -42,7 +42,6 @@
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="150"/>
-                    <RowDefinition/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
@@ -53,12 +52,12 @@
                     <materialDesign:PackIcon Kind="Shop"
                                              Width="50"
                                              Height="50"
-                                             Foreground="White"/>
+                                             Foreground="MediumAquamarine"/>
                     <TextBlock Text="SHOP JDI"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="22"
-                               Foreground="White"
+                               Foreground="MediumAquamarine"
                                FontWeight="Black"/>
                 </StackPanel>
 
@@ -222,23 +221,30 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </RadioButton>
-                </StackPanel>
 
-                <RadioButton Style="{StaticResource Button_Dashboard}"
+                    <RadioButton Style="{StaticResource Button_Dashboard}"
                              Grid.Row="2"
-                             Margin="0 0 0 20"
+                             Margin="0 130 0 0"
+                             VerticalAlignment="Bottom"
                              Command="{Binding LogOutCommand}"
                              CommandParameter="{Binding ElementName=mainWindow}">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Logout"
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Logout"
                                                      Height="20"
                                                      Width="20"
                                                      Foreground="White"
                                                      Margin="20 0 0 0"/>
-                        <TextBlock Text="ĐĂNG XUẤT"
+                            <TextBlock Text="ĐĂNG XUẤT"
                                        Style="{StaticResource TextBlock_ButtonBoard}"/>
-                    </StackPanel>
-                </RadioButton>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Unchecked">
+                                <i:InvokeCommandAction Command="{Binding CheckHDNCommand}" 
+                                                       CommandParameter="{Binding ElementName=rdbDX}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </RadioButton>
+                </StackPanel>
             </Grid>
 
             <Border Grid.Column="1"
@@ -276,18 +282,22 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left"
                             Margin="5 0 5 5">
-                      
+                        <Ellipse>
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding ImageNhanVien}"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
                     </Border>
 
                     <StackPanel Grid.Column="1"
                                 Margin="5 0 5 5">
-                        <TextBlock Text="Nguyễn Vĩnh Kỳ"
+                        <TextBlock Text="{Binding TenNV}"
                                    Grid.Row="0"
                                    FontWeight="Bold"
                                    Foreground="White"
-                                   FontSize="14"/>
+                                   FontSize="12"/>
 
-                        <TextBlock Text="Admin"
+                        <TextBlock Text="{Binding Quyen}"
                                    Grid.Row="1"
                                    FontWeight="Bold"
                                    Foreground="White"

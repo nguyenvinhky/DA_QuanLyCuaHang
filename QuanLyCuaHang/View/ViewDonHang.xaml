@@ -6,6 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:QuanLyCuaHang.View"
              mc:Ignorable="d" 
+             DataContext="{StaticResource DonHangVM}"
              d:DesignHeight="450" d:DesignWidth="750">
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.5}">
         <Grid>
@@ -71,7 +72,8 @@
                         Margin="10"
                         materialDesign:ButtonAssist.CornerRadius="10"
                         Background="MediumAquamarine"
-                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+                        Command="{Binding CreateHDB}"/>
+                
             </StackPanel>
 
             <Border Grid.Row="2"
@@ -95,7 +97,6 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Text="Mã HD"
@@ -104,26 +105,20 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <TextBlock Text="Nhân viên"
+                <TextBlock Text="Khách hàng"
                            Grid.Column="1"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <TextBlock Text="Khách hàng"
+                <TextBlock Text="Ngày bán"
                            Grid.Column="2"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
 
-                <TextBlock Text="Ngày bán"
-                           Grid.Column="3"
-                           FontWeight="Bold"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"/>
-
                 <TextBlock Text="Trị giá"
-                           Grid.Column="4"
+                           Grid.Column="3"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
@@ -132,7 +127,8 @@
             
             <ListView Grid.Row="3"
                       HorizontalAlignment="Center"
-                      Name="Lisst"
+                      ItemsSource="{Binding ListHDB}"
+                      SelectedItem="{Binding SelectedItemHDB}"
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       ScrollViewer.VerticalScrollBarVisibility="Hidden">
                 <ListView.ItemTemplate>
@@ -148,45 +144,38 @@
                                 </LinearGradientBrush>
                             </Border.Background>
 
-                            <Grid>
+                            <Grid Height="50"
+                                  Width="730">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
 
-                                <TextBlock Text="{Binding TenSP}"
+                                <TextBlock Text="{Binding Id}"
                                        Grid.Column="0"
                                        FontWeight="Bold"
                                        Foreground="White"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
 
-                                <TextBlock Text="Nhân viên"
+                                <TextBlock Text="{Binding KhachHang.TenKH}"
                                        Grid.Column="1"
                                        FontWeight="Bold"
                                        Foreground="White"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
 
-                                <TextBlock Text="Khách hàng"
+                                <TextBlock Text="{Binding NgayBan}"
                                        Grid.Column="2"
                                        FontWeight="Bold"
                                        Foreground="White"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
 
-                                <TextBlock Text="Ngày bán"
+                                <TextBlock Text="{Binding TongTien, StringFormat={}{0:#,# VNĐ}}"
                                        Grid.Column="3"
-                                       FontWeight="Bold"
-                                       Foreground="White"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-
-                                <TextBlock Text="Trị giá"
-                                       Grid.Column="4"
                                        FontWeight="Bold"
                                        Foreground="White"
                                        HorizontalAlignment="Center"

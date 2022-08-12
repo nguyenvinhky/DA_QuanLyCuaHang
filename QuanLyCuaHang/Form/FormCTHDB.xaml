@@ -1,4 +1,4 @@
-﻿<Window x:Class="QuanLyCuaHang.Form.FormThemHoaDonBan"
+﻿<Window x:Class="QuanLyCuaHang.Form.FormCTHDB"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -19,6 +19,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <Border CornerRadius="35"
@@ -30,15 +31,17 @@
             </Border.Background>
         </Border>
 
-        <TextBlock Text="PHIẾU BÁN SẢN PHẨM"
-                   Grid.Row="0"
+        <uc:ConTrolBarUC/>
+
+        <TextBlock Text="PHIẾU ĐƠN HÀNG"
+                   Grid.Row="1"
                    FontSize="29"
                    FontWeight="Black"
                    Margin="0 10 0 0"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"/>
 
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="AUTO"/>
                 <RowDefinition Height="AUTO"/>
@@ -55,54 +58,38 @@
                 </Border.Background>
             </Border>
             <Grid Grid.Row="0"
-                  Margin="20 -15 50 -15">
+                  Margin="70 -15 70 -15">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="1.5*"/>
-                    <ColumnDefinition Width="AUTO"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0"
-                      Margin="30">
+                      Margin="60 25 60 25">
                     <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <StackPanel Grid.Row="0">
-                        <TextBlock Text="GIÁ SẢN PHẨM"
-                                   FontWeight="Black"
-                                   Foreground="Black"
-                                   Margin="20 0 0 0"
-                                   FontSize="12"/>
-                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                         Text="{Binding GiaBan, StringFormat={}{0:#,# VNĐ}}"
-                         VerticalAlignment="Top"
-                         Width="AUTO"
-                         Height="50"
-                         FontWeight="Black"
-                         FontSize="9"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         BorderBrush="Black"
-                         BorderThickness="3"
-                         VerticalScrollBarVisibility="Auto"
-                         materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
-                         Foreground="Black"/>
-                    </StackPanel>
+                    <TextBlock Text="THÔNG TIN PHIẾU ĐƠN HÀNG"
+                               FontSize="15"
+                               FontWeight="Black"
+                               HorizontalAlignment="Center"/>
 
                     <StackPanel Grid.Row="1">
-                        <TextBlock Text="SỐ LƯỢNG"
+                        <TextBlock Text="MÃ HÓA ĐƠN"
                                    FontWeight="Black"
                                    Foreground="Black"
                                    Margin="20 0 0 0"
                                    FontSize="12"/>
                         <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                         Text="{Binding SoLuongMua}"
+                         Text="{Binding SelectedItemHDB.Id}"
                          VerticalAlignment="Top"
                          Width="AUTO"
                          Height="50"
+                         IsEnabled="True"
                          FontWeight="Black"
                          FontSize="9"
                          AcceptsReturn="True"
@@ -113,51 +100,183 @@
                          materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
                          Foreground="Black"/>
                     </StackPanel>
-                </Grid>
 
-                <Grid Grid.Column="1"
-                      Margin="30">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Row="0">
-                        <TextBlock Text="SIZE"
+                            <TextBlock Grid.Column="0"
+                                   Text="MÃ NV"
                                    FontWeight="Black"
                                    Foreground="Black"
                                    Margin="20 0 0 0"
                                    FontSize="12"/>
-                        <ComboBox Grid.Column="1"
-                              BorderBrush="Black"
+
+                            <Grid Grid.Column="1"
+                                Width="4"
+                                Height="12"
+                                Background="Black"
+                                Margin="5 0 5 0"/>
+
+                            <TextBlock Grid.Column="2"
+                                   Text="TÊN NV"
+                                   FontWeight="Black"
+                                   Foreground="Black"
+                                   FontSize="12"/>
+
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.ColumnSpan="3"
+                                BorderThickness="3"
+                                BorderBrush="Black"
+                                CornerRadius="25">
+                                <Border.Background>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="Transparent" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+
+                            <TextBox  BorderBrush="Transparent"
+                              Text="{Binding SelectedItemHDB.IdNV}"
                               BorderThickness="3"
-                              Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                              Foreground="Black"
+                              FontSize="12"
+                              IsEnabled="False"
                               FontWeight="Black"
-                              FontSize="9"
-                              ItemsSource="{Binding ListCBB_Size}"
-                              SelectedItem="{Binding SelectedItemSize}"
-                              Width="auto"
-                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding KichThuoc}"/>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                              materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                              materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                              Width="AUTO"
+                              Height="50"
+                              materialDesign:HintAssist.Hint="MÃ NV"/>
+
+                            <Grid Grid.Column="1"
+                                Width="4"
+                                Height="12"
+                                Background="Black"
+                                Margin="2 0 2 0"/>
+
+                            <TextBox Grid.Column="2" 
+                              BorderBrush="Transparent"
+                              Text="{Binding SelectedItemHDB.NhanVien.TenNV}"
+                              BorderThickness="3"
+                              FontSize="12"
+                              IsEnabled="False"
+                              FontWeight="Black"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                              materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                              materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                              Width="AUTO"
+                              Height="50"
+                              materialDesign:HintAssist.Hint="TÊN NV"/>
+                        </Grid>
+
                     </StackPanel>
 
-                    <StackPanel Grid.Row="1">
-                        <TextBlock Text="SỐ LƯỢNG TỒN"
+                    <StackPanel Grid.Row="3">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0"
+                                   Text="MÃ KH"
+                                   FontWeight="Black"
+                                   Foreground="Black"
+                                   Margin="20 0 0 0"
+                                   FontSize="12"/>
+
+                            <Grid Grid.Column="1"
+                                Width="4"
+                                Height="12"
+                                Background="Black"
+                                Margin="5 0 5 0"/>
+
+                            <TextBlock Grid.Column="2"
+                                   Text="TÊN KH"
+                                   FontWeight="Black"
+                                   Foreground="Black"
+                                   FontSize="12"/>
+
+                        </Grid>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.ColumnSpan="3"
+                                BorderThickness="3"
+                                BorderBrush="Black"
+                                CornerRadius="25">
+                                <Border.Background>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="Transparent" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+
+                            <TextBox  BorderBrush="Transparent"
+                              Text="{Binding SelectedItemHDB.IdKH}"
+                              BorderThickness="3"
+                              FontSize="12"
+                              IsEnabled="False"
+                              FontWeight="Black"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                              materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                              materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                              Width="AUTO"
+                              Height="50"
+                              materialDesign:HintAssist.Hint="MÃ KH"/>
+
+                            <Grid Grid.Column="1"
+                                Width="4"
+                                Height="12"
+                                Background="Black"
+                                Margin="2 0 2 0"/>
+
+                            <TextBox Grid.Column="2" 
+                              BorderBrush="Transparent"
+                              Text="{Binding SelectedItemHDB.KhachHang.TenKH}"
+                              BorderThickness="3"
+                              FontSize="12"
+                              IsEnabled="False"
+                              FontWeight="Black"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                              materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                              materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                              Width="AUTO"
+                              Height="50"
+                              materialDesign:HintAssist.Hint="TÊN KH"/>
+                        </Grid>
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="4">
+                        <TextBlock Text="NGÀY LẬP PHIẾU"
                                    FontWeight="Black"
                                    Foreground="Black"
                                    Margin="20 0 0 0"
                                    FontSize="12"/>
                         <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                         Text="{Binding SLT, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         Text="{Binding SelectedItemHDB.NgayBan}"
                          VerticalAlignment="Top"
                          Width="AUTO"
                          Height="50"
+                         IsEnabled="False"
                          FontWeight="Black"
                          FontSize="9"
                          AcceptsReturn="True"
@@ -169,118 +288,12 @@
                          Foreground="Black"/>
                     </StackPanel>
                 </Grid>
-
-                <Grid Grid.Column="2"
-                      Margin="30">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
-
-                    <StackPanel Grid.Row="0"
-                                Grid.RowSpan="3">
-                        <TextBlock Text="CHỌN SẢN PHẨM BÁN"
-                                   FontWeight="Black"
-                                   Foreground="Black"
-                                   Margin="20 0 0 0"
-                                   FontSize="12"/>
-                        <ComboBox Grid.RowSpan="2"
-                              Grid.Row="0"
-                              BorderBrush="Black"
-                              BorderThickness="3"
-                              Height="130"
-                              materialDesign:TextFieldAssist.TextBoxViewMargin="0 10 0 10"
-                              Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                              Foreground="MediumAquamarine"
-                              FontWeight="Bold"
-                              VerticalAlignment="Center"
-                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                              ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                              ItemsSource="{Binding ListCBB_SP}"
-                              SelectedItem="{Binding SelectedItemSP}"
-                              materialDesign:TextFieldAssist.TextFieldCornerRadius="35"
-                              Width="AUTO">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-
-                                        <Border Grid.Column="0"
-                                            Width="80"
-                                            Height="80"
-                                            VerticalAlignment="Center"
-                                            HorizontalAlignment="Left"
-                                            BorderBrush="Transparent"
-                                            BorderThickness="3"
-                                            CornerRadius="100">
-                                            <Ellipse>
-                                                <Ellipse.Fill>
-                                                    <ImageBrush ImageSource="{Binding Url}"/>
-                                                </Ellipse.Fill>
-                                            </Ellipse>
-                                        </Border>
-
-                                        <StackPanel VerticalAlignment="Center"
-                                                HorizontalAlignment="Center"
-                                                Margin="0 0 0 0">
-
-                                            <TextBlock Text="{Binding TenSP}"/>
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="LOẠI: "/>
-                                                <TextBlock Text="{Binding LoaiSanPham.TenLoaiSP}"/>
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-                    </StackPanel>
-
-
-                </Grid>
-
-                <StackPanel Grid.Column="3"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Center">
-
-                    <Button Grid.Row="0"
-                                Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
-                                Content="THÊM"
-                                FontWeight="Bold"
-                                Height="50"
-                                Width="100"
-                                FontSize="12"
-                                Foreground="Black"
-                                Margin="5 10 5 0"
-                                materialDesign:ButtonAssist.CornerRadius="25"
-                                Background="MediumAquamarine"
-                                BorderBrush="Black"
-                                BorderThickness="3"
-                                Command="{Binding AddTTHDB}"
-                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
-
-                    <Button Grid.Row="1"
-                                Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
-                                Content="XÓA"
-                                FontWeight="Bold"
-                                Height="50"
-                                Width="100"
-                                FontSize="12"
-                                Foreground="Black"
-                                Margin="5 10 5 0"
-                                materialDesign:ButtonAssist.CornerRadius="25"
-                                Background="MediumAquamarine"
-                                BorderBrush="Black"
-                                BorderThickness="3"
-                                Command="{Binding DeleteTTHDB}"
-                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
-
-                </StackPanel>
-
             </Grid>
 
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1"
+                  Height="250">
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
+                    <RowDefinition Height="AUTO"/>
                     <RowDefinition Height="AUTO"/>
                 </Grid.RowDefinitions>
 
@@ -363,14 +376,14 @@
                     <ListView Grid.Row="1"
                           HorizontalAlignment="Center"
                           ItemsSource="{Binding ListTTHDB}"
-                          SelectedItem="{Binding SelectedItemTTHDB}"
+                          Height="AUTO"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                           ScrollViewer.VerticalScrollBarVisibility="Hidden">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border CornerRadius="25"
                                         Width="815"
-                                        Height="60">
+                                        Height="50">
                                     <Border.Background>
                                         <LinearGradientBrush>
                                             <GradientStop Color="White" Offset="0"/>
@@ -378,7 +391,7 @@
                                     </Border.Background>
 
                                     <Grid Width="815"
-                                          Height="60"
+                                          Height="50"
                                           Margin="5"
                                           HorizontalAlignment="Center"
                                           VerticalAlignment="Center">
@@ -449,41 +462,21 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0"
-                            Orientation="Horizontal"
-                            Margin="50 0 0 15">
-
-                    <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
-                            Content="THANH TOÁN"
-                            FontWeight="Bold"
-                            Height="50"
-                            Width="100"
-                            Margin="5"
-                            FontSize="10"
-                            Foreground="Black"
-                            materialDesign:ButtonAssist.CornerRadius="25"
-                            Background="MediumAquamarine"
-                            BorderBrush="Black"
-                            BorderThickness="3"
-                            CommandParameter="{Binding ElementName=Form}"
-                            Command="{Binding ThanhToanTTHDB}"/>
-
-                    <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
-                            Content="HỦY ĐƠN"
-                            FontWeight="Bold"
-                            Height="50"
-                            Width="100"
-                            Margin="5"
-                            FontSize="10"
-                            Foreground="Black"
-                            HorizontalAlignment="Left"
-                            materialDesign:ButtonAssist.CornerRadius="25"
-                            Background="MediumAquamarine"
-                            BorderBrush="Black"
-                            BorderThickness="3"
-                            CommandParameter="{Binding ElementName=Form}"
-                            Command="{Binding HuyHDB}"/>
-                </StackPanel>
+                <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                        Content="XÓA PHIẾU XUẤT"
+                        FontWeight="Black"
+                        Height="45"
+                        Width="200"
+                        Margin="40 10 0 20"
+                        FontSize="12"
+                        Foreground="Black"
+                        HorizontalAlignment="Left"
+                        materialDesign:ButtonAssist.CornerRadius="25"
+                        Background="MediumAquamarine"
+                        BorderBrush="Black"
+                        BorderThickness="3"
+                        CommandParameter="{Binding ElementName=Form}"
+                        Command="{Binding XoaPhieuHDB}"/>
 
                 <Grid Grid.Column="1">
                     <Grid.ColumnDefinitions>
@@ -499,7 +492,7 @@
                                VerticalAlignment="Center"
                                Grid.Column="0"/>
 
-                    <TextBlock Text="{Binding TongTien, StringFormat={}{0:#,# VNĐ}}"
+                    <TextBlock Text="{Binding SelectedItemHDB.TongTien, StringFormat={}{0:#,# VNĐ}}"
                                Grid.Column="1"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"

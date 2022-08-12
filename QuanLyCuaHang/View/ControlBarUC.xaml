@@ -9,24 +9,14 @@
              Name="ucConTrolBar"
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Grid.Row="0"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Right"
-                            Margin="5">
+                Orientation="Horizontal"
+                HorizontalAlignment="Right"
+                Margin="5">
         <Button Background="Transparent"
                             BorderBrush="Transparent"
                             Command="{Binding MinimizeWindowCommand}"
                             CommandParameter="{Binding ElementName=ucConTrolBar}">
             <materialDesign:PackIcon Kind="WindowMinimize"
-                                                 Width="20"
-                                                 Height="20"
-                                                 Foreground="#16E938"/>
-        </Button>
-
-        <Button Background="Transparent"
-                            BorderBrush="Transparent"
-                            Command="{Binding MaximizeWindowCommand}"
-                            CommandParameter="{Binding ElementName=ucConTrolBar}">
-            <materialDesign:PackIcon Kind="WindowMaximize"
                                                  Width="20"
                                                  Height="20"
                                                  Foreground="#16E938"/>

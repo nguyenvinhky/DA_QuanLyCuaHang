@@ -1,0 +1,277 @@
+﻿<Window x:Class="QuanLyCuaHang.Form.FormCreateHDB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:QuanLyCuaHang.Form"
+        xmlns:uc="clr-namespace:QuanLyCuaHang.View"
+        mc:Ignorable="d"
+        Title="FormThemHoaDon" Height="450" Width="600"
+        DataContext="{StaticResource DonHangVM}"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        Name="Form"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.RowSpan="3"
+                CornerRadius="25">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="MediumAquamarine" Offset="0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <uc:ConTrolBarUC/>
+
+        <TextBlock Grid.Row="1"
+                   Text="TẠO HÓA ĐƠN MỚI"
+                   FontSize="30"
+                   FontWeight="Black"
+                   HorizontalAlignment="Center"/>
+
+        <Grid Grid.Row="2"
+              Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="AUTO"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0"
+                            Margin="5">
+                    <TextBlock Text="MÃ HÓA ĐƠN"
+                                   FontWeight="Black"
+                                   Foreground="Black"
+                                   Margin="20 0 0 0"
+                                   FontSize="12"/>
+                    <TextBox  BorderBrush="Black"
+                              Text="{Binding MaHDB}"
+                              BorderThickness="3"
+                              FontSize="12"
+                              FontWeight="Black"
+                              IsReadOnly="True"
+                              IsEnabled="False"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                              materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                              materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                              Width="AUTO"
+                              Height="50"
+                              materialDesign:HintAssist.Hint="MÃ HÓA ĐƠN"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"
+                                   Text="MÃ NV"
+                                   FontWeight="Black"
+                                   Foreground="Black"
+                                   Margin="20 0 0 0"
+                                   FontSize="12"/>
+
+                        <Grid Grid.Column="1"
+                                Width="4"
+                                Height="12"
+                                Background="Black"
+                                Margin="5 0 5 0"/>
+
+                        <TextBlock Grid.Column="2"
+                                   Text="TÊN NV"
+                                   FontWeight="Black"
+                                   Foreground="Black"
+                                   FontSize="12"/>
+
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.ColumnSpan="3"
+                                BorderThickness="3"
+                                BorderBrush="Black"
+                                CornerRadius="25">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="Transparent" Offset="0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+
+                        <TextBox  BorderBrush="Transparent"
+                              Text="{Binding IdNV}"
+                              BorderThickness="3"
+                              FontSize="12"
+                              IsEnabled="False"
+                              FontWeight="Black"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                              materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                              materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                              Width="AUTO"
+                              Height="50"
+                              materialDesign:HintAssist.Hint="MÃ NV"/>
+
+                        <Grid Grid.Column="1"
+                                Width="4"
+                                Height="12"
+                                Background="Black"
+                                Margin="2 0 2 0"/>
+
+                        <TextBox Grid.Column="2" 
+                              BorderBrush="Transparent"
+                              Text="{Binding TenNV}"
+                              BorderThickness="3"
+                              FontSize="12"
+                              IsEnabled="False"
+                              FontWeight="Black"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                              materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                              materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                              Width="AUTO"
+                              Height="50"
+                              materialDesign:HintAssist.Hint="TÊN NV"/>
+                    </Grid>
+                    
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0"
+                            Margin="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0"
+                                   Text="MÃ KH"
+                                   FontWeight="Black"
+                                   Foreground="Black"
+                                   Margin="20 0 0 0"
+                                   FontSize="12"/>
+
+                        <Grid Grid.Column="1"
+                                Width="4"
+                                Height="12"
+                                Background="Black"
+                                Margin="5 0 5 0"/>
+
+                        <TextBlock Grid.Column="2"
+                                   Text="TÊN KH"
+                                   FontWeight="Black"
+                                   Foreground="Black"
+                                   FontSize="12"/>
+
+                    </Grid>
+                    
+                    <ComboBox Grid.Column="1"
+                              BorderBrush="Black"
+                              BorderThickness="3"
+                              Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                              Foreground="Black"
+                              FontWeight="Black"
+                              FontSize="11"
+                              Width="AUTO"
+                              Height="50"
+                              ItemsSource="{Binding ListCBBKhachHang}"
+                              SelectedItem="{Binding SelectedCBBKH}"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <TextBlock Text="{Binding Id}"/>
+
+                                    <Grid Grid.Column="1"
+                                          Width="4"
+                                          Height="12"
+                                          Background="Black"
+                                          Margin="5 0 5 0"/>
+
+                                    <TextBlock Grid.Column="2"
+                                               Text="{Binding TenKH}"/>
+
+                                </Grid>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Margin="5">
+                    <TextBlock Text="NGÀY LẬP HÓA ĐƠN"
+                                FontWeight="Black"
+                                Foreground="Black"
+                                Margin="20 0 0 0"
+                                FontSize="12"/>
+                    <TextBox  BorderBrush="Black"
+                              Text="{Binding NgayLapHoaDon}"
+                              BorderThickness="3"
+                              FontSize="12"
+                              IsEnabled="False"
+                              FontWeight="Black"
+                              materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                              materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                              materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                              Width="AUTO"
+                              Height="50"
+                              materialDesign:HintAssist.Hint="NGÀY LẬP HÓA ĐƠN"/>
+                </StackPanel>
+            </Grid>
+
+            <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                    Content="TẠO HÓA ĐƠN"
+                    FontWeight="Black"
+                    Height="50"
+                    Width="400"
+                    FontSize="15"
+                    Grid.Row="2"
+                    Margin="5"
+                    Foreground="Black"
+                    materialDesign:ButtonAssist.CornerRadius="25"
+                    Background="MediumAquamarine"
+                    BorderBrush="Black"
+                    BorderThickness="3"
+                    CommandParameter="{Binding ElementName=Form}"
+                    Command="{Binding CreateHDBClick}"/>
+
+
+        </Grid>
+    </Grid>
+</Window>

@@ -134,7 +134,8 @@
                     <ListView Grid.Column="1"
                               ItemsSource="{Binding ListSize}"
                               HorizontalAlignment="Left"
-                              VerticalAlignment="Center">
+                              VerticalAlignment="Center"
+                              ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Grid.Column="1">
@@ -144,7 +145,7 @@
                                     </Grid.RowDefinitions>
                                     
                                     <Border CornerRadius="7"
-                                            Width="40"
+                                            Width="60"
                                             Grid.Row="0"
                                             HorizontalAlignment="Left">
                                         <Border.Background>

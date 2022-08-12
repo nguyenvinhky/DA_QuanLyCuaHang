@@ -111,7 +111,7 @@ namespace QuanLyCuaHang.ViewModel
             {
                 _SelectedItemHDN = value;
                 OnPropertyChanged();
-                if (_SelectedItemHDN == null)
+                if (SelectedItemHDN == null)
                     return;
                 FormCTHD cthd = new FormCTHD();
                 ListTTHDN = new ObservableCollection<TTHDN>(DataProvider.Ins.DB.TTHDNs.Where(x => x.IdHDN == SelectedItemHDN.Id));
@@ -222,8 +222,14 @@ namespace QuanLyCuaHang.ViewModel
                 {
                     return;
                 }
-                DataProvider.Ins.DB.TTHDNs.RemoveRange(ListTTHDN);
-                DataProvider.Ins.DB.SaveChanges();
+
+                foreach (TTHDN item in ListTTHDN)
+                {
+                    var updateSLT = DataProvider.Ins.DB.TonKhoes.Where(x => x.IdSP == item.IdSP && x.IdSize == item.IdSize).SingleOrDefault();
+                    updateSLT.SLTon -= item.SLNhap;
+                    DataProvider.Ins.DB.TTHDNs.Remove(item);
+                    DataProvider.Ins.DB.SaveChanges();
+                }
 
                 //Lấy đối tượng hóa đơn hiện tại
                 var objecthdn = DataProvider.Ins.DB.HDNs.Where(x=>x.Id == MaHDN).SingleOrDefault();

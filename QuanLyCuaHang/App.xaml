@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:QuanLyCuaHang"
              xmlns:view="clr-namespace:QuanLyCuaHang.View"
              xmlns:viewModel="clr-namespace:QuanLyCuaHang.ViewModel"
-             StartupUri="Main.xaml">
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

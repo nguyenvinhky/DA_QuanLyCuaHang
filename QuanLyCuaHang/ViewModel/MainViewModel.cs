@@ -1,4 +1,5 @@
-﻿using QuanLyCuaHang.Model;
+﻿using QuanLyCuaHang.Form;
+using QuanLyCuaHang.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,13 +9,22 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace QuanLyCuaHang.ViewModel
 {
     
     public class MainViewModel : BaseViewModel
     {
-        public bool Isloaded = false;
+        public static bool chualuu = false;
+        private BitmapImage _ImageNhanVien { get; set; }
+        public BitmapImage ImageNhanVien { get=>_ImageNhanVien; set { _ImageNhanVien = value; OnPropertyChanged(); } }
+        private string _TenNV { get; set; }
+        public string TenNV { get => _TenNV; set { _TenNV = value; OnPropertyChanged(); } }
+        private string _Quyen { get; set; }
+        public string Quyen { get => _Quyen; set { _Quyen = value; OnPropertyChanged(); } }
+        private string _IdNV { get; set; }
+        public string IdNV { get => _IdNV; set { _IdNV = value; OnPropertyChanged(); } }
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand LoadViewSanPham { get; set; }
         public ICommand LoadViewTrangChu { get; set; }
@@ -24,6 +34,7 @@ namespace QuanLyCuaHang.ViewModel
         public ICommand LoadViewThongKe { get; set; }
         public ICommand LoadViewQuanLy { get; set; }
         public ICommand LogOutCommand { get; set; }
+        public ICommand CheckHDNCommand { get; set; }
 
 
         private object _currentView;
@@ -49,32 +60,21 @@ namespace QuanLyCuaHang.ViewModel
         {
             //Đăng nhập
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
-                if (p == null)
-                    return;
-
-                p.Hide();
-
-                MainWindow login = new MainWindow();
-                login.ShowDialog();
-
-                var LoginVM = login.DataContext as LoginViewModel;
-
-                if (LoginVM.isLogin)
-                {
-                    p.Show();
-                }
-                else
-                {
-                    p.Close();
-                }
+                CurrentView = TC;
             }
             );
 
             //Đăng xuất
-            LogOutCommand = new RelayCommand<Window>((p) => { return true; }, (p) => { 
-                functionLogOut(p);
+            LogOutCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
+                MessageBoxResult result = MessageBox.Show("Bạn có chắc muốn đăng xuất ?", "Thông báo", MessageBoxButton.OKCancel);
+                if (result == MessageBoxResult.Cancel)
+                {
+                    return;
+                }
+                MainWindow dangnhap = new MainWindow();
+                dangnhap.Show();
+                p.Close();
             });
-
 
             //Load view
             SP = new SanPhamViewModel();
@@ -97,6 +97,10 @@ namespace QuanLyCuaHang.ViewModel
 
             LoadViewDonHang = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
                 CurrentView = DH;
+                FormCreateHDB createHDB = new FormCreateHDB();
+                var data = createHDB.DataContext as DonHangViewModel;
+                data.TenNV = TenNV;
+                data.IdNV = IdNV;
             }
             );
 
@@ -122,12 +126,6 @@ namespace QuanLyCuaHang.ViewModel
 
 
             /*========================================= Hàm xử lý chức năng =========================================*/
-            void functionLogOut(Window p)
-            {
-                p.Hide();
-                MainWindow FormLogIn = new MainWindow();
-                FormLogIn.ShowDialog();
-            }
         }
     }
 }

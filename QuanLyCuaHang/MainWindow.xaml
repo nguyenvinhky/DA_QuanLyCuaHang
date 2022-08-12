@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:QuanLyCuaHang"
         xmlns:uc="clr-namespace:QuanLyCuaHang.View"
         mc:Ignorable="d"
@@ -107,6 +108,7 @@
                             HorizontalAlignment="Center">
                     <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
                              VerticalAlignment="Top"
+                             Text="{Binding Username}"
                              Width="240"
                              Height="50"
                              Background="WhiteSmoke"
@@ -126,7 +128,15 @@
                                  MaxWidth="400"
                                  Margin="10"
                                  FontWeight="Bold"
-                                 materialDesign:HintAssist.Hint="MẬT KHẨU"/> 
+                                 x:Name="PasswordLG"
+                                 materialDesign:HintAssist.Hint="MẬT KHẨU">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="PasswordChanged">
+                                <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
+                                   CommandParameter="{Binding ElementName=PasswordLG}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </PasswordBox>
                 </StackPanel>
 
                 <StackPanel Grid.Row="3"
@@ -139,6 +149,7 @@
                             Content="ĐĂNG NHẬP"
                             Width="240"
                             Height="50"
+                            IsDefault="True"
                             Background="#afe7e8"
                             FontWeight="Bold"/>
 
