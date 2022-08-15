@@ -1,5 +1,6 @@
 ﻿using QuanLyCuaHang.Form;
 using QuanLyCuaHang.Model;
+using QuanLyCuaHang.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

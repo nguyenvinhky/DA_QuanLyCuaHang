@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace QuanLyCuaHang.ViewModel
 {
-    public class ThongKeViewModel
+    public class ThongKeViewModel:BaseViewModel
     {
+        public ThongKeViewModel()
+        {
+
+        }
     }
 }

@@ -8,6 +8,7 @@
              xmlns:local="clr-namespace:QuanLyCuaHang.View"
              DataContext="{StaticResource TrangChuVM}"
              mc:Ignorable="d" 
+             Name="TrangChuWindow"
              d:DesignHeight="500" d:DesignWidth="600">
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.5}">
         <Grid>
@@ -61,9 +62,9 @@
                         <Grid Margin="0 15 0 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="0"
+                            <TextBlock Text="{Binding SDB, StringFormat={}{0:# ĐƠN}}"
                                        Grid.Column="0"
                                        FontSize="22"
                                        Foreground="White"
@@ -111,9 +112,9 @@
                         <Grid Margin="0 40 0 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="0 VND"
+                            <TextBlock Text="{Binding DoanhThuNgay, StringFormat={}{0:#,# VNĐ}}"
                                        Grid.Column="0"
                                        FontSize="15"
                                        Foreground="White"
@@ -161,9 +162,9 @@
                         <Grid Margin="0 15 0 0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="0"
+                            <TextBlock Text="{Binding SLSP_BanTrongNgay, StringFormat={}{0:# SẢN PHẨM}}"
                                        Grid.Column="0"
                                        FontSize="22"
                                        Foreground="White"
@@ -185,13 +186,35 @@
             </Grid>
 
             <Grid Grid.Row="2">
-                <lvc:CartesianChart Series="{Binding value1}" LegendLocation="Bottom">
-                    <lvc:CartesianChart.AxisX>
-                        <lvc:Axis Title="x" Labels="{Binding value2}"/>
-                    </lvc:CartesianChart.AxisX>
 
+                <Border CornerRadius="25"
+                        Margin="10">
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="White" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+
+                <lvc:CartesianChart Series="{Binding Chart}"
+                                    LegendLocation="Top"
+                                    Background="Transparent"
+                                    Foreground="Black"
+                                    FontSize="18"
+                                    Margin="20">
+                    
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis Title="Thời gian trong ngày (Giờ)" 
+                                  Labels="{Binding Labels}"
+                                  Foreground="Black"
+                                  FontWeight="Black"/>
+                    </lvc:CartesianChart.AxisX>
+                    
                     <lvc:CartesianChart.AxisY>
-                        <lvc:Axis Title="Y" LabelFormatter="{Binding Formatter}"/>
+                        <lvc:Axis Title="Số sản phẩm bán" 
+                                  LabelFormatter="{Binding Formatter}"
+                                  Foreground="Black"
+                                  FontWeight="Black"/>
                     </lvc:CartesianChart.AxisY>
                 </lvc:CartesianChart>
             </Grid>
