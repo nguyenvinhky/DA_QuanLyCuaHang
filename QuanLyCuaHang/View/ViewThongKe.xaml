@@ -4,257 +4,407 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:local="clr-namespace:QuanLyCuaHang.View"
              mc:Ignorable="d" 
              DataContext="{StaticResource ThongKeVM}"
              d:DesignHeight="450" d:DesignWidth="800">
     <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.5}">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        <TabControl Margin="10">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem">
+                                <Grid Name="Panel">
+                                    <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        ContentSource="Header"
+                                        Margin="10"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Panel" Property="Background" Value="MediumAquamarine" />
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="False">
+                                        <Setter TargetName="Panel" Property="Background" Value="White" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Header="THỐNG KÊ">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-            <TextBlock Text="TRANG CHỦ"
-                       Grid.Row="0"
-                       FontSize="22"
-                       FontWeight="Bold"
-                       Foreground="White"
-                       Margin="10 5 5 5"/>
+                    <Grid Grid.Row="0">
 
-            <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0"
+                                Height="140"
+                                Width="auto"
+                                CornerRadius="25"
+                                Margin="10">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="4" Color="#bbf906"/>
+                            </Border.Effect>
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#f64209" Offset="0.1"/>
+                                    <GradientStop Color="#f79308" Offset="0.4"/>
+                                    <GradientStop Color="#f8d107" Offset="0.6"/>
+                                    <GradientStop Color="#eaf906" Offset="0.9"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
 
-                <Border Grid.Column="0"
-                        Height="150"
-                        Width="auto"
-                        CornerRadius="25"
-                        Margin="10">
-                    <Border.Effect>
-                        <DropShadowEffect ShadowDepth="4" Color="#bbf906"/>
-                    </Border.Effect>
-                    <Border.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#f64209" Offset="0.1"/>
-                            <GradientStop Color="#f79308" Offset="0.4"/>
-                            <GradientStop Color="#f8d107" Offset="0.6"/>
-                            <GradientStop Color="#eaf906" Offset="0.9"/>
-                        </LinearGradientBrush>
-                    </Border.Background>
-
-                    <StackPanel>
-                        <TextBlock Text="Số đơn bán ra trong ngày:"
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="KHÁCH HÀNG CÓ DOANH SỐ CAO NHẤT:"
                                    TextWrapping="Wrap"
                                    Foreground="White"
                                    FontWeight="Bold"
-                                   FontSize="20"
-                                   Margin="0 15 0 0"
+                                   FontSize="18"
+                                   Margin="10 15 10 10"
                                    HorizontalAlignment="Center"/>
 
-                        <Grid Margin="0 15 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding SDB, StringFormat={}{0:# ĐƠN}}"
-                                       Grid.Column="0"
-                                       FontSize="22"
-                                       Foreground="White"
-                                       FontWeight="Medium"
-                                       Margin="15 10 0 0"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
 
-                            <materialDesign:PackIcon Kind="HandTruck"
+                                    <Grid Grid.Column="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="{Binding IDKhachHangTiemNang}"
+                                                   Grid.Row="0"
+                                                   FontSize="15"
+                                                   Foreground="White"
+                                                   FontWeight="Black"
+                                                   Margin="15 0 0 0"/>
+
+                                        <TextBlock Text="{Binding KhachHangTiemNang}"
+                                                   Grid.Row="1"
+                                                   FontSize="12"
+                                                   Foreground="White"
+                                                   FontWeight="Black"
+                                                   TextWrapping="Wrap"
+                                                   Margin="15 0 0 0"/>
+                                    </Grid>
+
+
+                                    <materialDesign:PackIcon Kind="CROWN"
                                                      Grid.Column="1"
                                                      HorizontalAlignment="Right"
                                                      Foreground="White"
                                                      Height="40"
                                                      Width="40"
-                                                     Margin="0 0 15 0"/>
-                        </Grid>
-                    </StackPanel>
+                                                     Margin="10 10 15 10"/>
+                                </Grid>
+                            </StackPanel>
 
-                </Border>
+                        </Border>
 
-                <Border Grid.Column="1"
-                        Height="150"
-                        Width="auto"
-                        CornerRadius="25"
-                        Margin="10">
-                    <Border.Effect>
-                        <DropShadowEffect ShadowDepth="4" Color="#f906b8"/>
-                    </Border.Effect>
-                    <Border.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#4109f6" Offset="0.1"/>
-                            <GradientStop Color="#9005fa" Offset="0.4"/>
-                            <GradientStop Color="#d506f9" Offset="0.6"/>
-                            <GradientStop Color="#fa05eb" Offset="0.9"/>
-                        </LinearGradientBrush>
-                    </Border.Background>
+                        <Border Grid.Column="1"
+                                Height="140"
+                                Width="auto"
+                                CornerRadius="25"
+                                Margin="10">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="4" Color="#f906b8"/>
+                            </Border.Effect>
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#4109f6" Offset="0.1"/>
+                                    <GradientStop Color="#9005fa" Offset="0.4"/>
+                                    <GradientStop Color="#d506f9" Offset="0.6"/>
+                                    <GradientStop Color="#fa05eb" Offset="0.9"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
 
-                    <StackPanel>
-                        <TextBlock Text="Doanh thu ngày:"
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="DOANH THU SO VỚI THÁNG TRƯỚC:"
                                    TextWrapping="Wrap"
                                    Foreground="White"
                                    FontWeight="Bold"
-                                   FontSize="20"
-                                   Margin="0 15 0 0"
+                                   FontSize="18"
+                                   Margin="10 15 10 10"
                                    HorizontalAlignment="Center"/>
 
-                        <Grid Margin="0 40 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding DoanhThuNgay, StringFormat={}{0:#,# VNĐ}}"
-                                       Grid.Column="0"
-                                       FontSize="15"
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding DoanhThuVSThangTruoc, StringFormat={}{0:#,# VNĐ}}"
+                                       Grid.Column="1"
+                                       FontSize="18"
                                        Foreground="White"
                                        FontWeight="Medium"
-                                       Margin="15 20 0 0"/>
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Margin="5 10 15 10"/>
 
-                            <materialDesign:PackIcon Kind="HandCoin"
+                                    <materialDesign:PackIcon Kind="{Binding ChangesIcon}"
+                                                     Grid.Column="0"
+                                                     HorizontalAlignment="Right"
+                                                     Foreground="White"
+                                                     Width="40"
+                                                     Height="40"
+                                                     Margin="15 10 5 10"/>
+                                </Grid>
+                            </StackPanel>
+
+                        </Border>
+
+                        <Border Grid.Column="2"
+                                Height="140"
+                                Width="auto"
+                                CornerRadius="25"
+                                Margin="10">
+                            <Border.Effect>
+                                <DropShadowEffect ShadowDepth="4" Color="#07b6f8"/>
+                            </Border.Effect>
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="#0af540" Offset="0.1"/>
+                                    <GradientStop Color="#06f996" Offset="0.4"/>
+                                    <GradientStop Color="#07f8d9" Offset="0.6"/>
+                                    <GradientStop Color="#04ecfb" Offset="0.9"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <StackPanel VerticalAlignment="Center">
+                                <TextBlock Text="NHÂN VIÊN NĂNG XUẤT NHẤT:"
+                                   TextWrapping="Wrap"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   FontSize="18"
+                                   Margin="10 15 10 10"
+                                   HorizontalAlignment="Center"/>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="{Binding NhanVienTiemNang}"
+                                                   Grid.Row="0"
+                                                   FontSize="15"
+                                                   Foreground="White"
+                                                   FontWeight="Black"
+                                                   Margin="15 0 0 0"/>
+
+                                        <TextBlock Text="{Binding IDNhanVienTiemNang}"
+                                                   Grid.Row="1"
+                                                   FontSize="12"
+                                                   Foreground="White"
+                                                   FontWeight="Black"
+                                                   TextWrapping="Wrap"
+                                                   Margin="15 0 0 0"/>
+                                    </Grid>
+
+                                    <materialDesign:PackIcon Kind="PeopleTick"
                                                      Grid.Column="1"
                                                      HorizontalAlignment="Right"
                                                      Foreground="White"
                                                      Height="40"
                                                      Width="40"
-                                                     Margin="0 0 15 0"/>
+                                                     Margin="10 10 15 10"/>
+                                </Grid>
+                            </StackPanel>
+
+                        </Border>
+
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Border CornerRadius="25"
+                                Margin="10">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="White" Offset="0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
+
+                        <Grid Grid.Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="4*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="SỐ LƯỢNG MẶT HÀNG ĐÃ BÁN"
+                                       FontSize="10"
+                                       FontWeight="Black"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Margin="0 15 0 0"/>
+
+                            <lvc:PieChart Grid.Row="1"
+                                      Series="{Binding PieChartSLSP}" 
+                                      LegendLocation="Bottom" 
+                                      InnerRadius="0" 
+                                      Margin="10">
+                                <lvc:PieChart.ChartLegend>
+                                    <lvc:DefaultLegend BulletSize="20"></lvc:DefaultLegend>
+                                </lvc:PieChart.ChartLegend>
+                                <lvc:PieChart.DataTooltip>
+                                    <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
+                                </lvc:PieChart.DataTooltip>
+                            </lvc:PieChart>
                         </Grid>
-                    </StackPanel>
 
-                </Border>
+                        <!--Biểu đồ sản phẩm bán chạy-->
+                        <Border Grid.Column="1"
+                                CornerRadius="25"
+                                Margin="10">
+                            <Border.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="White" Offset="0"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                        </Border>
 
-                <Border Grid.Column="2"
-                        Height="150"
-                        Width="auto"
-                        CornerRadius="25"
-                        Margin="10">
-                    <Border.Effect>
-                        <DropShadowEffect ShadowDepth="4" Color="#07b6f8"/>
-                    </Border.Effect>
-                    <Border.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#0af540" Offset="0.1"/>
-                            <GradientStop Color="#06f996" Offset="0.4"/>
-                            <GradientStop Color="#07f8d9" Offset="0.6"/>
-                            <GradientStop Color="#04ecfb" Offset="0.9"/>
-                        </LinearGradientBrush>
-                    </Border.Background>
+                        <Grid Grid.Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="4*"/>
+                            </Grid.RowDefinitions>
 
-                    <StackPanel>
-                        <TextBlock Text="Số sản phẩm bán ra trong ngày:"
-                                   TextWrapping="Wrap"
-                                   Foreground="White"
-                                   FontWeight="Bold"
-                                   FontSize="20"
-                                   Margin="0 15 0 0"
-                                   HorizontalAlignment="Center"/>
+                            <TextBlock Text="TOP SẢN PHẨM BÁN CHẠY"
+                                       FontSize="10"
+                                       FontWeight="Black"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Margin="0 15 0 0"/>
 
-                        <Grid Margin="0 15 0 0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding SLSP_BanTrongNgay, StringFormat={}{0:# SẢN PHẨM}}"
-                                       Grid.Column="0"
-                                       FontSize="22"
-                                       Foreground="White"
-                                       FontWeight="Medium"
-                                       Margin="15 10 0 0"/>
-
-                            <materialDesign:PackIcon Kind="Cart"
-                                                     Grid.Column="1"
-                                                     HorizontalAlignment="Right"
-                                                     Foreground="White"
-                                                     Height="40"
-                                                     Width="40"
-                                                     Margin="0 0 15 0"/>
+                            <lvc:PieChart Grid.Row="1"
+                                      Series="{Binding PieChartTOP_SP}"
+                                      LegendLocation="Bottom" 
+                                      InnerRadius="50" 
+                                      Margin="10">
+                                <lvc:PieChart.ChartLegend>
+                                    <lvc:DefaultLegend BulletSize="20"></lvc:DefaultLegend>
+                                </lvc:PieChart.ChartLegend>
+                                <lvc:PieChart.DataTooltip>
+                                    <lvc:DefaultTooltip BulletSize="20"></lvc:DefaultTooltip>
+                                </lvc:PieChart.DataTooltip>
+                            </lvc:PieChart>
                         </Grid>
-                    </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="LỊCH SỬ DOANH THU">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                </Border>
+                    <Grid Grid.Row="0"
+                          Margin="5 10 5 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-            </Grid>
+                        <ComboBox materialDesign:HintAssist.Hint="CHU KÌ"
+                                  x:Name="cbbChuKi"
+                                  Background="Transparent"
+                                  Foreground="OrangeRed"
+                                  Width="160"
+                                  HorizontalAlignment="Left"
+                                  Margin="30 0 0 0"
+                                  ItemsSource="{Binding ListChuKi}"
+                                  SelectedItem="{Binding SelectedChuKi}"
+                                  DisplayMemberPath="NameChuKi"
+                                  materialDesign:HintAssist.FontFamily="Verdana"
+                                  MinWidth="72"
+                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding SelectionChangedCommand}"
+                                   CommandParameter="{Binding ElementName=cbbChuKi}"/>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
 
-            <Grid Grid.Row="2">
+                        <Button Grid.Column="1"
+                                Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                                Content="XUẤT BIỂU ĐỒ"
+                                Width="160"
+                                FontSize="12"
+                                HorizontalAlignment="Right"
+                                materialDesign:ButtonAssist.CornerRadius="15"
+                                Background="Transparent"
+                                FontWeight="Black"
+                                BorderThickness="1"
+                                BorderBrush="White"
+                                Foreground="White"
+                                Command="{Binding AddSanPham}" />
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
+                    </Grid>
 
-                <Border CornerRadius="25"
-                        Margin="10">
-                    <Border.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="White" Offset="0"/>
-                        </LinearGradientBrush>
-                    </Border.Background>
-                </Border>
+                    <Border Grid.Row="1"
+                            CornerRadius="25"
+                            Margin="10">
+                        <Border.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="White" Offset="0"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                    </Border>
 
-                <lvc:CartesianChart Series="{Binding Chart}"
+                    <lvc:CartesianChart Grid.Row="1"
+                                    Series="{Binding LineChartChuKi}"
                                     LegendLocation="Top"
                                     Background="Transparent"
                                     Foreground="Black"
                                     FontSize="18"
                                     Margin="20">
 
-                    <lvc:CartesianChart.AxisX>
-                        <lvc:Axis Title="Thời gian trong ngày (Giờ)" 
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis Title="Thời gian" 
                                   Labels="{Binding Labels}"
                                   Foreground="Black"
                                   FontWeight="Black"/>
-                    </lvc:CartesianChart.AxisX>
+                        </lvc:CartesianChart.AxisX>
 
-                    <lvc:CartesianChart.AxisY>
-                        <lvc:Axis Title="Số sản phẩm bán" 
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis Title="Doanh số" 
                                   LabelFormatter="{Binding Formatter}"
                                   Foreground="Black"
                                   FontWeight="Black"/>
-                    </lvc:CartesianChart.AxisY>
-                </lvc:CartesianChart>
-
-                <Border Grid.Column="1"
-                        CornerRadius="25"
-                        Margin="10">
-                    <Border.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="White" Offset="0"/>
-                        </LinearGradientBrush>
-                    </Border.Background>
-                </Border>
-
-                <lvc:CartesianChart Grid.Column="1"
-                                    Series="{Binding Chart}"
-                                    LegendLocation="Top"
-                                    Background="Transparent"
-                                    Foreground="Black"
-                                    FontSize="18"
-                                    Margin="20">
-
-                    <lvc:CartesianChart.AxisX>
-                        <lvc:Axis Title="Thời gian trong ngày (Giờ)" 
-                                  Labels="{Binding Labels}"
-                                  Foreground="Black"
-                                  FontWeight="Black"/>
-                    </lvc:CartesianChart.AxisX>
-
-                    <lvc:CartesianChart.AxisY>
-                        <lvc:Axis Title="Số sản phẩm bán" 
-                                  LabelFormatter="{Binding Formatter}"
-                                  Foreground="Black"
-                                  FontWeight="Black"/>
-                    </lvc:CartesianChart.AxisY>
-                </lvc:CartesianChart>
-            </Grid>
-        </Grid>
+                        </lvc:CartesianChart.AxisY>
+                    </lvc:CartesianChart>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </materialDesign:TransitioningContent>
 </UserControl>

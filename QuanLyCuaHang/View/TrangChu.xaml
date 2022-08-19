@@ -51,25 +51,27 @@
                     </Border.Background>
 
                     <StackPanel>
-                        <TextBlock Text="Số đơn bán ra trong ngày:"
+                        <TextBlock Text="SỐ ĐƠN BÁN RA TRONG NGÀY:"
                                    TextWrapping="Wrap"
                                    Foreground="White"
                                    FontWeight="Bold"
-                                   FontSize="20"
-                                   Margin="0 15 0 0"
+                                   FontSize="16"
+                                   Margin="10 15 10 10"
                                    HorizontalAlignment="Center"/>
 
-                        <Grid Margin="0 15 0 0">
+                        <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding SDB, StringFormat={}{0:# ĐƠN}}"
                                        Grid.Column="0"
-                                       FontSize="22"
+                                       FontSize="18"
                                        Foreground="White"
                                        FontWeight="Medium"
-                                       Margin="15 10 0 0"/>
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Margin="15 0 0 0"/>
 
                             <materialDesign:PackIcon Kind="HandTruck"
                                                      Grid.Column="1"
@@ -101,25 +103,27 @@
                     </Border.Background>
 
                     <StackPanel>
-                        <TextBlock Text="Doanh thu ngày:"
+                        <TextBlock Text="DOANH THU TRONG NGÀY:"
                                    TextWrapping="Wrap"
                                    Foreground="White"
                                    FontWeight="Bold"
-                                   FontSize="20"
-                                   Margin="0 15 0 0"
+                                   FontSize="17"
+                                   Margin="10 15 10 10"
                                    HorizontalAlignment="Center"/>
 
-                        <Grid Margin="0 40 0 0">
+                        <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding DoanhThuNgay, StringFormat={}{0:#,# VNĐ}}"
                                        Grid.Column="0"
-                                       FontSize="15"
+                                       FontSize="18"
                                        Foreground="White"
                                        FontWeight="Medium"
-                                       Margin="15 20 0 0"/>
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Margin="15 0 0 0"/>
 
                             <materialDesign:PackIcon Kind="HandCoin"
                                                      Grid.Column="1"
@@ -151,25 +155,27 @@
                     </Border.Background>
 
                     <StackPanel>
-                        <TextBlock Text="Số sản phẩm bán ra trong ngày:"
+                        <TextBlock Text="SỐ SẢN PHẨM ĐÃ BÁN TRONG NGÀY:"
                                    TextWrapping="Wrap"
                                    Foreground="White"
                                    FontWeight="Bold"
-                                   FontSize="20"
-                                   Margin="0 15 0 0"
+                                   FontSize="16"
+                                   Margin="10 15 10 10"
                                    HorizontalAlignment="Center"/>
 
-                        <Grid Margin="0 15 0 0">
+                        <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding SLSP_BanTrongNgay, StringFormat={}{0:# SẢN PHẨM}}"
                                        Grid.Column="0"
-                                       FontSize="22"
+                                       FontSize="18"
                                        Foreground="White"
                                        FontWeight="Medium"
-                                       Margin="15 10 0 0"/>
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Margin="15 0 0 0"/>
 
                             <materialDesign:PackIcon Kind="Cart"
                                                      Grid.Column="1"
