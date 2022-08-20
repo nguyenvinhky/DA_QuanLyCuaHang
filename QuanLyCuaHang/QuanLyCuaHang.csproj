@@ -143,6 +143,7 @@
       <DependentUpon>QuanLyCuaHang.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ObjectChuKiDoanhThu.cs" />
+    <Compile Include="Model\ObjectFinDonHang.cs" />
     <Compile Include="Model\ObjectGioiTinh.cs" />
     <Compile Include="Model\QuanLyCuaHang.Context.cs">
       <AutoGen>True</AutoGen>

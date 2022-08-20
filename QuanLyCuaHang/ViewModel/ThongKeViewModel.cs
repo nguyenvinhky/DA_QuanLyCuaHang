@@ -99,6 +99,22 @@ namespace QuanLyCuaHang.ViewModel
                 new ObjectChuKiDoanhThu(){NameChuKi = "Năm"}
             };
 
+            //THỐNG KÊ CHU KỲ THÁNG
+            SeriesCollection series = new SeriesCollection();
+            var ChuKiThang = DataProvider.Ins.DB.HDBs.Where(x => x.NgayBan.Value.Year == DateTime.Now.Year).GroupBy(t => t.NgayBan.Value.Month).Select(x => new { TKMonth = x.Key, Sum = x.Sum(t => t.TongTien) }).OrderBy(t => t.TKMonth).ToList();
+            List<int> ArrayCKT = new List<int>();
+            List<string> ArrayNameCKT = new List<string>();
+            foreach (var item in ChuKiThang)
+            {
+                ArrayCKT.Add((int)item.Sum);
+                ArrayNameCKT.Add("Tháng " + item.TKMonth);
+            }
+            series.Add(new LineSeries() { Title = "Doanh Thu", Values = new ChartValues<int>(ArrayCKT) });
+            LineChartChuKi = series;
+            Labels = ArrayNameCKT;
+            Formatter = Values => Values.ToString("N") + " VNĐ";
+
+            //LẤY GIÁ TRỊ NGÀY HIỆN TẠI
             NgayHienTai = DateTime.Now;
             NgayDauThang = DateTime.Parse($"1/{NgayHienTai.Month}/{NgayHienTai.Year}");
 

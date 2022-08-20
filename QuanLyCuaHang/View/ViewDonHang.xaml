@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:local="clr-namespace:QuanLyCuaHang.View"
              mc:Ignorable="d" 
              DataContext="{StaticResource DonHangVM}"
@@ -28,28 +29,29 @@
 
                 <ComboBox Grid.Column="0"
                           Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                          ItemsSource="{Binding CBBFindDonHang}"
+                          SelectedItem="{Binding SelectedCBBFindDonHang}"
+                          DisplayMemberPath="NameFind"
                           materialDesign:HintAssist.Hint="Bộ lọc"
                           Width="130" 
                           Height="45"
                           FontSize="10"
                           Margin="10"
+                          Name="cbbTiemKiem"
                           materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                           FontWeight="Bold"
-                          Background="White"/>
-
-                <ComboBox Grid.Column="1"
-                          Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                          materialDesign:HintAssist.Hint="Tìm kiếm"
-                          Width="130" 
-                          Height="45"
-                          FontSize="10"
-                          Margin="10"
-                          FontWeight="Bold"
-                          materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-                          Background="White"/>
-
+                          Background="White">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding CBBTiemKiemCommand}"
+                                   CommandParameter="{Binding ElementName=cbbTiemKiem}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
 
                 <TextBox Background="White"
+                         Text="{Binding te}"
+                         x:Name="txtTiemKiem"
                          Margin="10"
                          Height="45"
                          Width="200"
@@ -59,7 +61,14 @@
                          TextWrapping="Wrap"
                          materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                          materialDesign:HintAssist.Hint="TÌM KIẾM"
-                         Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding TiemKiemCommand}"
+                                   CommandParameter="{Binding ElementName=txtTiemKiem}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
 
                 <Button Grid.Column="3"
                         Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"

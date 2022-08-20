@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
@@ -15,9 +16,12 @@ namespace QuanLyCuaHang.ViewModel
 {
     public class DonHangViewModel:BaseViewModel
     {
+        int a;
         private string directory = "";
         private double gb;
         private int slb;
+        private string _TextFind { get; set; }
+        public string TextFind { get => _TextFind; set { _TextFind = value; OnPropertyChanged(); } }
         private string _SLT { get; set; }
         public string SLT { get => _SLT; set { _SLT = value; OnPropertyChanged(); } }
         private double _GiaBan { get; set; }
@@ -122,6 +126,21 @@ namespace QuanLyCuaHang.ViewModel
                 slb = (int)SelectedItemTTHDB.SL;
             }
         }
+
+        private ObservableCollection<ObjectFinDonHang> _CBBFindDonHang { get; set; }
+        public ObservableCollection<ObjectFinDonHang> CBBFindDonHang { get => _CBBFindDonHang; set { _CBBFindDonHang = value; OnPropertyChanged(); } }
+        private ObjectFinDonHang _SelectedCBBFindDonHang { get; set; }
+        public ObjectFinDonHang SelectedCBBFindDonHang 
+        { 
+            get => _SelectedCBBFindDonHang; 
+            set
+            { 
+                _SelectedCBBFindDonHang = value; 
+                OnPropertyChanged();
+                if (SelectedCBBFindDonHang == null)
+                    return;
+            } 
+        }
         public ICommand CreateHDB { get; set; }
         public ICommand CreateHDBClick { get; set; }
         public ICommand AddTTHDB { get; set; }
@@ -129,6 +148,8 @@ namespace QuanLyCuaHang.ViewModel
         public ICommand HuyHDB { get; set; }
         public ICommand ThanhToanTTHDB { get; set; }
         public ICommand XoaPhieuHDB { get; set; }
+        public ICommand TiemKiemCommand { get; set; }
+        public ICommand CBBTiemKiemCommand { get; set; }
         public DonHangViewModel()
         {
             //Lấy đường dẫn nơi chứa Project
@@ -143,6 +164,37 @@ namespace QuanLyCuaHang.ViewModel
             //Danh sách combobox sản phẩm
             ListCBB_SP = new ObservableCollection<SanPham>(DataProvider.Ins.DB.SanPhams);
             LoadUrl();
+
+            //COMBOBOX TIMF KIẾM ĐƠN HÀNG
+            CBBFindDonHang = new ObservableCollection<ObjectFinDonHang>()
+            {
+                new ObjectFinDonHang(){ IDNameFind = 0, NameFind = "Mã đơn hàng"},
+                new ObjectFinDonHang(){ IDNameFind = 1, NameFind = "Khách hàng"},
+                new ObjectFinDonHang(){ IDNameFind = 2, NameFind = "Ngày bán"},
+            };
+
+            CBBTiemKiemCommand = new RelayCommand<ComboBox>((p) => { return true; }, (p) =>
+            {
+                a = SelectedCBBFindDonHang.IDNameFind;
+
+            });
+
+            TiemKiemCommand = new RelayCommand<TextBox>((g) => { return true; }, (g) =>
+            {
+                this.TextFind = g.Text.ToString();
+                if (a == 0)
+                {
+                    ListHDB = new ObservableCollection<HDB>(DataProvider.Ins.DB.HDBs.Where(x => x.Id.Contains(TextFind)));
+                }
+                else if(a == 1)
+                {
+                    ListHDB = new ObservableCollection<HDB>(DataProvider.Ins.DB.HDBs.Where(x => x.KhachHang.TenKH.Contains(TextFind)));
+                }
+                else
+                {
+                    ListHDB = new ObservableCollection<HDB>(DataProvider.Ins.DB.HDBs.Where(x => x.NgayBan.Value.ToString().Contains(TextFind)));
+                }
+            });
 
             CreateHDB = new RelayCommand<Window>((p) => 
             {
