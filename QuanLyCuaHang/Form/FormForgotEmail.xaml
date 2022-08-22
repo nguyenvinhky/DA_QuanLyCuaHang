@@ -1,0 +1,82 @@
+﻿<Window x:Class="QuanLyCuaHang.Form.FormForgotEmail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:QuanLyCuaHang"
+        xmlns:uc="clr-namespace:QuanLyCuaHang.View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="500"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        DataContext="{StaticResource LoginVM}"
+        Name="Form"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Border CornerRadius="20"
+                Grid.RowSpan="3"
+                BorderThickness="2"
+                BorderBrush="White">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#ff222222" Offset="0.1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <uc:ConTrolBarUC/>
+
+        <TextBlock Grid.Row="1"
+                   Text="QUÊN MẬT KHẨU ?"
+                   HorizontalAlignment="Center"
+                   FontSize="29"
+                   Foreground="#afe7e8"
+                   FontWeight="Bold"/>
+
+        <Grid Grid.Row="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox  BorderBrush="Black"
+                      Grid.Row="0"
+                    Text="{Binding EmailAccount}"
+                    Foreground="#afe7e8"
+                    BorderThickness="3"
+                    FontSize="12"
+                    FontWeight="Black"
+                    materialDesign:TextFieldAssist.TextFieldCornerRadius="25"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Transparent"
+                    materialDesign:TextFieldAssist.TextBoxViewMargin="10"
+                    Width="300"
+                    Height="50"
+                    materialDesign:HintAssist.Hint="Email bạn đã đăng ký"/>
+
+            <Button Style="{StaticResource MaterialDesignRaisedSecondaryDarkButton}"
+                    Content="LẤY LẠI MẬT KHẨU"
+                    FontWeight="Black"
+                    Height="50"
+                    Width="300"
+                    FontSize="15"
+                    Foreground="Black"
+                    materialDesign:ButtonAssist.CornerRadius="25"
+                    Background="#afe7e8"
+                    BorderBrush="Black"
+                    BorderThickness="3"
+                    Grid.Row="1"
+                    CommandParameter="{Binding ElementName=Form}"
+                    Command="{Binding SendEmail}"/>
+        </Grid>
+    </Grid>
+</Window>

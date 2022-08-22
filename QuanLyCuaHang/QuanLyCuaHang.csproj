@@ -93,6 +93,9 @@
     <Compile Include="Form\FormCTHDB.xaml.cs">
       <DependentUpon>FormCTHDB.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Form\FormForgotEmail.xaml.cs">
+      <DependentUpon>FormForgotEmail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form\FormThemHoaDon.xaml.cs">
       <DependentUpon>FormThemHoaDon.xaml</DependentUpon>
     </Compile>
@@ -242,6 +245,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Form\FormCTHDB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\FormForgotEmail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
