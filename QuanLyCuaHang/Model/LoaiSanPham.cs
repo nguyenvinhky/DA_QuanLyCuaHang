@@ -11,8 +11,9 @@ namespace QuanLyCuaHang.Model
 {
     using System;
     using System.Collections.Generic;
+    using QuanLyCuaHang.ViewModel;
     
-    public partial class LoaiSanPham
+    public partial class LoaiSanPham:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiSanPham()
@@ -20,13 +21,15 @@ namespace QuanLyCuaHang.Model
             this.SanPhams = new HashSet<SanPham>();
             this.Sizes = new HashSet<Size>();
         }
-    
-        public int Id { get; set; }
-        public string TenLoaiSP { get; set; }
-    
+
+        private int id;
+        private string tenLoaiSP;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPham> SanPhams { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Size> Sizes { get; set; }
+        public int Id { get => id; set { id = value; OnPropertyChanged(); } }
+        public string TenLoaiSP { get => tenLoaiSP; set { tenLoaiSP = value; OnPropertyChanged(); } }
     }
 }

@@ -204,6 +204,7 @@
                     </RadioButton>
 
                     <RadioButton Style="{StaticResource Button_Dashboard}"
+                                 Command="{Binding LoadSetting}"
                                  Name="rdbCD">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Settings"

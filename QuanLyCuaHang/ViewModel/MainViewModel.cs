@@ -4,6 +4,7 @@ using QuanLyCuaHang.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,15 +18,30 @@ namespace QuanLyCuaHang.ViewModel
     
     public class MainViewModel : BaseViewModel
     {
+        string directory;
         public static bool chualuu = false;
         private BitmapImage _ImageNhanVien { get; set; }
         public BitmapImage ImageNhanVien { get=>_ImageNhanVien; set { _ImageNhanVien = value; OnPropertyChanged(); } }
+        private string _Anh { get; set; }
+        public string Anh { get => _Anh; set { _Anh = value; OnPropertyChanged(); } }
         private string _TenNV { get; set; }
         public string TenNV { get => _TenNV; set { _TenNV = value; OnPropertyChanged(); } }
+        private string _GioiTinh;
+        public string GioiTinh { get => _GioiTinh; set { _GioiTinh = value; OnPropertyChanged(); } }
+        private Nullable<System.DateTime> _NgaySinh = DateTime.Now.Date;
+        public Nullable<System.DateTime> NgaySinh { get => _NgaySinh; set { _NgaySinh = value; OnPropertyChanged(); } }
+        private string _DiaChi;
+        public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
+        private string _SDT;
+        public string SDT { get => _SDT; set { _SDT = value; OnPropertyChanged(); } }
+        private string _Email;
+        public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
         private string _Quyen { get; set; }
         public string Quyen { get => _Quyen; set { _Quyen = value; OnPropertyChanged(); } }
         private string _IdNV { get; set; }
         public string IdNV { get => _IdNV; set { _IdNV = value; OnPropertyChanged(); } }
+        private Nullable<double> _Luong;
+        public Nullable<double> Luong { get => _Luong; set { _Luong = value; OnPropertyChanged(); } }
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand LoadViewSanPham { get; set; }
         public ICommand LoadViewTrangChu { get; set; }
@@ -34,6 +50,7 @@ namespace QuanLyCuaHang.ViewModel
         public ICommand LoadViewNhapHang { get; set; }
         public ICommand LoadViewThongKe { get; set; }
         public ICommand LoadViewQuanLy { get; set; }
+        public ICommand LoadSetting { get; set; }
         public ICommand LogOutCommand { get; set; }
         public ICommand CheckHDNCommand { get; set; }
 
@@ -56,9 +73,13 @@ namespace QuanLyCuaHang.ViewModel
         public NhapHangViewModel NH { get; set; }
         public ThongKeViewModel TK { get; set; }
         public QuanLyViewModel QL { get; set; }
+        public SettingViewModel CD { get; set; }
 
         public MainViewModel()
         {
+            //Lấy đường dẫn nơi chứa Project
+            directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+
             //Đăng nhập
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return true; }, (p) => {
                 CurrentView = TC;
@@ -85,6 +106,7 @@ namespace QuanLyCuaHang.ViewModel
             NH = new NhapHangViewModel();
             TK = new ThongKeViewModel();
             QL = new QuanLyViewModel();
+            CD = new SettingViewModel();
 
             LoadViewTrangChu = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
                 CurrentView = TC;
@@ -122,6 +144,23 @@ namespace QuanLyCuaHang.ViewModel
 
             LoadViewQuanLy = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
                 CurrentView = QL;
+            }
+            );
+
+            LoadSetting = new RelayCommand<UserControl>((p) => { return true; }, (p) => {
+                ViewSetting viewSetting = new ViewSetting();
+                var data = viewSetting.DataContext as SettingViewModel;
+                data.Images = new BitmapImage(new Uri(directory + Anh));
+                data.IdNV = IdNV;
+                data.TenNV = TenNV;
+                data.GioiTinh = GioiTinh;
+                data.NgaySinh = NgaySinh;
+                data.SDT = SDT;
+                data.Email = Email;
+                data.DiaChi = DiaChi;
+                data.Luong = Luong;
+                data.Anh = Anh;
+                CurrentView = CD;
             }
             );
 

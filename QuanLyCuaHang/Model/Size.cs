@@ -11,8 +11,9 @@ namespace QuanLyCuaHang.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Size
+    using QuanLyCuaHang.ViewModel;
+
+    public partial class Size:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Size()
@@ -21,11 +22,11 @@ namespace QuanLyCuaHang.Model
             this.TTHDBs = new HashSet<TTHDB>();
             this.TTHDNs = new HashSet<TTHDN>();
         }
-    
-        public int Id { get; set; }
-        public int IdLSP { get; set; }
-        public string KichThuoc { get; set; }
-    
+
+        private int id;
+        private int idLSP;
+        private string kichThuoc;
+
         public virtual LoaiSanPham LoaiSanPham { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TonKho> TonKhoes { get; set; }
@@ -33,5 +34,8 @@ namespace QuanLyCuaHang.Model
         public virtual ICollection<TTHDB> TTHDBs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TTHDN> TTHDNs { get; set; }
+        public int Id { get => id; set { id = value; OnPropertyChanged(); } }
+        public int IdLSP { get => idLSP; set { idLSP = value; OnPropertyChanged(); } }
+        public string KichThuoc { get => kichThuoc; set { kichThuoc = value; OnPropertyChanged(); } }
     }
 }

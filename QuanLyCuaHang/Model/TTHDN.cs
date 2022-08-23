@@ -11,20 +11,29 @@ namespace QuanLyCuaHang.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TTHDN
+    using QuanLyCuaHang.ViewModel;
+
+    public partial class TTHDN:BaseViewModel
     {
-        public string Id { get; set; }
-        public string IdSP { get; set; }
-        public int IdNCC { get; set; }
-        public int IdSize { get; set; }
-        public string IdHDN { get; set; }
-        public Nullable<double> GiaNhap { get; set; }
-        public Nullable<int> SLNhap { get; set; }
-    
+        private string id;
+        private string idSP;
+        private int idNCC;
+        private int idSize;
+        private string idHDN;
+        private Nullable<double> giaNhap;
+        private Nullable<int> sLNhap;
+
         public virtual HDN HDN { get; set; }
         public virtual NCC NCC { get; set; }
         public virtual SanPham SanPham { get; set; }
         public virtual Size Size { get; set; }
+
+        public string Id { get => id; set { id = value; OnPropertyChanged(); } }
+        public string IdSP { get => idSP; set { idSP = value; OnPropertyChanged(); } }
+        public int IdNCC { get => idNCC; set { idNCC = value; OnPropertyChanged(); } }
+        public int IdSize { get => idSize; set { idSize = value; OnPropertyChanged(); } }
+        public string IdHDN { get => idHDN; set { idHDN = value; OnPropertyChanged(); } }
+        public double? GiaNhap { get => giaNhap; set { giaNhap = value; OnPropertyChanged(); } }
+        public int? SLNhap { get => sLNhap; set { sLNhap = value; OnPropertyChanged(); } }
     }
 }

@@ -11,22 +11,28 @@ namespace QuanLyCuaHang.Model
 {
     using System;
     using System.Collections.Generic;
+    using QuanLyCuaHang.ViewModel;
     
-    public partial class KhachHang
+    public partial class KhachHang:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhachHang()
         {
             this.HDBs = new HashSet<HDB>();
         }
-    
-        public string Id { get; set; }
-        public string TenKH { get; set; }
-        public string GioiTinh { get; set; }
-        public string SDT { get; set; }
-        public string DiaChi { get; set; }
-    
+
+        private string id;
+        private string tenKH;
+        private string gioiTinh;
+        private string sDT;
+        private string diaChi;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HDB> HDBs { get; set; }
+        public string Id { get => id; set { id = value; OnPropertyChanged(); } }
+        public string TenKH { get => tenKH; set { tenKH = value; OnPropertyChanged(); } }
+        public string GioiTinh { get => gioiTinh; set { gioiTinh = value; OnPropertyChanged(); } }
+        public string SDT { get => sDT; set { sDT = value; OnPropertyChanged(); } }
+        public string DiaChi { get => diaChi; set { diaChi = value; OnPropertyChanged(); } }
     }
 }

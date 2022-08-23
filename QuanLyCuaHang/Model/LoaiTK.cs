@@ -11,19 +11,22 @@ namespace QuanLyCuaHang.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class LoaiTK
+    using QuanLyCuaHang.ViewModel;
+
+    public partial class LoaiTK:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiTK()
         {
             this.TaiKhoans = new HashSet<TaiKhoan>();
         }
-    
-        public int Id { get; set; }
-        public string TenLoaiTK { get; set; }
-    
+
+        private int id;
+        private string tenLoaiTK;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaiKhoan> TaiKhoans { get; set; }
+        public int Id { get => id; set { id = value; OnPropertyChanged(); } }
+        public string TenLoaiTK { get => tenLoaiTK; set { tenLoaiTK = value; OnPropertyChanged(); } }
     }
 }

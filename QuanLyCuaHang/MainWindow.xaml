@@ -166,7 +166,8 @@
                                 Width="67"
                                 Height="18"
                                 BorderBrush="Transparent"
-                                HorizontalAlignment="Left"/>
+                                HorizontalAlignment="Left"
+                                Command="{Binding DangKy}"/>
 
                         <Button Grid.Column="1"
                                 Content="QUÊN MẬT KHẨU"

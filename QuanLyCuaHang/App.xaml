@@ -68,6 +68,10 @@
                 <view:ViewSize/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:SettingViewModel}">
+                <view:ViewSetting/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -11,22 +11,28 @@ namespace QuanLyCuaHang.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class NCC
+    using QuanLyCuaHang.ViewModel;
+
+    public partial class NCC:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NCC()
         {
             this.TTHDNs = new HashSet<TTHDN>();
         }
-    
-        public int Id { get; set; }
-        public string TenNCC { get; set; }
-        public string DiaChi { get; set; }
-        public string SDT { get; set; }
-        public string Email { get; set; }
-    
+
+        private int id;
+        private string tenNCC;
+        private string diaChi;
+        private string sDT;
+        private string email;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TTHDN> TTHDNs { get; set; }
+        public int Id { get => id; set { id = value; OnPropertyChanged(); } }
+        public string TenNCC { get => tenNCC; set { tenNCC = value; OnPropertyChanged(); } }
+        public string DiaChi { get => diaChi; set { diaChi = value; OnPropertyChanged(); } }
+        public string SDT { get => sDT; set { sDT = value; OnPropertyChanged(); } }
+        public string Email { get => email; set { email = value; OnPropertyChanged(); } }
     }
 }

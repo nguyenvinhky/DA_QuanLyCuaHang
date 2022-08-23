@@ -11,18 +11,22 @@ namespace QuanLyCuaHang.Model
 {
     using System;
     using System.Collections.Generic;
+    using QuanLyCuaHang.ViewModel;
     
-    public partial class HDB
+    public partial class HDB:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HDB()
         {
             this.TTHDBs = new HashSet<TTHDB>();
         }
-    
-        public string Id { get; set; }
-        public string IdNV { get; set; }
-        public string IdKH { get; set; }
+
+        private string id;
+        private string idNV;
+        private string idKH;
+        public string Id { get => id; set { id = value; OnPropertyChanged(); } }
+        public string IdNV { get => idNV; set { idNV = value; OnPropertyChanged(); } }
+        public string IdKH { get => idKH; set { idKH = value; OnPropertyChanged(); } }
         public Nullable<System.DateTime> NgayBan { get; set; }
         public Nullable<double> TongTien { get; set; }
     
@@ -30,5 +34,6 @@ namespace QuanLyCuaHang.Model
         public virtual NhanVien NhanVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TTHDB> TTHDBs { get; set; }
+
     }
 }

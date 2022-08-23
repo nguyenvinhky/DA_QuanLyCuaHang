@@ -11,16 +11,23 @@ namespace QuanLyCuaHang.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TaiKhoan
+    using QuanLyCuaHang.ViewModel;
+
+    public partial class TaiKhoan:BaseViewModel
     {
-        public int Id { get; set; }
-        public string IdNV { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public int IdLoaiTK { get; set; }
-    
+        private int id;
+        private string idNV;
+        private string username;
+        private string password;
+        private int idLoaiTK;
+
         public virtual LoaiTK LoaiTK { get; set; }
         public virtual NhanVien NhanVien { get; set; }
+
+        public int Id { get => id; set { id = value; OnPropertyChanged(); } }
+        public string IdNV { get => idNV; set { idNV = value; OnPropertyChanged(); } }
+        public string Username { get => username; set { username = value; OnPropertyChanged(); } }
+        public string Password { get => password; set { password = value; OnPropertyChanged(); } }
+        public int IdLoaiTK { get => idLoaiTK; set { idLoaiTK = value; OnPropertyChanged(); } }
     }
 }

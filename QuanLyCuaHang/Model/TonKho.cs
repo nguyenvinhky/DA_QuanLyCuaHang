@@ -11,14 +11,18 @@ namespace QuanLyCuaHang.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TonKho
+    using QuanLyCuaHang.ViewModel;
+
+    public partial class TonKho:BaseViewModel
     {
-        public string IdSP { get; set; }
-        public int IdSize { get; set; }
-        public Nullable<int> SLTon { get; set; }
-    
+        private string idSP;
+        private int idSize;
+        private Nullable<int> sLTon;
+
         public virtual SanPham SanPham { get; set; }
         public virtual Size Size { get; set; }
+        public string IdSP { get => idSP; set { idSP = value; OnPropertyChanged(); } }
+        public int IdSize { get => idSize; set { idSize = value; OnPropertyChanged(); } }
+        public int? SLTon { get => sLTon; set { sLTon = value; OnPropertyChanged(); } }
     }
 }

@@ -11,17 +11,23 @@ namespace QuanLyCuaHang.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TTHDB
+    using QuanLyCuaHang.ViewModel;
+
+    public partial class TTHDB:BaseViewModel
     {
-        public string Id { get; set; }
-        public string IdSP { get; set; }
-        public int IdSize { get; set; }
-        public string IdHDB { get; set; }
-        public Nullable<int> SL { get; set; }
-    
+        private string id;
+        private string idSP;
+        private int idSize;
+        private string idHDB;
+        private Nullable<int> sL;
+
         public virtual HDB HDB { get; set; }
         public virtual SanPham SanPham { get; set; }
         public virtual Size Size { get; set; }
+        public string Id { get => id; set { id = value; OnPropertyChanged(); } }
+        public string IdSP { get => idSP; set { idSP = value; OnPropertyChanged(); } }
+        public int IdSize { get => idSize; set { idSize = value; OnPropertyChanged(); } }
+        public string IdHDB { get => idHDB; set { idHDB = value; OnPropertyChanged(); } }
+        public int? SL { get => sL; set { sL = value; OnPropertyChanged(); } }
     }
 }

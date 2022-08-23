@@ -93,6 +93,12 @@
     <Compile Include="Form\FormCTHDB.xaml.cs">
       <DependentUpon>FormCTHDB.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Form\FormDangKy.xaml.cs">
+      <DependentUpon>FormDangKy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FormDoiMatKhau.xaml.cs">
+      <DependentUpon>FormDoiMatKhau.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Form\FormForgotEmail.xaml.cs">
       <DependentUpon>FormForgotEmail.xaml</DependentUpon>
     </Compile>
@@ -194,6 +200,7 @@
     <Compile Include="ViewModel\NhapHangViewModel.cs" />
     <Compile Include="ViewModel\QuanLyViewModel.cs" />
     <Compile Include="ViewModel\SanPhamViewModel.cs" />
+    <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\SizeViewModel.cs" />
     <Compile Include="ViewModel\ThongKeViewModel.cs" />
     <Compile Include="ViewModel\TrangChuViewModel.cs" />
@@ -230,6 +237,9 @@
     <Compile Include="View\ViewSanPham.xaml.cs">
       <DependentUpon>ViewSanPham.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewSetting.xaml.cs">
+      <DependentUpon>ViewSetting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewSize.xaml.cs">
       <DependentUpon>ViewSize.xaml</DependentUpon>
     </Compile>
@@ -245,6 +255,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Form\FormCTHDB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\FormDangKy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Form\FormDoiMatKhau.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -361,6 +379,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewSanPham.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewSetting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

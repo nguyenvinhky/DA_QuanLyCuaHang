@@ -12,8 +12,9 @@ namespace QuanLyCuaHang.Model
     using System;
     using System.Collections.Generic;
     using System.Windows.Media.Imaging;
+    using QuanLyCuaHang.ViewModel;
 
-    public partial class NhanVien
+    public partial class NhanVien:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhanVien()
@@ -21,16 +22,16 @@ namespace QuanLyCuaHang.Model
             this.HDBs = new HashSet<HDB>();
             this.TaiKhoans = new HashSet<TaiKhoan>();
         }
-    
-        public string Id { get; set; }
-        public string TenNV { get; set; }
-        public string GioiTinh { get; set; }
-        public Nullable<System.DateTime> NgaySinh { get; set; }
-        public string DiaChi { get; set; }
-        public string SDT { get; set; }
-        public string Email { get; set; }
-        public Nullable<double> Luong { get; set; }
-        public string Anh { get; set; }
+
+        private string id;
+        private string tenNV;
+        private string gioiTinh;
+        private Nullable<System.DateTime> ngaySinh;
+        private string diaChi;
+        private string sDT;
+        private string email;
+        private Nullable<double> luong;
+        private string anh;
         private BitmapImage _Url;
         public BitmapImage Url { get => _Url; set => _Url = value; }
 
@@ -38,5 +39,14 @@ namespace QuanLyCuaHang.Model
         public virtual ICollection<HDB> HDBs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaiKhoan> TaiKhoans { get; set; }
+        public string Id { get => id; set { id = value;OnPropertyChanged(); } }
+        public string TenNV { get => tenNV; set { tenNV = value; OnPropertyChanged(); } }
+        public string GioiTinh { get => gioiTinh; set { gioiTinh = value; OnPropertyChanged(); } }
+        public DateTime? NgaySinh { get => ngaySinh; set { ngaySinh = value; OnPropertyChanged(); } }
+        public string DiaChi { get => diaChi; set { diaChi = value; OnPropertyChanged(); } }
+        public string SDT { get => sDT; set { sDT = value; OnPropertyChanged(); } }
+        public string Email { get => email; set { email = value; OnPropertyChanged(); } }
+        public double? Luong { get => luong; set { luong = value; OnPropertyChanged(); } }
+        public string Anh { get => anh; set { anh = value; OnPropertyChanged(); } }
     }
 }

@@ -12,8 +12,9 @@ namespace QuanLyCuaHang.Model
     using System;
     using System.Collections.Generic;
     using System.Windows.Media.Imaging;
+    using QuanLyCuaHang.ViewModel;
 
-    public partial class SanPham
+    public partial class SanPham:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SanPham()
@@ -22,14 +23,14 @@ namespace QuanLyCuaHang.Model
             this.TTHDBs = new HashSet<TTHDB>();
             this.TTHDNs = new HashSet<TTHDN>();
         }
-    
-        public string Id { get; set; }
-        public string Anh { get; set; }
-        public string TenSP { get; set; }
-        public int IdLoaiSP { get; set; }
-        public Nullable<double> GiaBan { get; set; }
-        public Nullable<double> GiamGia { get; set; }
-        public string GhiChu { get; set; }
+
+        private string id;
+        private string anh;
+        private string tenSP;
+        private int idLoaiSP;
+        private Nullable<double> giaBan;
+        private Nullable<double> giamGia;
+        private string ghiChu;
         private BitmapImage _Url;
         public BitmapImage Url { get => _Url; set => _Url = value; }
 
@@ -40,5 +41,12 @@ namespace QuanLyCuaHang.Model
         public virtual ICollection<TTHDB> TTHDBs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TTHDN> TTHDNs { get; set; }
+        public string Id { get => id; set { id = value; OnPropertyChanged(); } }
+        public string Anh { get => anh; set { anh = value; OnPropertyChanged(); } }
+        public string TenSP { get => tenSP; set { tenSP = value; OnPropertyChanged(); } }
+        public int IdLoaiSP { get => idLoaiSP; set { idLoaiSP = value; OnPropertyChanged(); } }
+        public double? GiaBan { get => giaBan; set { giaBan = value; OnPropertyChanged(); } }
+        public double? GiamGia { get => giamGia; set { giamGia = value; OnPropertyChanged(); } }
+        public string GhiChu { get => ghiChu; set { ghiChu = value; OnPropertyChanged(); } }
     }
 }

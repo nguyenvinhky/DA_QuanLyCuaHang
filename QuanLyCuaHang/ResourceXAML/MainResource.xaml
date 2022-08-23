@@ -15,4 +15,5 @@
     <viewmodel:DonHangViewModel x:Key="DonHangVM"></viewmodel:DonHangViewModel>
     <viewmodel:TrangChuViewModel x:Key="TrangChuVM"></viewmodel:TrangChuViewModel>
     <viewmodel:ThongKeViewModel x:Key="ThongKeVM"></viewmodel:ThongKeViewModel>
+    <viewmodel:SettingViewModel x:Key="SettingVM"></viewmodel:SettingViewModel>
 </ResourceDictionary>

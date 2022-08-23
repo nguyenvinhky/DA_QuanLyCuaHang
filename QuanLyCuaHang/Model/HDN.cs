@@ -11,20 +11,24 @@ namespace QuanLyCuaHang.Model
 {
     using System;
     using System.Collections.Generic;
+    using QuanLyCuaHang.ViewModel;
     
-    public partial class HDN
+    public partial class HDN:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public HDN()
         {
             this.TTHDNs = new HashSet<TTHDN>();
         }
-    
-        public string Id { get; set; }
-        public Nullable<System.DateTime> NgayNhap { get; set; }
-        public Nullable<double> TongTienHDN { get; set; }
-    
+
+        private string id;
+        private Nullable<System.DateTime> ngayNhap;
+        private Nullable<double> tongTienHDN;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TTHDN> TTHDNs { get; set; }
+        public string Id { get => id; set { id = value; OnPropertyChanged(); } }
+        public DateTime? NgayNhap { get => ngayNhap; set { ngayNhap = value; OnPropertyChanged(); } }
+        public double? TongTienHDN { get => tongTienHDN; set { tongTienHDN = value; OnPropertyChanged(); } }
     }
 }

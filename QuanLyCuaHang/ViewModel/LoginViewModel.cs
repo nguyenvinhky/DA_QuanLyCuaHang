@@ -13,11 +13,34 @@ using System.Windows.Media.Imaging;
 using System.Net;
 using System.Net.Mail;
 using QuanLyCuaHang.Form;
+using Microsoft.Win32;
+using System.Collections.ObjectModel;
 
 namespace QuanLyCuaHang.ViewModel
 {
     public class LoginViewModel:BaseViewModel
     {
+        string IntroIDNV = "NVSJDI_";
+        string fileiamge = null;
+        string dialog;
+        private string nameImages;
+        public string addimages;
+        private string _Id;
+        public string Id { get => _Id; set { _Id = value; OnPropertyChanged(); } }
+        private string _TenNV;
+        public string TenNV { get => _TenNV; set { _TenNV = value; OnPropertyChanged(); } }
+        private string _GioiTinh;
+        public string GioiTinh { get => _GioiTinh; set { _GioiTinh = value; OnPropertyChanged(); } }
+        private Nullable<System.DateTime> _NgaySinh = DateTime.Now.Date;
+        public Nullable<System.DateTime> NgaySinh { get => _NgaySinh; set { _NgaySinh = value; OnPropertyChanged(); } }
+        private string _DiaChi;
+        public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
+        private string _SDT;
+        public string SDT { get => _SDT; set { _SDT = value; OnPropertyChanged(); } }
+        private string _Email;
+        public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } }
+        private BitmapImage _Images;
+        public BitmapImage Images { get => _Images; set { _Images = value; OnPropertyChanged(); } }
         private string _EmailAccount { get; set; }
         public string EmailAccount { get => _EmailAccount; set { _EmailAccount = value; OnPropertyChanged(); } }
         private string directory = "";
@@ -25,16 +48,39 @@ namespace QuanLyCuaHang.ViewModel
         public string Username { get=>_Username; set { _Username = value; OnPropertyChanged(); } }
         private string _Password { get; set; }
         public string Password { get => _Password; set { _Password = value; OnPropertyChanged(); } }
+        private string _PasswordDangKy { get; set; }
+        public string PasswordDangKy { get => _PasswordDangKy; set { _PasswordDangKy = value; OnPropertyChanged(); } }
         public bool isLogin = false;
+        private ObservableCollection<NhanVien> _NhanVienList;
+        public ObservableCollection<NhanVien> NhanVienList { get => _NhanVienList; set { _NhanVienList = value; OnPropertyChanged(); } }
+        private ObservableCollection<ObjectGioiTinh> _ListGioiTinh;
+        public ObservableCollection<ObjectGioiTinh> ListGioiTinh { get => _ListGioiTinh; set { _ListGioiTinh = value; OnPropertyChanged(); } }
         public ICommand LoginCommand { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
         public ICommand ForgotPassword { get; set; }
         public ICommand SendEmail { get; set; }
+        public ICommand DangKy { get; set; }
+        public ICommand DangKyNhanVien { get; set; }
+        public ICommand ChooseImages { get; set; }
         public LoginViewModel()
         {
+            // GIỚI TÍNH
+            ListGioiTinh = new ObservableCollection<ObjectGioiTinh>()
+            {
+                new ObjectGioiTinh(){ GioiTinh = "Nam"},
+                new ObjectGioiTinh(){ GioiTinh = "Nữ"},
+            };
+
             Random rand = new Random();
             //Lấy đường dẫn nơi chứa Project
             directory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+
+            //List nhân viên
+            NhanVienList = new ObservableCollection<NhanVien>(DataProvider.Ins.DB.NhanViens);
+
+            //TẠO ID NHÂN VIÊN
+            var IDnew = createIdNV(IntroIDNV);
+            Id = IDnew;
 
             Password = "";
             Username = "";
@@ -90,6 +136,52 @@ namespace QuanLyCuaHang.ViewModel
                     EmailAccount = "";
                 }
             });
+
+            DangKy = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                FormDangKy formDangKy = new FormDangKy();
+                formDangKy.ShowDialog();
+            });
+
+            ChooseImages = new RelayCommand<Window>((p) => { return true; }, (p) => {
+                OpenFileDialog openfiledialog = new OpenFileDialog();
+                openfiledialog.Filter = openfiledialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif";
+                if (openfiledialog.ShowDialog() == true)
+                {
+                    Images = new BitmapImage(new Uri(openfiledialog.FileName));
+                    nameImages = openfiledialog.SafeFileName;
+
+                    //location Images
+                    dialog = openfiledialog.FileName;
+
+                    fileiamge = "/Anh/" + nameImages;
+                    addimages = "\\Anh\\" + nameImages;
+                }
+            });
+
+            DangKyNhanVien = new RelayCommand<Window>((p) => { return true; }, (p) =>
+            {
+                //Thêm ảnh vào folder ảnh
+                //Copy file anh vao folder Anh
+                try
+                {
+                    File.Copy(dialog, directory + addimages);
+                }
+                catch { }
+                //Thêm nhân viên
+                var bm = new BitmapImage(new Uri(directory + this.fileiamge));
+                var nv = new NhanVien() { Id = this.Id, TenNV = this.TenNV, GioiTinh = this.GioiTinh, NgaySinh = this.NgaySinh, DiaChi = this.DiaChi, SDT = this.SDT, Email = this.Email, Luong = 0, Anh = fileiamge, Url = bm };
+
+                DataProvider.Ins.DB.NhanViens.Add(nv);
+                MessageBox.Show($"Đăng ký thành công Username của bạn sẽ là: {Id}", "Thông báo");
+                NhanVienList.Add(nv);
+
+                //Thêm tài khoản
+                string passEndCode = MD5Hash(Base64Encode(PasswordDangKy));
+                var tk = new TaiKhoan() { IdNV = this.Id, Username = Id, Password = passEndCode, IdLoaiTK = 2 };
+                DataProvider.Ins.DB.TaiKhoans.Add(tk);
+                DataProvider.Ins.DB.SaveChanges();
+            });
         }
 
         void Login(Window p)
@@ -103,9 +195,16 @@ namespace QuanLyCuaHang.ViewModel
                 Main main = new Main();
                 var LoadNV = main.DataContext as MainViewModel;
                 LoadNV.ImageNhanVien = new BitmapImage(new Uri(directory + LG.NhanVien.Anh));
-                LoadNV.TenNV = LG.NhanVien.TenNV;
-                LoadNV.Quyen = LG.LoaiTK.TenLoaiTK;
                 LoadNV.IdNV = LG.NhanVien.Id;
+                LoadNV.TenNV = LG.NhanVien.TenNV;
+                LoadNV.GioiTinh = LG.NhanVien.GioiTinh;
+                LoadNV.NgaySinh = LG.NhanVien.NgaySinh;
+                LoadNV.SDT = LG.NhanVien.SDT;
+                LoadNV.DiaChi = LG.NhanVien.DiaChi;
+                LoadNV.Email = LG.NhanVien.Email;
+                LoadNV.Luong = LG.NhanVien.Luong;
+                LoadNV.Anh = LG.NhanVien.Anh;
+                LoadNV.Quyen = LG.LoaiTK.TenLoaiTK;
                 main.Show();
                 MessageBox.Show("Đăng nhập thành công !", "Thông báo");
                 p.Close();
@@ -116,6 +215,32 @@ namespace QuanLyCuaHang.ViewModel
                 return;
             }
             
+        }
+
+        string createIdNV(string valueID)
+        {
+            int STT = 0;
+            string tmp = "NVSJDI_";
+            valueID += "001";
+            if (NhanVienList.Count() == 0 || NhanVienList == null)
+            {
+                return valueID;
+            }
+            else
+            {
+                foreach (var item in NhanVienList)
+                {
+                    while (item.Id == valueID)
+                    {
+                        tmp = "NVSJDI_";
+                        STT = STT + 1;
+                        string id = "000" + STT;
+                        id = id.Substring(id.Length - 3, 3);
+                        valueID = tmp + id;
+                    }
+                }
+            }
+            return valueID;
         }
 
         public static string Base64Encode(string plainText)
